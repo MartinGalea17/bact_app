@@ -1,0 +1,978 @@
+{
+  "organisms": "Neisseria gonorrhoeae",
+  "clinical_group": "",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin",
+      "sample_type": "surrogate agent",
+      "administration": "",
+      "MIC": {
+        "S": "0.061",
+        "R": "1",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin-sulbactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin-clavulanic acid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Temocillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefixime",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.125",
+        "R": "0.125",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefotaxime",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.125",
+        "R": "0.125",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftriaxone",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.125",
+        "R": "0.125",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.03",
+        "R": "0.06",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ofloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.125",
+        "R": "0.25",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.5",
+        "R": "0.5",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Spectinomycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "64",
+        "R": "64",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Piperacillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Piperacillin-tazobactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ticarcillin-clavulanic acid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Phenoxymethylpenicillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Oxacillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Cloxacillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Dicloxacillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Flucloxacillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Mecillinam",
+      "sample_type": "uncomplicated UTI only",
+      "administration": "oral",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefaclor",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefadroxil",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefalexin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefazolin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefepime",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefiderocol",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefoxitin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefpodoxime",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftaroline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftazidime",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftazidime-avibactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftibuten",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftobiprole",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftolozane-tazobactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefuroxime",
+      "sample_type": "",
+      "administration": "iv",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefuroxime",
+      "sample_type": "",
+      "administration": "oral",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Doripenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Ertapenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Imipenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Imipenem-relebactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem-vaborbactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Monobactams",
+      "antibiotic": "Aztreonam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Delafloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Moxifloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Nalidixic acid",
+      "sample_type": "screen only",
+      "administration": "",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Norfloxacin",
+      "sample_type": "uncomplicated UTI only",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Amikacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Gentamicin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Netilmicin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Tobramycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Glycopeptides and lipoglycopeptides",
+      "antibiotic": "Dalbavancin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Glycopeptides and lipoglycopeptides",
+      "antibiotic": "Oritavancin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Glycopeptides and lipoglycopeptides",
+      "antibiotic": "Teicoplanin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Glycopeptides and lipoglycopeptides",
+      "antibiotic": "Telavancin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Glycopeptides and lipoglycopeptides",
+      "antibiotic": "Vancomycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Macrolides, lincosamides and streptogramins",
+      "antibiotic": "Azithromycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Macrolides, lincosamides and streptogramins",
+      "antibiotic": "Clindamycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Macrolides, lincosamides and streptogramins",
+      "antibiotic": "Quinupristin-dalfopristin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Eravacycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Minocycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tigecycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Oxazolidinones",
+      "antibiotic": "Linezolid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Oxazolidinones",
+      "antibiotic": "Tedizolid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Chloramphenicol",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Colistin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Daptomycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Fosfomycin",
+      "sample_type": "",
+      "administration": "iv",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Fosfomycin",
+      "sample_type": "",
+      "administration": "oral",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Fusidic acid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Lefamulin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Metronidazole",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Nitrofurantoin",
+      "sample_type": "uncomplicated UTI only",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Nitroxoline",
+      "sample_type": "uncomplicated UTI only",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Rifampicin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim",
+      "sample_type": "uncomplicated UTI only",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "-",
+        "R": "-",
+        "ATU": ""
+      },
+      "disk": null
+    }
+  ]
+}

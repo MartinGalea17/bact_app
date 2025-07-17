@@ -1,0 +1,233 @@
+{
+  "organisms": [
+    "Vibrio alginolyticus",
+    "Vibrio cholerae",
+    "Vibrio fluvialis",
+    "Vibrio parahaemolyticus",
+    "Vibrio vulnificus"
+  ],
+  "clinical_group": "vibrio",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Piperacillin-tazobactam",
+      "MIC": {
+        "S": "<= 11",
+        "R": "> 11",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "30-6",
+        "zone_mm": {
+          "S": ">= 26",
+          "R": "< 26",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefotaxime",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 21",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefotaxime, V. fluvialis",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "IE",
+          "R": "IE",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftazidime",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 22",
+          "R": "< 22",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 24",
+          "R": "< 24",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 23A",
+          "R": "< 23A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 23A",
+          "R": "< 23A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Pefloxacin (screen only)",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 22A",
+          "R": "< 22A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Azithromycin",
+      "MIC": {
+        "S": "<= 4",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 15,
+        "zone_mm": {
+          "S": ">= 16A",
+          "R": "< 16A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Erythromycin (screen only)1",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 15,
+        "zone_mm": {
+          "S": ">= 12A",
+          "R": "< 12A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline (screen only)1",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 20A",
+          "R": "< 20A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole1",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": {
+          "S": ">= 21",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}

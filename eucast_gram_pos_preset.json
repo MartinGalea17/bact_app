@@ -1,0 +1,399 @@
+[
+  {
+    "name": "N/A",
+    "clinical_group": "Beta haemolytic streptococci group A,B,C,G",
+    "morphology": "cocci",
+    "site": "Sterile",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Penicillin",
+      "Levo",
+      "Teico",
+      "Va",
+      "Tetra",
+      "COT"
+    ],
+    "antibiotic_discs": [
+      "Ery + CD (D-test)"
+    ],
+    "guidance": "Eucast bps Streprococci A,B,C,G"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Beta haemolytic streptococci group A,B,C,G",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "Exclude streptococcus milleri group",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Penicillin",
+      "Levo",
+      "Teico",
+      "Va",
+      "Tetra",
+      "COT",
+      "Ery + CD (D-test)"
+    ],
+    "guidance": "Eucast bps Streprococci A,B,C,G"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "viridans streptococci",
+    "morphology": "cocci",
+    "site": "Sterile",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Ceftriaxone",
+      "Levofloxacin",
+      "Vancomycin"
+    ],
+    "antibiotic_discs": [
+      "Ery + CD (D-Test)"
+    ],
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+  },
+   {
+    "name": "N/A",
+    "clinical_group": "Group F streptococcus",
+    "morphology": "cocci",
+    "site": "Sterile",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Penicillin",
+      "Amp",
+      "CRO",
+      "Levo",
+      "VA"
+    ],
+    "antibiotic_discs": [
+      "Ery + CD (D-Test)"
+    ],
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "viridans streptococci",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Penicillin",
+      "Amp(2ug)",
+      "CRO",
+      "Levo",
+      "VA",
+      "Ery + CD (D-Test)"
+    ],
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Group F streptococcus",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Penicillin",
+      "Amp(2ug)",
+      "CRO",
+      "Levo",
+      "VA",
+      "Ery + CD (D-Test)"
+    ],
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+  },
+  {
+    "name": "Streptococcus pneumoniae",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "Sterile",
+    "info": "N/A",
+    "medium": "MH broth on MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Penicillin",
+      "Amp",
+      "Cro",
+      "Imi",
+      "MP(only for CSF's and when requested)",
+      "levo",
+      "Va",
+      "Ery",
+      "Tetra"
+    ],
+    "antibiotic_discs": [
+      "Oxacillin",
+      "Ery + CD (D-test)"
+    ],
+    "guidance": "Eucast bps S.pnemoniae, Penicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
+  },
+  {
+    "name": "Streptococcus pneumoniae",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "NA",
+    "medium": "MH broth on MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Penicillin",
+      "Amp",
+      "Cro",
+      "Imi",
+      "MP(only for CSF's and when requested)",
+      "levo",
+      "Va",
+      "Ery",
+      "Tetra"
+    ],
+    "antibiotic_discs": [
+      "Oxacillin",
+      "Ery + CD (D-test)"
+    ],
+    "guidance": "Eucast bps S.pnemoniae, Penicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Helcococcus species",
+    "morphology": "cocci",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Penicillin",
+      "Amp(2ug)",
+      "CTX",
+      "CRO",
+      "CD"
+    ],
+    "antibiotic_discs": [],
+    "guidance": "Eucast bps viridans group streptococci"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Helcococcus species",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Penicillin",
+      "Amp(2ug)",
+      "CTX",
+      "CRO",
+      "CD"
+    ],
+    "guidance": "Eucast bps viridans group streptococci"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Aerococcus species",
+    "morphology": "cocci",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Penicillin",
+      "Amp",
+      "MP",
+      "Cip",
+      "VA",
+      "Nitro(only for urines)"
+    ],
+    "antibiotic_discs": [],
+    "guidance": "Eucast bps A.sanguinicola, A.urinae"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Aerococcus species",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Penicillin",
+      "Amp",
+      "MP",
+      "Cip",
+      "VA",
+      "Nitro(only for urines)"
+    ],
+    "guidance": "Eucast bps A.sanguinicola, A.urinae"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Enterococcus",
+    "morphology": "cocci",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF",
+    "antibiotic_strips": [
+      "Ampicillin",
+      "Gentamycin(HC)",
+      "Va",
+      "Teico",
+      "TGC",
+      "Linzolid"
+    ],
+    "antibiotic_discs": [],
+    "guidance": "Eucast bps Enterococcus"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Enterococcus",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Amp",
+      "Va",
+      "Teico",
+      "TGC"
+    ],
+    "guidance": "Eucast bps Enterococcus"
+  },
+  {
+    "name": "Enterococcus faecalis",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "urines",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Amp",
+      "Va",
+      "Teico",
+      "Nitro"
+    ],
+    "guidance": "Eucast bps Enterococcus"
+  },
+  {
+    "name": "Enterococcus faecium",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "urines",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Amp",
+      "Va",
+      "Teico"
+    ],
+    "guidance": "Eucast bps Enterococcus"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "coagulase negative staphylococcus",
+    "morphology": "cocci",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
+    "antibiotic_strips": [
+      "Va",
+      "Teico",
+      "Tetra",
+      "fusidic",
+      "RIF",
+      "COT"
+    ],
+    "antibiotic_discs": [
+      "Oxacillin disc",
+      "Ery + CD (D-test)"
+    ],
+    "guidance": "Eucast bps Staphylococcus"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "coagulase negative staphylococcus",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
+    "antibiotic_strips": [
+      "Va",
+      "Teico"
+    ],
+    "antibiotic_discs": [
+      "Oxacillin disc",
+      "Ery + CD (D-test)",
+      "tetra",
+      "fusidic",
+      "rif",
+      "cot"
+    ],
+    "guidance": "Eucast bps Staphylococcus"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "coagulase negative staphylococcus",
+    "morphology": "cocci",
+    "site": "urines",
+    "info": "Not for urine nephrostomy",
+    "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
+    "antibiotic_strips": [
+      "Va",
+      "Teico"
+    ],
+    "antibiotic_discs": [
+      "Oxacillin disc",
+      "Ery + CD (D-test)",
+      "tetra",
+      "fusidic",
+      "rif",
+      "cot",
+      "nitro"
+    ],
+    "guidance": "Eucast bps Staphylococcus"
+  },
+  {
+    "name": "Staphylococcus aureus",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
+    "antibiotic_strips": [
+      "Va",
+      "Teico",
+      "Tetra",
+      "fusidic",
+      "RIF",
+      "COT"
+    ],
+    "antibiotic_discs": [
+      "Oxacillin disc",
+      "Ery + CD (D-test)"
+    ],
+    "guidance": "Eucast bps Staphylococcus"
+  },
+  {
+    "name": "Staphylococcus aureus",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
+    "antibiotic_strips": [
+      "Va",
+      "Teico"
+    ],
+    "antibiotic_discs": [
+      "..."
+    ],
+    "guidance": "Eucast bps Staphylococcus"
+  }
+]

@@ -1,0 +1,142 @@
+{
+  "organisms": "Burkholderia pseudomallei",
+  "clinical_group": "na",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin-clavulanic acid",
+      "MIC": {
+        "S": "<= 0.0011",
+        "R": "> 81",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 20,
+        "zone_mm": {
+          "S": ">= 22",
+          "R": "< 22",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftazidime",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 8",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 18",
+          "R": "< 18",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Imipenem",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 29",
+          "R": "< 29",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 24",
+          "R": "< 24",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline (screen only)",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 23A",
+          "R": "< 23A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Chloramphenicol",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 8",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 22",
+          "R": "< 22",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": {
+          "S": ">= 17A",
+          "R": "< 17A",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}

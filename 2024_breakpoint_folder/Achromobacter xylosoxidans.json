@@ -1,0 +1,57 @@
+{
+  "organisms": "Achromobacter xylosoxidans",
+  "clinical_group": "Achromobacter",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Piperacillin-tazobactam",
+      "MIC": {
+        "S": "<= 41",
+        "R": "> 41",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "30-6",
+        "zone_mm": {
+          "S": ">= 26",
+          "R": "< 26",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 26",
+          "R": "< 20",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole1",
+      "MIC": {
+        "S": "<= 0.125",
+        "R": "> 0.125",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": {
+          "S": ">= 26A",
+          "R": "< 26A",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}

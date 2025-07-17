@@ -1,0 +1,274 @@
+import json 
+import pandas as pd 
+import os
+import streamlit as st
+import re
+with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
+    presets = json.load(f)  # loads the JSON content into a Python list of dicts
+@st.cache_data
+def clean_get_gram_neg(presets):
+    names = []
+    clinical_groups = []
+    for entry in presets:
+       raw_name = entry.get("name","").strip()
+       raw_clinical_group = entry.get("clinical_group","").strip()
+       name = raw_name.lower()
+       clinical_group = raw_clinical_group.lower()
+
+       if name not in ["", "n/a"] or clinical_group not in ["", "n/a"]:
+            if name not in ["", "n/a"]:
+               names.append(raw_name),
+            if clinical_group not in ["","n/a"]:
+                clinical_groups.append((entry["clinical_group"]).strip())
+
+    return names, clinical_groups
+
+# Get the cleaned lists
+names, clinical_groups = clean_get_gram_neg(presets)
+
+# Print them separately
+print("[DEBUG]List of valid gram negative names:")
+print(names)
+
+print("\n[DEBUG]List of valid gram negative clinical groups:")
+print(clinical_groups)
+       
+
+with open('eucast_gram_pos_preset.json', 'r', encoding='utf-8') as f:
+    pos_presets = json.load(f)  # loads the JSON content into a Python list of dicts
+@st.cache_data
+def clean_get_gram_pos(pos_presets):
+   pos_names =[]
+   pos_clinical_groups = []
+   for entry in pos_presets:
+      raw_name = entry.get("name","").strip()
+      raw_clinical__group = entry.get("clinical_group","").strip()
+      name = raw_name.lower()
+      clinical_group = raw_clinical__group.lower()
+
+      if name not in ("","n/a") or clinical_group not in ("","n/a"):
+         if name not in ["","n/a"]:
+             pos_names.append(raw_name)
+         if clinical_group not in ["","n/a"]:
+            pos_clinical_groups.append(raw_clinical__group)
+
+   return pos_names, pos_clinical_groups
+
+pos_names, pos_clinical__groups = clean_get_gram_pos(pos_presets)
+
+print("[DEBUG]List of gram positive valid names: ")
+print(pos_names)
+
+print("[DEBUG]List of valid gram positive clinical groups")
+print(pos_clinical__groups)
+
+
+classified_data_file = 'bacteria_database_2.xlsx'
+
+@st.cache_data
+def get_data_in_classified_data(species_input=None):
+    df = pd.read_excel('bacteria_database_2.xlsx')
+
+    df['species'] = df['species'].astype(str).str.strip().str.lower()
+    species = df['species'].dropna().unique().tolist()
+
+    df['genus']= df["genus"].astype(str).str.strip().str.lower()
+    genus = df["genus"].dropna().unique().tolist()
+
+    df['family']= df["family"].astype(str).str.strip().str.lower()
+    family = df["family"].dropna().unique().tolist()
+   
+    df['clinical_group']= df["clinical_group"].astype(str).str.strip().str.lower()
+    clinical_group = df["clinical_group"].dropna().unique().tolist()
+
+    df['gram stain']= df["gram stain"].astype(str).str.strip().str.lower()
+    gram_stain = df["gram stain"].dropna().unique().tolist()
+
+    df['cell shape']= df["cell shape"].astype(str).str.strip().str.lower()
+    cell_shape = df["cell shape"].dropna().unique().tolist()
+
+    return species,df,genus,family,clinical_group,gram_stain,cell_shape
+
+def match_bacterium_name_to_clinical_group(bacterium_name, df, species):
+    bacterium_name = bacterium_name.strip().lower()
+
+    if bacterium_name in species:
+        # Ensure both sides are cleaned
+        matched_row = df[df['species'].str.strip().str.lower() == bacterium_name]
+
+        # 🔍 Add this line to debug what was matched
+        print("[DEBUG] Matched row:\n", matched_row[['species', 'clinical_group']])
+
+        if not matched_row.empty:
+            clinical_group = matched_row.iloc[0]['clinical_group']
+            print(f"✅ Match found for bacterium: {bacterium_name}, clinical group: {clinical_group}")
+            return bacterium_name, clinical_group
+        else:
+            print(f"⚠️ Found species in list, but no DataFrame row matched it.")
+            return bacterium_name, None
+    else:
+        print(f"❌ No match found for bacterium: {bacterium_name}")
+        return None, None
+
+
+def get_relevant_preset(bacterium_name, clinical_group, sterility_check, mic_disc):
+    combined_presets = pos_presets + presets
+
+    # First try matching on species name
+    for entry in combined_presets:
+        try:
+            if bacterium_name in entry["name"].lower() and entry["site"].lower() == sterility_check:
+                if mic_disc == "mic" and "antibiotic_strips" in entry:
+                    print(f"[DEBUG] Found MIC antibiotics for {bacterium_name}:")
+                    return bacterium_name, entry["antibiotic_strips"], sterility_check
+                elif mic_disc == "disc" and "antibiotic_discs" in entry:
+                    return bacterium_name, entry["antibiotic_discs"], sterility_check
+                else:
+                    print(f"❌ No MIC or disc antibiotics found for {bacterium_name} at {sterility_check}.")
+                    return bacterium_name, None, sterility_check
+        except KeyError as e:
+            print(f"KeyError: {e} in entry: {entry}")
+
+    # Fallback: match on clinical group
+    for entry in combined_presets:
+        try:
+            if clinical_group and entry.get("clinical_group", "").lower() == clinical_group and entry["site"].lower() == sterility_check:
+                if mic_disc == "mic" and "antibiotic_strips" in entry:
+                    return clinical_group, entry["antibiotic_strips"], sterility_check
+                elif mic_disc == "disc" and "antibiotic_discs" in entry:
+                    return clinical_group, entry["antibiotic_discs"], sterility_check
+        except KeyError as e:
+            print(f"KeyError (fallback): {e} in entry: {entry}")
+
+    # Final fallback
+    return clinical_group, None, None
+
+#this is a function that will be used to get the brakpoints for the bacterium name or clinical group 
+def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
+    all_data = []
+    all_organisms = []
+    all_clinical_groups = []
+    all_antibiotic_groups = []
+
+    for filename in os.listdir(json_folder):
+     if filename.endswith(".json"):
+          file_path = os.path.join(json_folder, filename)
+
+          # Open and load the JSON file
+          with open(file_path, 'r', encoding='utf-8') as f:
+               try:
+                    data = json.load(f)
+                    if isinstance(data, dict):
+                         data = [data]
+
+                    for entry in data:
+                         if isinstance(entry, dict):
+                            organisms = entry.get("organisms", [])
+                            clinical_group = entry.get("clinical_group","")
+                            antibiotic_groups = entry.get("class")
+
+                            all_organisms.append(organisms)
+                            all_clinical_groups.append(clinical_group)
+                            all_antibiotic_groups.append(antibiotic_groups)
+
+                            all_data.append(entry)
+                            print(f"✅ Loaded {filename}")
+                         else:
+                              print(f"⚠️ Skipped non-dictionary entry in {filename}")
+                    
+
+
+               except json.JSONDecodeError as e:
+                    print(f"❌ Error decoding {filename}: {e}")
+    return all_data
+
+def get_breakpoints(bacterium_name, all_data, clinical_group=None):
+    bacterium_name = bacterium_name.strip().lower()
+    clinical_group = clinical_group.strip().lower() if clinical_group else ""
+
+    print(f"[DEBUG] Looking for breakpoints for: {bacterium_name}")
+    print(f"[DEBUG] Clinical group: {clinical_group}")
+
+    # Try exact species match first
+    for entry in all_data:
+        organisms = entry.get("organisms")
+        if isinstance(organisms, list):
+            for org in organisms:
+                if bacterium_name == org.strip().lower():
+                    print(f"[DEBUG] ✅ Matched species in list: {org}")
+                    return entry
+        elif isinstance(organisms, str):
+            if bacterium_name == organisms.strip().lower():
+                print(f"[DEBUG] ✅ Matched species string: {organisms}")
+                return entry
+
+    # Fallback to clinical group if no species matched
+    if clinical_group:
+        for entry in all_data:
+            entry_group = entry.get("clinical_group", "").strip().lower()
+            if clinical_group == entry_group:
+                print(f"[DEBUG] ✅ Matched by clinical group: {entry_group}")
+                return entry
+
+    print("[DEBUG] ❌ No breakpoint match found.")
+    return None
+
+
+def interpret_breakpoint(value, s_crit, r_crit):
+    def parse_crit(crit):
+        if not crit: return None, None
+        match = re.match(r'(<=?|>=?|=)?\s*([\d.]+)', str(crit))
+        if match:
+            op, num = match.groups()
+            return op or '=', float(num)
+        return None, None
+
+    try:
+        value = float(value)
+    except ValueError:
+        return "Invalid input"
+
+    s_op, s_val = parse_crit(s_crit)
+    r_op, r_val = parse_crit(r_crit)
+
+    def compare(val, op, ref):
+        if op == '<': return val < ref
+        if op == '<=': return val <= ref
+        if op == '>': return val > ref
+        if op == '>=': return val >= ref
+        if op == '=': return val == ref
+        return False
+
+    if s_op and compare(value, s_op, s_val):
+        return "Sensitive"
+    elif r_op and compare(value, r_op, r_val):
+        return "Resistant"
+    else:
+        return "Intermediate"
+
+def process_user_results(result_entry, user_results, mic_or_disc):
+    interpretations = {}
+    breakpoints = result_entry.get("breakpoints", [])
+    for ab_name, user_val in user_results.items():
+        for bp in breakpoints:
+            if bp["antibiotic"].strip().lower() == ab_name.strip().lower():
+                criteria = bp.get("MIC") if mic_or_disc.lower() == "mic" else bp.get("disk", {}).get("zone_mm", {})
+                s = criteria.get("S")
+                r = criteria.get("R")
+                interpretation = interpret_breakpoint(user_val, s, r)
+                site = bp.get("class", "N/A")  # or infection site if available
+                print(f"[DEBUG] ✅ Matched {ab_name} to breakpoint entry")
+                interpretations[ab_name] = {
+                    "value": user_val,
+                    "S": s,
+                    "R": r,
+                    "interpretation": interpretation,
+                    "site": site
+                }
+                break
+            else:
+                print(f"[DEBUG] Skipping: {bp['antibiotic']} (no match for {ab_name})")
+    return interpretations
+
+
+            

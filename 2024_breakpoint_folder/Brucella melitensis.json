@@ -1,0 +1,159 @@
+{
+  "organisms": "Brucella melitensis",
+  "clinical_group": "na",
+  "breakpoints": [
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftriaxone (meningitis)",
+      "MIC": {
+        "S": "<= (2)1",
+        "R": "> (2)1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= (30)A",
+          "R": "< (30)A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 27",
+          "R": "< 27",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 28",
+          "R": "< 28",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Gentamicin",
+      "MIC": {
+        "S": "<= (0.5)1",
+        "R": "> (0.5)1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= (23)A",
+          "R": "< (23)A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Streptomycin",
+      "MIC": {
+        "S": "<= (1)1",
+        "R": "> (1)1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= (15)A",
+          "R": "< (15)A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "MIC": {
+        "S": "<= 0.251",
+        "R": "> 0.251",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 42",
+          "R": "< 42",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Rifampicin",
+      "MIC": {
+        "S": "<= (2)1",
+        "R": "> (2)1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= (20)A,B",
+          "R": "< (20)A,B",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole2",
+      "MIC": {
+        "S": "<= 0.125",
+        "R": "> 0.125",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": {
+          "S": ">= 29C",
+          "R": "< 29C",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}

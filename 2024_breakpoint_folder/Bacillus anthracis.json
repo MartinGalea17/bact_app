@@ -1,0 +1,176 @@
+{
+  "organisms": "Bacillus anthracis",
+  "clinical_group": "na",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1 unit",
+        "zone_mm": {
+          "S": ">= 18",
+          "R": "< 18",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin iv",
+      "MIC": {
+        "S": "<= 0.1251",
+        "R": "> 0.1251",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 24",
+          "R": "< 24",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 23",
+          "R": "< 23",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Glycopeptides",
+      "antibiotic": "Vancomycin",
+      "MIC": {
+        "S": "<= (4)1",
+        "R": "> (4)1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= (10)A",
+          "R": "< (10)A",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides and lincosamides",
+      "antibiotic": "Clindamycin",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 2,
+        "zone_mm": {
+          "S": ">= 17",
+          "R": "< 17",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "MIC": {
+        "S": "<= 0.061",
+        "R": "> 0.061",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "MIC": {
+        "S": "<= 0.125",
+        "R": "> 0.125",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 26",
+          "R": "< 26",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Oxazolidinones",
+      "antibiotic": "Linezolid",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 20",
+          "R": "< 20",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Rifampicin",
+      "MIC": {
+        "S": "<= (1)1",
+        "R": "> (1)1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= (12)A",
+          "R": "< (12)A",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "organisms": "na",
+  "clinical_group": "Aeromonas",
+  "breakpoints": [
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefepime",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 27",
+          "R": "< 24",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftazidime",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 24",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Monobactams",
+      "antibiotic": "Aztreonam",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 29",
+          "R": "< 26",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 27",
+          "R": "< 24",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 27",
+          "R": "< 24",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": {
+          "S": ">= 19A",
+          "R": "< 16A",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}
