@@ -22,7 +22,14 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin", "Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -37,7 +44,15 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin",
+      "Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -52,7 +67,14 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin",
+      " Tetracycline",
+      "Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -67,7 +89,15 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin",
+      " Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -214,7 +244,8 @@
     "info": "If one antibiotic is R, perform the Trimethoprim-sulfamethoxazole MIC strip on MH + SBair",
     "medium": "MIC strips on MH + SB air (3mF for 3-5 days):",
     "antibiotic_strips": [
-      "AZT, ERY"
+      "AZT",
+      " ERY"
     ],
     "antibiotic_discs": [
       ""
@@ -248,7 +279,9 @@
     "info": "",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ, Chloramphenicol, TGC"
+      "CAZ",
+      "Chloramphenicol",
+      "TGC"
     ],
     "antibiotic_discs": [
       "Trimethoprim-sulfamethoxazole", "levo"
