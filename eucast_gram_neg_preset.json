@@ -1,4 +1,4 @@
-[
+[ 
   {
     "name": "N/A",
     "clinical_group": "Non-Enterobacterales",
@@ -7,7 +7,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI, Mero,Genta (LC), Cipro,Amikacin, Tetra,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -22,7 +22,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI, Mero,Genta (LC), Cipro,Amikacin, Tetra,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -37,7 +37,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI, Mero,Genta (LC), Cipro,Amikacin, Tetra,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -52,7 +52,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI, Mero,Genta (LC), Cipro,Amikacin, Tetra,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -67,7 +67,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI, Mero,Genta (LC), Cipro,Amikacin, Tetra,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -82,7 +82,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI, Mero,Genta (LC), Cipro,Amikacin, Tetra,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "CAZ","Imipenem", "Meropenem","Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline,Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
     ],
     "antibiotic_discs": [
       ""
@@ -97,7 +97,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "CRO, Imipenem, Genta (LC), Cipro,Amikacin, Tetra"
+      "CRO, Imipenem, Gentamicin (LC), Ciprofloxacin,Amikacin, Tetracycline"
     ],
     "antibiotic_discs": [
       ""
@@ -127,7 +127,7 @@
     "info": "N/A",
     "medium": "strips pn MHair (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "IMI,Mero, Genta(LC),cirpo, Amikacin, Tetra", "Trimethoprim-sulfamethoxazole"
+      "Imipenem", "Meropenem", "Gentamicin(LC),Ciprofloxacin, Amikacin, Tetracycline", "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -142,7 +142,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Genta (LC), Cipro, Amikacin, Tetra","Trimethoprim-sulfamethoxazole"
+      "Gentamicin (LC), Ciprofloxacin, Amikacin, Tetracycline","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -160,7 +160,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Genta (LC), Cipro, Amikacin, Tetra", "Trimethoprim-sulfamethoxazole"
+      "Gentamicin (LC), Ciprofloxacin, Amikacin, Tetracycline", "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -178,7 +178,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Genta (LC), Cipro, Amikacin, Tetra","Trimethoprim-sulfamethoxazole"
+      "Gentamicin (LC), Ciprofloxacin, Amikacin, Tetracycline","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -196,7 +196,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Genta (LC), Cipro, Amikacin, Tetra","Trimethoprim-sulfamethoxazole"
+      "Gentamicin (LC), Ciprofloxacin, Amikacin, Tetracycline","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -315,7 +315,13 @@
       ""
     ],
     "antibiotic_discs": [
-      "Imipenem", "Meropenem", "Aztreonam", "Ciprofloxacin", "Amikacin", "Tobramycin", "Ceftazidime"
+      "Imipenem",
+      "Meropenem", 
+      "Aztreonam", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tobramycin", 
+      "Ceftazidime"
     ],
     "BMD": [
       "Colistin,Pip/tazo"
@@ -330,7 +336,13 @@
     "info": "N/A",
     "medium": "MHair (0.5mF, 1mF if mucoid)",
     "antibiotic_strips": [
-      "Imipenem", "Meropenem", "Aztreonam", "Ciprofloxacin", "Amikacin", "Tobramycin", "Ceftazidime"
+      "Imipenem", 
+      "Meropenem", 
+      "Aztreonam", 
+      "Ciprofloxacin", 
+      "Amikacin",
+      "Tobramycin",
+      "Ceftazidime"
     ],
     "antibiotic_discs": [
       ""
@@ -351,7 +363,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Imi, mp, cipro, AK, Genta(LC)", "Trimethoprim-sulfamethoxazole"
+      "Imi, mp, Ciprofloxacin, AK, Gentamicin(LC)", "Trimethoprim-sulfamethoxazole"
     ],
     "BMD": [
       "Colistin"
@@ -366,7 +378,7 @@
     "info": "N/A",
     "medium": "MHair (0.5mF, 1mF if mucoid)",
     "antibiotic_strips": [
-      "Imi, mp, cipro, AK, Genta(LC)", "Trimethoprim-sulfamethoxazole"
+      "Imipenem", "Meropenem", "Ciprofloxacin, AK, Gentamicin(LC)", "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -387,7 +399,7 @@
       "Fosfomycin"
     ],
     "antibiotic_discs": [
-      "Amp 10ug, AUG 20-10ug, CTX, Cefoxitin (screen only),ERT, IMI, MP, Cipro, AMi, Genta", "Trimethoprim-sulfamethoxazole", "Caz"
+      "Ampicillin 10ug, Amoxicillin-clavulanic acid 20-10ug, CTX, Cefoxitin (screen only),ERT, IMI, MP, Ciprofloxacin, AMi, Gentamicin", "Trimethoprim-sulfamethoxazole", "Caz"
     ],
     "BMD": [
       "pip/tazo"
@@ -402,7 +414,7 @@
     "info": "N/A",
     "medium": "MHair (0.5mF)",
     "antibiotic_strips": [
-      "AMp,Aug,CTX,CAZ,ERt,IMI,MP,Cipro,Ami,Genta(LC),Fosfomycin","Trimethoprim-sulfamethoxazole"
+      "Ampicillin,Amoxicillin-clavulanic acid,CTX,CAZ,ERt,IMI,MP,Ciprofloxacin,Ami,Gentamicin(LC),Fosfomycin","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       "Cefoxitin (Screen only)"
@@ -423,7 +435,7 @@
       "Fosfomycin"
     ],
     "antibiotic_discs": [
-      "Amp 10ug, AUG 20-10ug, CTX, Cefoxitin (screen only),ERT, IMI, MP, Cipro, AMi, Genta", "Trimethoprim-sulfamethoxazole", "Caz, Nitro"
+      "Ampicillin 10ug, Amoxicillin-clavulanic acid 20-10ug, CTX, Cefoxitin (screen only),ERT, IMI, MP, Ciprofloxacin, AMi, Gentamicin", "Trimethoprim-sulfamethoxazole", "Caz, Nitro"
     ],
     "BMD": [
       "pip/tazo"
@@ -438,7 +450,7 @@
     "info": "No Disc Bp's",
     "medium": "MHair (0.5mF)",
     "antibiotic_strips": [
-      "CAZ, CRO, IMI, MERO, Genta, AMi, Cipro"
+      "CAZ, Ceftriaxone", "Imipenem", "Meropenem", "Gentamicin, AMi, Ciprofloxacin"
     ],
     "antibiotic_discs": [
       ""
@@ -453,7 +465,7 @@
     "info": "No Disc Bp's",
     "medium": "MHair (0.5mF, 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,MERO,Levo","Trimethoprim-sulfamethoxazole"
+      "CAZ,Meropenem,Levo","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -468,7 +480,7 @@
     "info": "No Disc Bp's",
     "medium": "MHair (0.5mF, 1mF if mucoid)",
     "antibiotic_strips": [
-      "CAZ,IMI,Tetra"
+      "CAZ,Imipenem,Tetracycline"
     ],
     "antibiotic_discs": [
       ""
@@ -486,7 +498,7 @@
       "Amoxicillin-clavulanic acid", "Ceftazidime", "Imipenem", "Meropenem", "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
-      "Tetra (Screen only)"
+      "Tetracycline (Screen only)"
     ],
     "guidance": "Use Eucast bp's B. pseudomallei"
   },
@@ -498,10 +510,10 @@
     "info": "N/A",
     "medium": "MHFco2 (1mF)",
     "antibiotic_strips": [
-      "PG,Aug,CTX,Cipro","Trimethoprim-sulfamethoxazole"
+      "PG,Aug,CTX,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
-      "Tetra (Screen only)"
+      "Tetracycline (Screen only)"
     ],
     "guidance": "Use Eucast bp's P.multocida"
   },
@@ -513,10 +525,10 @@
     "info": "N/A",
     "medium": "MHFco2 (1mF)",
     "antibiotic_strips": [
-      "PG,Aug 2-1ug,CTX,Cipro","Trimethoprim-sulfamethoxazole"
+      "PG,Aug 2-1ug,CTX,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
-      "Tetra (Screen only)"
+      "Tetracycline (Screen only)"
     ],
     "guidance": "Use Eucast bp's P.multocida"
   },
@@ -528,7 +540,7 @@
     "info": "MH+SB plates should be dried out prior to inoculation to reduce swarming and a maximum of 5 plates are piled up in the incubator during incubation",
     "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
     "antibiotic_strips": [
-      "Cipro, Ery, Tetra"
+      "Ciprofloxacin, Ery, Tetracycline"
     ],
     "antibiotic_discs": [
       ""
@@ -543,7 +555,7 @@
     "info": "MH+SB plates should be dried out prior to inoculation to reduce swarming and a maximum of 5 plates are piled up in the incubator during incubation",
     "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
     "antibiotic_strips": [
-      "Cipro, Ery, Tetra, Aug, Erta, Genta(LC)"
+      "Ciprofloxacin, Ery, Tetracycline, Amoxicillin-clavulanic acid, Erta, Gentamicin(LC)"
     ],
     "antibiotic_discs": [
       ""
@@ -558,7 +570,7 @@
     "info": "MH+SB plates should be dried out prior to inoculation to reduce swarming and a maximum of 5 plates are piled up in the incubator during incubation",
     "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
     "antibiotic_strips": [
-      "Cipro, Ery, Tetra, Aug, Erta, Genta(LC)"
+      "Ciprofloxacin, Ery, Tetracycline, Amoxicillin-clavulanic acid, Erta, Gentamicin(LC)"
     ],
     "antibiotic_discs": [
       ""
@@ -581,7 +593,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -601,7 +613,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -621,7 +633,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole"
+      "Benzylpenicillin (screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -641,7 +653,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -661,7 +673,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole","RIF"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole","Rifampicin"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -681,7 +693,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole","RIF"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole","Rifampicin"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -701,7 +713,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole","Chlorophenicol"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole","Chlorophenicol"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -721,7 +733,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole","Chlorophenicol"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole","Chlorophenicol"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -741,7 +753,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole","RIF,Chlorophenicol"
+      "PG(screen only),Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole","Rifampicin,Chlorophenicol"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -761,7 +773,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "PG(screen only),Aug2-1ug, CRO,Cipro","Trimethoprim-sulfamethoxazole","RIF,Chlorophenicol"
+      "PG(screen only),Aug2-1ug, Ceftriaxone,Ciprofloxacin","Trimethoprim-sulfamethoxazole","Rifampicin,Chlorophenicol"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
   },
@@ -773,7 +785,13 @@
     "info": "N/A",
     "medium": "MHF co2 @ 1mF",
     "antibiotic_strips": [
-      "Benzylpenicillin","Ampicillin","Ceftriaxone","Meropenem","Ciprofloxacin","Trimethoprim-sulfamethoxazole","Rifampicin"
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Ceftriaxone",
+      "Meropenem",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Rifampicin"
     ],
     "antibiotic_discs": [
       ""
@@ -792,7 +810,7 @@
     "info": "N/A",
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Aug,Cro,Cipro,Ery,Tetra","Trimethoprim-sulfamethoxazole"
+      "Amoxicillin-clavulanic acid,Ceftriaxone,Ciprofloxacin,Ery,Tetracycline","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -814,7 +832,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Aug 2-1ug, Cro,Cipro,ERy,Tetra","Trimethoprim-sulfamethoxazole"
+      "Amoxicillin-clavulanic acid 2-1ug, Ceftriaxone,Ciprofloxacin,ERy,Tetracycline","Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's M.catarrhalis"
   },
@@ -830,7 +848,7 @@
     "info": "N/A",
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Aug,Caz,CRO,Mero,Genta,Ami,Cipro","Trimethoprim-sulfamethoxazole"
+      "Amoxicillin-clavulanic acid,Caz,Ceftriaxone,Meropenem,Gentamicin,Ami,Ciprofloxacin","Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       ""
@@ -845,7 +863,7 @@
     "info": "N/A",
     "medium": "MH + SB co2 @ 0.5mF",
     "antibiotic_strips": [
-      "PG,AMP,CTX,CRO,Mero,Cipro,RIf"
+      "PG,Ampicillin,CTX,Ceftriaxone,Meropenem,Ciprofloxacin,Rifampicin"
     ],
     "antibiotic_discs": [
       ""
@@ -860,7 +878,7 @@
     "info": "N/A",
     "medium": "TMSA vitox co2 @ 0.5mF",
     "antibiotic_strips": [
-      "PG,AMP,CTX,CRO,Mero,Cipro"
+      "PG,Ampicillin,CTX,Ceftriaxone,Meropenem,Ciprofloxacin"
     ],
     "antibiotic_discs": [
       ""
@@ -877,7 +895,7 @@
     "info": "Do not report PG result, infer the susceptibility to Ampicillin.",
     "medium": "TMSA vitox co2 @ 0.5mF",
     "antibiotic_strips": [
-      "PG,Cefixime, CRO, Cipro, Azithro, Tetra, Spectinomycin"
+      "PG,Cefixime, Ceftriaxone, Ciprofloxacin, Azithro, Tetracycline, Spectinomycin"
     ],
     "antibiotic_discs": [
       ""
@@ -894,7 +912,7 @@
     "info": "Report ampicillin as R",
     "medium": "TMSA vitox co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Cefixime, CRO, Cipro, Azithro, Tetra, Spectinomycin"
+      "Cefixime, Ceftriaxone, Ciprofloxacin, Azithro, Tetracycline, Spectinomycin"
     ],
     "antibiotic_discs": [
       ""
