@@ -162,21 +162,22 @@ def show_app():
 
         with input_results_container:
             
-                _, clinical_group = match_bacterium_name_to_clinical_group(left_name_input, df, species)
-                print(f"[DEBUG] Sensitivity inputs - Bacteria: {left_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
-                print(f"[DEBUG] Bacterial name entered: {left_name_input.strip().lower()}")
-                bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(left_name_input, df, species)
-                name, antibiotics_left, sterility_check = get_relevant_preset(
-                    bacterium_name=bact_name_left if bact_name_left else left_name_input.strip().lower(),
-                    clinical_group=clinical_group_left.strip().lower() if clinical_group_left else "",
-                    sterility_check=sterility_type.strip().lower(),
-                    mic_disc=mic_disc_filter.strip().lower()
-                )
+                
 
                 left, right = st.columns(2, vertical_alignment="center")
                 with left:
                     st.header("📊 Antibiotic Sensitivities Input")
                     left_name_input = st.text_input("Enter species name")
+                    _, clinical_group = match_bacterium_name_to_clinical_group(left_name_input, df, species)
+                    print(f"[DEBUG] Sensitivity inputs - Bacteria: {left_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
+                    print(f"[DEBUG] Bacterial name entered: {left_name_input.strip().lower()}")
+                    bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(left_name_input, df, species)
+                    name, antibiotics_left, sterility_check = get_relevant_preset(
+                        bacterium_name=bact_name_left if bact_name_left else left_name_input.strip().lower(),
+                        clinical_group=clinical_group_left.strip().lower() if clinical_group_left else "",
+                        sterility_check=sterility_type.strip().lower(),
+                        mic_disc=mic_disc_filter.strip().lower()
+                )
                     input_container_1 = st.container(border=False)
                     with input_container_1:
                         if left_name_input.strip():
