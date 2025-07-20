@@ -161,13 +161,13 @@ def show_app():
             st.session_state.user_result = {}
 
         with input_results_container:
-            
                 
 
                 left, right = st.columns(2, vertical_alignment="center")
                 with left:
                     st.header("📊 Antibiotic Sensitivities Input")
                     left_name_input = st.text_input("Enter species name")
+                    left_submit = False #initially set to False to avoid immediate submission
                     _, clinical_group = match_bacterium_name_to_clinical_group(left_name_input, df, species)
                     print(f"[DEBUG] Sensitivity inputs - Bacteria: {left_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
                     print(f"[DEBUG] Bacterial name entered: {left_name_input.strip().lower()}")
@@ -186,18 +186,19 @@ def show_app():
                                 for antibiotic in antibiotics_left:
                                     result = st.text_input(f"Enter result for {antibiotic}:", key=f"left_{antibiotic}")
                                     st.session_state.user_result[f"left_{antibiotic}"] = result
-
                                 left_submit = st.button("Submit", type="primary")
+
                             else:
                                 st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group_left}) with sterility: {sterility_type}.")
                             left, right = st.columns(2, vertical_alignment="center")
 
-                    else:
-                        st.info("ℹ️ Please enter a bacterial species to begin.")
+                        else:
+                            st.info("ℹ️ Please enter a bacterial species to begin.")
 
                 with right:
                     st.header("📊 Antibiotic Sensitivities Input")
                     right_name_input = st.text_input("Enter species name: ")
+                    right_submit = False #initially set to False to avoid immediate submission
                     _, clinical_group = match_bacterium_name_to_clinical_group(right_name_input, df, species)
                     print(f"[DEBUG] Sensitivity inputs - Bacteria: {right_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
                     if right_name_input.strip():
@@ -215,19 +216,19 @@ def show_app():
                             st.header("📊 Antibiotic Sensitivities Input")
                             input_container_1 = st.container(border=False)
                         with input_container_1:
-                            if antibiotics_right:
-                                st.success(f"✅ Found antibiotics for {name} ({mic_disc_filter.upper()}):")
-                                for antibiotic in antibiotics_right:
-                                    result = st.text_input(f"Enter result for {antibiotic}:", key=f"right_{antibiotic}")
-                                    st.session_state.user_result[f"right_{antibiotic}"] = result
-
-                                right_submit = st.button("Submit", type="primary")
-                            else:
-                                st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group}) with sterility: {sterility_type}.")
+                            if right_name_input.strip():
+                                if name and antibiotics_right:
+                                    st.success(f"✅ Found antibiotics for {name} ({mic_disc_filter.upper()}):")
+                                    for antibiotic in antibiotics_right:
+                                        result = st.text_input(f"Enter result for {antibiotic}:", key=f"right_{antibiotic}")
+                                        st.session_state.user_result[f"right_{antibiotic}"] = result
+                                    right_submit = st.button("Submit", type="primary")       
+                                else:
+                                    st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group}) with sterility: {sterility_type}.")
                                 left, right = st.columns(2, vertical_alignment="center")
 
-            else:
-                st.info("ℹ️ Please enter a bacterial species to begin.")
+                            else:
+                                st.info("ℹ️ Please enter a bacterial species to begin.")
 
         result_container = st.container(border=True)
         with result_container:
