@@ -92,7 +92,11 @@ def show_app():
 
     if option == "🧪 Antibiotic lookup/ Sensitivites":
         container1 = st.container(border=True)
-        container1.header("This section provides antibiotic preset information for various bacteria and automatic antibiotic results. Please select from the following tabs.")
+        container1.header("Antibiotic Preset & Sensitivity Section")
+        container1.markdown(
+            "This section provides antibiotic preset information for various bacteria and automatic antibiotic results. "
+            "Please select from the following tabs."
+        )
         tab1, tab2 = container1.tabs(["🔍 AST preset lookup", "💊Antibiotic Sensitivities"])
 
         with tab1:
@@ -143,7 +147,7 @@ def show_app():
         with tab2:
             container3 = st.container(border=True)
             container3.header("💊 Antibiotic Sensitivities")
-            container3.write("This section provides manual AST's results.")
+            container3.write("Use the filters below to obtain your results.")
             input_results_container = st.container(border=True)
 
         # Top filters
@@ -160,132 +164,131 @@ def show_app():
         if "user_result" not in st.session_state:
             st.session_state.user_result = {}
 
-        with input_results_container:
-                
-
-                left, right = st.columns(2, vertical_alignment="center")
-                with left:
-                    st.header("📊 Antibiotic Sensitivities Input")
-                    left_name_input = st.text_input("Enter species name")
-                    left_submit = False #initially set to False to avoid immediate submission
-                    _, clinical_group = match_bacterium_name_to_clinical_group(left_name_input, df, species)
-                    print(f"[DEBUG] Sensitivity inputs - Bacteria: {left_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
-                    print(f"[DEBUG] Bacterial name entered: {left_name_input.strip().lower()}")
-                    bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(left_name_input, df, species)
-                    name, antibiotics_left, sterility_check = get_relevant_preset(
-                        bacterium_name=bact_name_left if bact_name_left else left_name_input.strip().lower(),
-                        clinical_group=clinical_group_left.strip().lower() if clinical_group_left else "",
-                        sterility_check=sterility_type.strip().lower(),
-                        mic_disc=mic_disc_filter.strip().lower()
-                )
-                    input_container_1 = st.container(border=False)
-                    with input_container_1:
-                        if left_name_input.strip():
-                            if antibiotics_left:
-                                st.success(f"✅ Found antibiotics for {name} ({mic_disc_filter.upper()}):")
-                                for antibiotic in antibiotics_left:
-                                    result = st.text_input(f"Enter result for {antibiotic}:", key=f"left_{antibiotic}")
-                                    st.session_state.user_result[f"left_{antibiotic}"] = result
-                                left_submit = st.button("Submit", type="primary")
-
-                            else:
-                                st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group_left}) with sterility: {sterility_type}.")
-                            left, right = st.columns(2, vertical_alignment="center")
-
-                        else:
-                            st.info("ℹ️ Please enter a bacterial species to begin.")
-
-                with right:
-                    st.header("📊 Antibiotic Sensitivities Input")
-                    right_name_input = st.text_input("Enter species name: ")
-                    right_submit = False #initially set to False to avoid immediate submission
-                    _, clinical_group = match_bacterium_name_to_clinical_group(right_name_input, df, species)
-                    print(f"[DEBUG] Sensitivity inputs - Bacteria: {right_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
-                    if right_name_input.strip():
-                        print(f"[DEBUG] Bacterial name entered: {right_name_input.strip().lower()}")
-                        bact_name_right, clinical_group_right = match_bacterium_name_to_clinical_group(right_name_input, df, species)
-                        name, antibiotics_right, sterility_check = get_relevant_preset(
-                            bacterium_name=bact_name_right if bact_name_right else right_name_input.strip().lower(),
-                            clinical_group=clinical_group_right.strip().lower() if clinical_group_right else "",
-                            sterility_check=sterility_type.strip().lower(),
-                            mic_disc=mic_disc_filter.strip().lower()
-                )
-
-                        left, right = st.columns(2, vertical_alignment="center")
-                        with left:
-                            st.header("📊 Antibiotic Sensitivities Input")
-                            input_container_1 = st.container(border=False)
-                        with input_container_1:
-                            if right_name_input.strip():
-                                if name and antibiotics_right:
-                                    st.success(f"✅ Found antibiotics for {name} ({mic_disc_filter.upper()}):")
-                                    for antibiotic in antibiotics_right:
-                                        result = st.text_input(f"Enter result for {antibiotic}:", key=f"right_{antibiotic}")
-                                        st.session_state.user_result[f"right_{antibiotic}"] = result
-                                    right_submit = st.button("Submit", type="primary")       
-                                else:
-                                    st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group}) with sterility: {sterility_type}.")
-                                left, right = st.columns(2, vertical_alignment="center")
-
-                            else:
-                                st.info("ℹ️ Please enter a bacterial species to begin.")
-
-        result_container = st.container(border=True)
-        with result_container:
+        with input_results_container:     
             left, right = st.columns(2, vertical_alignment="center")
             with left:
-                st.header("Results")
-                result_container = st.container(border=False)
-                if left_submit:
-                    final_results = {k.replace("left_", ""): v for k, v in st.session_state.user_result.items() if k.startswith("left_") and v.strip()}
-
-
-                    st.success(f"✅ Results recorded for {bact_name_left}:")
-                    result = get_breakpoints(bact_name_left, all_data, clinical_group_left)
-
-                    if result:
-                        interpretations = process_user_results(result, final_results, mic_disc_filter)
-                        for ab, info in interpretations.items():
-                            # ✅ Add color coding for interpretation
-                            color = "green" if info['interpretation'] == "S" else "orange" if info['interpretation'] == "I" else "red"
-                            st.markdown(
-                                f"<p><b>🔬 {ab} ({info['site']})</b><br>"
-                                f"Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
-                                f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",
-                                unsafe_allow_html=True
-                            )
-                            print(f"[DEBUG] {ab}: {info}")
+                st.header("📊 Antibiotic Sensitivities Input")
+                left_name_input = st.text_input("Enter species name")
+                left_submit = False #initially set to False to avoid immediate submission
+                _, clinical_group = match_bacterium_name_to_clinical_group(left_name_input, df, species)
+                print(f"[DEBUG] Sensitivity inputs - Bacteria: {left_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
+                print(f"[DEBUG] Bacterial name entered: {left_name_input.strip().lower()}")
+                bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(left_name_input, df, species)
+                name, antibiotics_left, sterility_check = get_relevant_preset(
+                    bacterium_name=bact_name_left if bact_name_left else left_name_input.strip().lower(),
+                    clinical_group=clinical_group_left.strip().lower() if clinical_group_left else "",
+                    sterility_check=sterility_type.strip().lower(),
+                    mic_disc=mic_disc_filter.strip().lower())
+                    
+                left_input_container_1 = st.container(border=False)
+                with left_input_container_1:
+                    if left_name_input.strip():
+                        if antibiotics_left:
+                            st.success(f"✅ Found antibiotics for {name} ({mic_disc_filter.upper()}):")
+                            for antibiotic in antibiotics_left:
+                                result = st.text_input(f"Enter result for {antibiotic}:", key=f"left_{name}_{antibiotic}")
+                                st.session_state.user_result[f"left_{antibiotic}"] = result
+                                if "left_submitted" not in st.session_state:
+                                    st.session_state.left_submitted = False
+                            # Set left_submit to True when the button is clicked
+                            if st.button("submit", type="primary", key="left_submit"):
+                                st.session_state.left_submitted = True
+                                print(f"[DEBUG] Left submit clicked for {name} with results: {st.session_state.user_result}")
+                            
+                        else:
+                            st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group_left}) with sterility: {sterility_type}.")
+                        
                     else:
-                        st.warning("❌ No breakpoints found for this organism")
-                        st.session_state.user_result = {}
+                        st.info("ℹ️ Please enter a bacterial species to begin.")
 
             with right:
-                st.header("Results")
-                result_container = st.container(border=False)
-                if right_submit:
-                    final_results = {k.replace("right_", ""): v for k, v in st.session_state.user_result.items() if k.startswith("right_") and v.strip()}
+                st.header("📊 Antibiotic Sensitivities Input")
+                right_name_input = st.text_input("Enter species name: ")
+                right_submit = False #initially set to False to avoid immediate submission
+                _, clinical_group = match_bacterium_name_to_clinical_group(right_name_input, df, species)
+                print(f"[DEBUG] Sensitivity inputs - Bacteria: {right_name_input}, Group: {clinical_group}, Sterility: {sterility_type}, Type: {mic_disc_filter}")
+                print(f"[DEBUG] Bacterial name entered: {right_name_input.strip().lower()}")
+                bact_name_right, clinical_group_right = match_bacterium_name_to_clinical_group(right_name_input, df, species)
+                name, antibiotics_right, sterility_check = get_relevant_preset(
+                    bacterium_name=bact_name_right if bact_name_right else right_name_input.strip().lower(),
+                    clinical_group=clinical_group_right.strip().lower() if clinical_group_right else "",
+                    sterility_check=sterility_type.strip().lower(),
+                    mic_disc=mic_disc_filter.strip().lower())
 
+                right_input_container_1 = st.container(border=False)
+                with right_input_container_1:
+                    if right_name_input.strip():
+                        if antibiotics_right:
+                            st.success(f"✅ Found antibiotics for {name} ({mic_disc_filter.upper()}):")
+                            for antibiotic in antibiotics_right:
+                                result = st.text_input(f"Enter result for {antibiotic}:", key=f"right_{name}_{antibiotic}")
+                                st.session_state.user_result[f"right_{antibiotic}"] = result
+                            if "right_submitted" not in st.session_state:
+                                    st.session_state.right_submitted = False
+                            # Set left_submit to True when the button is clicked
+                            if st.button("submit", type="primary", key="right_submit"):
+                                st.session_state.right_submitted = True
+                                print(f"[DEBUG] Right submit clicked for {name}  with results: {st.session_state.user_result}")
 
-                    st.success(f"✅ Results recorded for {bact_name_right}:")
-                    result = get_breakpoints(bact_name_right, all_data, clinical_group_right)
-
-                    if result:
-                        interpretations = process_user_results(result, final_results, mic_disc_filter)
-                        for ab, info in interpretations.items():
-                            # ✅ Add color coding for interpretation
-                            color = "green" if info['interpretation'] == "S" else "orange" if info['interpretation'] == "I" else "red"
-                            st.markdown(
-                                f"<p><b>🔬 {ab} ({info['site']})</b><br>"
-                                f"Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
-                                f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",
-                                unsafe_allow_html=True
-                            )
-                            print(f"[DEBUG] {ab}: {info}")
+                        else:
+                            st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group_right}) with sterility: {sterility_type}.")
                     else:
-                        st.warning("❌ No breakpoints found for this organism")
-                        st.session_state.user_result = {}
+                        st.info("ℹ️ Please enter a bacterial species to begin.")
+
+            result_container = st.container(border=True)
+            with result_container:
+                left, right = st.columns(2, vertical_alignment="center")
+                with left:
+                    st.header("📄Results")
+                    result_container = st.container(border=False)
+                    if st.session_state.left_submitted:
+                        final_results = {k.replace("left_", ""): v for k, v in st.session_state.user_result.items() if k.startswith("left_") and v.strip()}
+
+                        st.success(f"✅ Results recorded for {bact_name_left}:")
+                        result = get_breakpoints(bact_name_left, all_data, clinical_group_left)
+
+                        if result:
+                            interpretations = process_user_results(result, final_results, mic_disc_filter)
+                            for ab, info in interpretations.items():
+                                # Add color coding for interpretation
+                                color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
+                                st.markdown(
+                                    f"<p><b>🔬 {ab} ({info['site']})</b><br>"
+                                    f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
+                                    f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",
+                                    unsafe_allow_html=True)
+                                print(f"[DEBUG for color] Interpretation for {ab}: '{info['interpretation']}'")
+                                print(f"[DEBUG] {ab}: {info}")
+                                
+
+                        else:
+                            st.warning("❌ No breakpoints found for this organism")
+                            st.session_state.user_result = {}
+
+                with right:
+                    st.header("📄Results")
+                    result_container = st.container(border=False)
+                    if st.session_state.right_submitted:
+                        final_results = {k.replace("right_", ""): v for k, v in st.session_state.user_result.items() if k.startswith("right_") and v.strip()}
 
 
+                        st.success(f"✅ Results recorded for {bact_name_right}:")
+                        result = get_breakpoints(bact_name_right, all_data, clinical_group_right)
+
+                        if result:
+                            interpretations = process_user_results(result, final_results, mic_disc_filter)
+                            for ab, info in interpretations.items():
+                                # Add color coding for interpretation
+                                color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
+                                st.markdown(
+                                    f"<p><b>🔬 {ab} ({info['site']})</b><br>"
+                                    f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
+                                    f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",
+                                    unsafe_allow_html=True)
+                                print(f"[DEBUG] {ab}: {info}")
+                        else:
+                            st.warning("❌ No breakpoints found for this organism")
+                            st.session_state.user_result = {}
 
     elif option == "🦠 Bacteria Lookup":
         lookup_container = st.container(border=True)
