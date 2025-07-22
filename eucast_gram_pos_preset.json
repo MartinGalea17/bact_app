@@ -7,15 +7,15 @@
     "info": "N/A",
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Penicillin",
-      "Levo",
-      "Teico",
-      "Va",
-      "Tetra",
-      "COT"
+      "Benzylpenicillin",
+      "Levofloxacin",
+      "Teicoplanin",
+      "Vancomycin",
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
-      "Ery + CD (D-test)"
+      "Erythromycin + Clindamycin (D-test)"
     ],
     "guidance": "Eucast bps Streprococci A,B,C,G"
   },
@@ -28,13 +28,13 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Penicillin",
-      "Levo",
-      "Teico",
-      "Va",
-      "Tetra",
-      "COT",
-      "Ery + CD (D-test)"
+      "Benzylpenicillin",
+      "Levofloxacin",
+      "Teicoplanin",
+      "Vancomycin",
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole",
+      "Erythromycin + Clindamycin (D-test)"
     ],
     "guidance": "Eucast bps Streprococci A,B,C,G"
   },
@@ -47,13 +47,13 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
       "Benzylpenicillin",
-      "Ampicillin",
+      "Ampicillinicillin",
       "Ceftriaxone",
-      "Levofloxacin",
-      "Vancomycin"
+      "Levofloxacinfloxacin",
+      "Vancomycinncomycin"
     ],
     "antibiotic_discs": [
-      "Ery + CD (D-Test)"
+      "Erythromycin + Clindamycin (D-Test)"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
   },
@@ -65,14 +65,14 @@
     "info": "N/A",
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Penicillin",
-      "Amp",
-      "CRO",
-      "Levo",
-      "VA"
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Ceftriaxone",
+      "Levofloxacin",
+      "Vancomycin"
     ],
     "antibiotic_discs": [
-      "Ery + CD (D-Test)"
+      "Erythromycin + Clindamycin (D-Test)"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
   },
@@ -85,12 +85,12 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Penicillin",
-      "Amp(2ug)",
-      "CRO",
-      "Levo",
-      "VA",
-      "Ery + CD (D-Test)"
+      "Benzylpenicillin",
+      "Ampicillin(2ug)",
+      "Ceftriaxone",
+      "Levofloxacin",
+      "Vancomycin",
+      "Erythromycin + Clindamycin (D-Test)"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
   },
@@ -103,12 +103,12 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Penicillin",
-      "Amp(2ug)",
-      "CRO",
-      "Levo",
-      "VA",
-      "Ery + CD (D-Test)"
+      "Benzylpenicillin",
+      "Ampicillin(2ug)",
+      "Ceftriaxone",
+      "Levofloxacin",
+      "Vancomycin",
+      "Erythromycin + Clindamycin (D-Test)"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
   },
@@ -120,21 +120,21 @@
     "info": "N/A",
     "medium": "MH broth on MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Penicillin",
-      "Amp",
-      "Cro",
-      "Imi",
-      "MP(only for CSF's and when requested)",
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Ceftriaxone",
+      "Imipenem",
+      "Meropenem(only for CSF's and when requested)",
       "levo",
-      "Va",
-      "Ery",
-      "Tetra"
+      "Vancomycin",
+      "Erythromycin",
+      "Tetracycline"
     ],
     "antibiotic_discs": [
       "Oxacillin",
-      "Ery + CD (D-test)"
+      "Erythromycin + Clindamycin (D-test)"
     ],
-    "guidance": "Eucast bps S.pnemoniae, Penicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
+    "guidance": "Eucast bps S.pnemoniae, Benzylpenicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
   },
   {
     "name": "Streptococcus pneumoniae",
@@ -144,21 +144,21 @@
     "info": "NA",
     "medium": "MH broth on MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Penicillin",
-      "Amp",
-      "Cro",
-      "Imi",
-      "MP(only for CSF's and when requested)",
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Ceftriaxone",
+      "Imipenem",
+      "Meropenem(only for CSF's and when requested)",
       "levo",
-      "Va",
-      "Ery",
-      "Tetra"
+      "Vancomycin",
+      "Erythromycin",
+      "Tetracycline"
     ],
     "antibiotic_discs": [
       "Oxacillin",
-      "Ery + CD (D-test)"
+      "Erythromycin + Clindamycin (D-test)"
     ],
-    "guidance": "Eucast bps S.pnemoniae, Penicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
+    "guidance": "Eucast bps S.pnemoniae, Benzylpenicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
   },
   {
     "name": "N/A",
@@ -168,11 +168,11 @@
     "info": "N/A",
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Penicillin",
-      "Amp(2ug)",
+      "Benzylpenicillin",
+      "Ampicillin(2ug)",
       "CTX",
-      "CRO",
-      "CD"
+      "Ceftriaxone",
+      "Clindamycin"
     ],
     "antibiotic_discs": [],
     "guidance": "Eucast bps viridans group streptococci"
@@ -186,11 +186,11 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Penicillin",
-      "Amp(2ug)",
+      "Benzylpenicillin",
+      "Ampicillin(2ug)",
       "CTX",
-      "CRO",
-      "CD"
+      "Ceftriaxone",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps viridans group streptococci"
   },
@@ -202,12 +202,12 @@
     "info": "N/A",
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
-      "Penicillin",
-      "Amp",
-      "MP",
-      "Cip",
-      "VA",
-      "Nitro(only for urines)"
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Meropenem",
+      "Ciprofloxacin",
+      "Vancomycin",
+      "Nitrofurantoin(only for urines)"
     ],
     "antibiotic_discs": [],
     "guidance": "Eucast bps A.sanguinicola, A.urinae"
@@ -221,12 +221,12 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Penicillin",
-      "Amp",
-      "MP",
-      "Cip",
-      "VA",
-      "Nitro(only for urines)"
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Meropenem",
+      "Ciprofloxacin",
+      "Vancomycin",
+      "Nitrofurantoin(only for urines)"
     ],
     "guidance": "Eucast bps A.sanguinicola, A.urinae"
   },
@@ -238,10 +238,10 @@
     "info": "N/A",
     "medium": "MH air @ 0.5mF",
     "antibiotic_strips": [
-      "Ampicillin",
+      "Ampicillinicillin",
       "Gentamycin(HC)",
-      "Va",
-      "Teico",
+      "Vancomycin",
+      "Teicoplanin",
       "TGC",
       "Linzolid"
     ],
@@ -257,9 +257,9 @@
     "medium": "MH air @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Amp",
-      "Va",
-      "Teico",
+      "Ampicillin",
+      "Vancomycin",
+      "Teicoplanin",
       "TGC"
     ],
     "guidance": "Eucast bps Enterococcus"
@@ -273,10 +273,10 @@
     "medium": "MH air @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Amp",
-      "Va",
-      "Teico",
-      "Nitro"
+      "Ampicillin",
+      "Vancomycin",
+      "Teicoplanin",
+      "Nitrofurantoin"
     ],
     "guidance": "Eucast bps Enterococcus"
   },
@@ -289,9 +289,9 @@
     "medium": "MH air @ 0.5mF",
     "antibiotic_strips": [],
     "antibiotic_discs": [
-      "Amp",
-      "Va",
-      "Teico"
+      "Ampicillin",
+      "Vancomycin",
+      "Teicoplanin"
     ],
     "guidance": "Eucast bps Enterococcus"
   },
@@ -303,16 +303,16 @@
     "info": "N/A",
     "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
     "antibiotic_strips": [
-      "Va",
-      "Teico",
-      "Tetra",
+      "Vancomycin",
+      "Teicoplanin",
+      "Tetracycline",
       "fusidic",
-      "RIF",
-      "COT"
+      "Rifampicin",
+      "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       "Oxacillin disc",
-      "Ery + CD (D-test)"
+      "Erythromycin + Clindamycin (D-test)"
     ],
     "guidance": "Eucast bps Staphylococcus"
   },
@@ -324,16 +324,16 @@
     "info": "N/A",
     "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
     "antibiotic_strips": [
-      "Va",
-      "Teico"
+      "Vancomycin",
+      "Teicoplanin"
     ],
     "antibiotic_discs": [
       "Oxacillin disc",
-      "Ery + CD (D-test)",
-      "tetra",
+      "Erythromycin + Clindamycin (D-test)",
+      "Tetracycline",
       "fusidic",
-      "rif",
-      "cot"
+      "Rifampicin",
+      "Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Eucast bps Staphylococcus"
   },
@@ -345,17 +345,17 @@
     "info": "Not for urine nephrostomy",
     "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
     "antibiotic_strips": [
-      "Va",
-      "Teico"
+      "Vancomycin",
+      "Teicoplanin"
     ],
     "antibiotic_discs": [
       "Oxacillin disc",
-      "Ery + CD (D-test)",
-      "tetra",
+      "Erythromycin + Clindamycin (D-test)",
+      "Tetracycline",
       "fusidic",
-      "rif",
-      "cot",
-      "nitro"
+      "Rifampicin",
+      "Trimethoprim-sulfamethoxazole",
+      "Nitrofurantoin"
     ],
     "guidance": "Eucast bps Staphylococcus"
   },
@@ -367,16 +367,16 @@
     "info": "N/A",
     "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
     "antibiotic_strips": [
-      "Va",
-      "Teico",
-      "Tetra",
+      "Vancomycin",
+      "Teicoplanin",
+      "Tetracycline",
       "fusidic",
-      "RIF",
-      "COT"
+      "Rifampicin",
+      "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
       "Oxacillin disc",
-      "Ery + CD (D-test)"
+      "Erythromycin + Clindamycin (D-test)"
     ],
     "guidance": "Eucast bps Staphylococcus"
   },
@@ -388,8 +388,8 @@
     "info": "N/A",
     "medium": "MH air @ 0.5mF/ MHFco2 if fastidious",
     "antibiotic_strips": [
-      "Va",
-      "Teico"
+      "Vancomycin",
+      "Teicoplanin"
     ],
     "antibiotic_discs": [
       "..."
