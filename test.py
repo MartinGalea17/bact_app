@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import streamlit as st
 import re
+from difflib import get_close_matches
 with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
     presets = json.load(f)  # loads the JSON content into a Python list of dicts
 @st.cache_data
@@ -183,6 +184,9 @@ def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
     return all_data
 
 def get_breakpoints(bacterium_name, all_data, clinical_group=None):
+    if not bacterium_name:
+        print("[Error] ❌ Bacterium name is None. Skipping breakpoint search.")
+        return []
     bacterium_name = bacterium_name.strip().lower()
     clinical_group = clinical_group.strip().lower() if clinical_group else ""
 
@@ -213,6 +217,22 @@ def get_breakpoints(bacterium_name, all_data, clinical_group=None):
     print("[DEBUG] ❌ No breakpoint match found.")
     return None
 
+def matching_name_input(user_input, species, cutoff = 0.6):
+    #function to attempt matchng any input mistakes 
+    if not user_input:
+        return None 
+    user_input = user_input.strip().lower()
+    species_str = [str(s) for s in species if isinstance(s, str) or isinstance(s, dict)]
+    species_lower = [s.lower() for s in species_str]
+
+    matches = get_close_matches(user_input, species_lower, n=1, cutoff=cutoff)
+    if matches:
+        #return the first match found
+        index = species_lower.index(matches[0])
+        return species[index]
+    else:
+        print(f"❌ No close match found for {user_input}.")
+        return None    
 
 def interpret_breakpoint(value, s_crit, r_crit):
     def parse_crit(crit):
