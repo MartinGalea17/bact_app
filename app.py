@@ -16,6 +16,7 @@ from test import (
     process_user_results,
     matching_name_input
 )
+from graph_testing import plot_mic_breakpoints
 
 # --- Authentication function ---
 def check_login(username, password):
@@ -148,12 +149,12 @@ def show_app():
 
         with tab2:
             container3 = st.container(border=True)
-            container3.header("💊 Antibiotic Sensitivities")
+            container3.header("🎛️ Shared filters")
             container3.write("Use the filters below to obtain your results.")
             input_results_container = st.container(border=True)
 
         # Top filters
-        left, middle, right = container3.columns(3, vertical_alignment="center")
+        left, middle, right, last = container3.columns(4, vertical_alignment="center")
        
         with left:
             sterility_type = st.radio("Filter by", ["Sterile", "Urine", "Other"])
@@ -161,10 +162,8 @@ def show_app():
             mic_disc_filter = st.radio("Select MIC or Disc", ["MIC", "Disc"])
         with right:
             infection_site = st.selectbox("Select a section", ["-- Select --", "Normal", "❤️ Endocarditis", "🧠CSF"])
-
-        # Ensure session state is initialized
-        if "user_result" not in st.session_state:
-            st.session_state.user_result = {}
+        with last:
+            eucast_date = st.selectbox("Select Eucast date", ["-- Select --", "2021", "2024", "2025"])
 
         valid_species = species
        
@@ -175,7 +174,7 @@ def show_app():
                 st.subheader("🦠 Left Organism")
 
                 # Input for organism name
-                left_name_input = st.text_input("Enter Left Organism Name:", key="left_name")
+                left_name_input = st.text_input("Enter Organism Name:", key="left_name")
 
                 # Load species and df
                 species, df, *_ = get_data_in_classified_data()
@@ -187,10 +186,6 @@ def show_app():
                     # Match to clinical group
                     bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(
                         matched_left_input, df, species)
-
-                    # Handle sterility/method input
-                    sterility_type = st.selectbox("Select sample sterility:", ["sterile", "non-sterile"], key="left_sterility")
-                    mic_disc_filter = st.radio("Test type:", ["disc", "mic"], key="left_test_type")
 
                     # Get relevant preset panel
                     name, antibiotics_left, sterility_check = get_relevant_preset(
@@ -206,9 +201,9 @@ def show_app():
                     st.session_state.antibiotics_left = antibiotics_left
 
                     # Show matched info
-                    st.success(f"✅ Matched species: {bact_name_left}")
-                    st.info(f"Clinical group: {clinical_group_left}")
-                    st.write(f"Preset antibiotics: {', '.join(antibiotics_left) if antibiotics_left else 'None found'}")
+                    st.success(f"✅ Matched species: {bact_name_left} with {clinical_group_left} clinical group")
+                    print(f"[DEBUG] Matched left input: {matched_left_input} wihh clinical group {clinical_group_left}")
+                
 
                 elif "bact_name_left" in st.session_state:
                     # Fallback to previous session state
@@ -225,14 +220,13 @@ def show_app():
                             st.success(f"✅ Found preset for {name} ({mic_disc_filter.upper()}):")
                             for antibiotic in antibiotics_left:
                                 result = st.text_input(f"Enter result for {antibiotic}:", key=f"left_{name}_{antibiotic}")
-                                st.session_state.user_result[f"left_{antibiotic}"] = result
+                                st.session_state.left_user_result[f"left_{antibiotic}"] = result
                                 
-                                if "left_submitted" not in st.session_state:
-                                    st.session_state.left_submitted = False
+                                
                             # Set left_submit to True when the button is clicked
                             if st.button("submit", type="primary", key="left_submit"):
                                 st.session_state.left_submitted = True
-                                print(f"[DEBUG] Left submit clicked for {name} with results: {st.session_state.user_result}")
+                                print(f"[DEBUG] Left submit clicked for {name} with results: {st.session_state.left_user_result}")
                             
                         else:
                             st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group_left}) with sterility: {sterility_type}.")
@@ -241,10 +235,15 @@ def show_app():
                         st.info("ℹ️ Please enter a bacterial species to begin.")
 
             with right:
-                st.subheader("🦠 right Organism")
+                st.subheader("🦠 Right Organism")
 
                 # Input for organism name
-                right_name_input = st.text_input("Enter right Organism Name:", key="right_name")
+                right_name_input = st.text_input("Enter Organism Name:", key="right_name")
+
+                #initializing variables at the start of the right input section
+                antibiotics_right = []
+                bact_name_right = ""    
+                clinical_group_right = ""
 
                 # Load species and df
                 species, df, *_ = get_data_in_classified_data()
@@ -256,10 +255,6 @@ def show_app():
                     # Match to clinical group
                     bact_name_right, clinical_group_right = match_bacterium_name_to_clinical_group(
                     matched_right_input, df, species)
-
-                    # Handle sterility/method input
-                    sterility_type = st.selectbox("Select sample sterility:", ["sterile", "non-sterile"], key="right_sterility")
-                    mic_disc_filter = st.radio("Test type:", ["disc", "mic"], key="right_test_type")
 
                     # Get relevant preset panel
                     name, antibiotics_right, sterility_check = get_relevant_preset(
@@ -275,9 +270,8 @@ def show_app():
                     st.session_state.antibiotics_right = antibiotics_right
 
                     # Show matched info
-                    st.success(f"✅ Matched species: {bact_name_right}")
-                    st.info(f"Clinical group: {clinical_group_right}")
-                    st.write(f"Preset antibiotics: {', '.join(antibiotics_right) if antibiotics_right else 'None found'}")
+                    st.success(f"✅ Matched species: {bact_name_right} with {clinical_group_right} clinical group")
+                    print(f"[DEBUG] Matched right input: {matched_right_input} with clinical group {clinical_group_right}")
 
                 elif "bact_name_right" in st.session_state:
                     # Fallback to previous session state
@@ -292,13 +286,13 @@ def show_app():
                             st.success(f"✅ Found preset for {name} ({mic_disc_filter.upper()}):")
                             for antibiotic in antibiotics_right:
                                 result = st.text_input(f"Enter result for {antibiotic}:", key=f"right_{name}_{antibiotic}")
-                                st.session_state.user_result[f"right_{antibiotic}"] = result
-                            if "right_submitted" not in st.session_state:
-                                    st.session_state.right_submitted = False
+                                st.session_state.right_user_result[f"right_{antibiotic}"] = result
+
+                            
                             # Set left_submit to True when the button is clicked
                             if st.button("submit", type="primary", key="right_submit"):
                                 st.session_state.right_submitted = True
-                                print(f"[DEBUG] Right submit clicked for {name}  with results: {st.session_state.user_result}")
+                                print(f"[DEBUG] Right submit clicked for {name}  with results: {st.session_state.right_user_result}")
 
                         else:
                             st.warning(f"❌ No preset found for {name} (clinical group: {clinical_group_right}) with sterility: {sterility_type}.")
@@ -312,7 +306,7 @@ def show_app():
                     st.header("📄Results")
                     result_container = st.container(border=False)
                     if st.session_state.left_submitted:
-                        final_results = {k.replace("left_", ""): v for k, v in st.session_state.user_result.items() if k.startswith("left_") and v.strip()}
+                        final_results = {k.replace("left_", ""): v for k, v in st.session_state.left_user_result.items() if k.startswith("left_") and v.strip()}
 
                         st.success(f"✅ Results recorded for {bact_name_left}:")
                         result = get_breakpoints(bact_name_left, all_data, clinical_group_left)
@@ -340,20 +334,41 @@ def show_app():
                                     st.write(f"Eucast INPUT DATE breakpoints: S: {info['S']}, R: {info['R']}")
                                     st.write(f"Interpretation: {info['interpretation']}")
                                     st.write("This is where you can add more detailed information about the antibiotic.")
-                            st.session_state.user_result = {}
+                                    if info and info.get('value') is not None and info.get('breakpoints'):
+                                        fig = plot_mic_breakpoints(
+                                            info.get('value'), 
+                                            info.get('breakpoints'), 
+                                            ab)
+                                        st.plotly_chart(fig)
+                                    else:
+                                        st.warning(f"Missing MIC or breakpoints for {ab}, skipping plot.")
+                                        st.write(f"Info for {ab}:", info)
+                            st.success("✅ Left-side results processed successfully!")       
+                            st.session_state.left_user_result = {}
         
+                        else:
+                            st.warning("❌ No breakpoints found for this organism")
+                            st.session_state.left_user_result = {}
 
                 with right:
                     st.header("📄Results")
                     result_container = st.container(border=False)
                     if st.session_state.right_submitted:
-                        final_results = {k.replace("right_", ""): v for k, v in st.session_state.user_result.items() if k.startswith("right_") and v.strip()}
+                        # Get values from session state with defaults
+                        bact_name_right = st.session_state.get("bact_name_right", "")
+                        clinical_group_right = st.session_state.get("clinical_group_right", "")
+                        matched_right_input = st.session_state.get("matched_right_input", right_name_input)
 
+                        if not bact_name_right:
+                            st.error(f"❌ Bacterium name not found for: {right_name_input}. Please check your input.")
+
+                            return
+                        final_results = {k.replace("right_", ""): v for k, v in st.session_state.right_user_result.items() 
+                        if k.startswith("right_") and v.strip()}
 
                         st.success(f"✅ Results recorded for {matched_right_input}:")
                         result = get_breakpoints(matched_right_input, all_data, clinical_group_right)
-                        st.error("❌ Bacterium name not found for: {right_name_input}. Please check your input.")
-
+        
                         if result:
                             interpretations = process_user_results(result, final_results, mic_disc_filter)
                             for ab, info in interpretations.items():
@@ -365,9 +380,22 @@ def show_app():
                                     f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",
                                     unsafe_allow_html=True)
                                 print(f"[DEBUG] {ab}: {info}")
+
+                                # # Expander for each antibiotic result
+                                with st.expander(f"Further info for {ab}"):
+                                    st.write(f"🔬 {ab} ({info['site']})")
+                                    st.write(f"Further information for {ab}:")
+                                    st.write(f"User Value: {info['value']}")
+                                    st.write(f"Eucast INPUT DATE breakpoints: S: {info['S']}, R: {info['R']}")
+                                    st.write(f"Interpretation: {info['interpretation']}")
+                                    st.write("This is where you can add more detailed information about the antibiotic.")
+
+                            st.success("✅ Right-side results processed successfully!")       
+                            st.session_state.right_user_result = {}
                         else:
                             st.warning("❌ No breakpoints found for this organism")
-                            st.session_state.user_result = {}
+                            st.session_state.right_user_result = {}
+
 
     elif option == "🦠 Bacteria Lookup":
         lookup_container = st.container(border=True)
@@ -431,12 +459,36 @@ if not st.session_state.get("logged_in", False):
         if submitted:
             print(f"[DEBUG] Login submitted with username: {username}")
             if check_login(username, password):
-                st.session_state.logged_in = True
-                st.session_state.username = username
+                # Initialize all session state variables HERE after successful login
+                st.session_state.update({
+                    "logged_in": True,
+                    "username": username,
+                    "left_submitted": False,
+                    "right_submitted": False,
+                    "left_user_result": {},
+                    "right_user_result": {},
+                    "bact_name_left": "",
+                    "clinical_group_left": "",
+                    "antibiotics_left": [],
+                    "bact_name_right": "",
+                    "clinical_group_right": "",
+                    "antibiotics_right": []
+                })
                 st.success(f"✅ Welcome, {username}!")
                 st.rerun()
             else:
                 st.error("❌ Invalid username or password")
 else:
-    print(f"[INFO] Logged in as {st.session_state.get('username')}")
+    # Ensure all variables exist (in case of page refresh)
+    default_state = {
+        "left_submitted": False,
+        "right_submitted": False,
+        "left_user_result": {},
+        "right_user_result": {},
+        # Other variables...
+    }
+    for key, value in default_state.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
+    print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
