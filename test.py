@@ -6,6 +6,7 @@ import re
 from difflib import get_close_matches
 with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
     presets = json.load(f)  # loads the JSON content into a Python list of dicts
+    
 @st.cache_data
 def clean_get_gram_neg(presets):
     names = []
@@ -144,7 +145,8 @@ def get_relevant_preset(bacterium_name, clinical_group, sterility_check, mic_dis
     # Final fallback
     return clinical_group, None, None
 
-#this is a function that will be used to get the brakpoints for the bacterium name or clinical group 
+#this is a function that will be used to get the brakpoints for the bacterium name or clinical group
+@st.cache_data 
 def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
     all_data = []
     all_organisms = []
@@ -234,61 +236,82 @@ def matching_name_input(user_input, species, cutoff = 0.6):
         print(f"❌ No close match found for {user_input}.")
         return None    
 
+import re
+
 def interpret_breakpoint(value, s_crit, r_crit):
-    def parse_crit(crit):
-        if not crit: return None, None
-        match = re.match(r'(<=?|>=?|=)?\s*([\d.]+)', str(crit))
-        if match:
-            op, num = match.groups()
-            return op or '=', float(num)
-        return None, None
+    """Robust EUCAST interpretation that handles all cases correctly"""
+    def parse_value(val):
+        try:
+            if val in (None, "", "-"):
+                return None
+            if isinstance(val, str):
+                if any(op in val for op in ['<', '>', '=']):
+                    num_str = re.sub(r'[^0-9.]', '', val)
+                    return float(num_str) if num_str else None
+            return float(val)
+        except (ValueError, TypeError):
+            return None
 
     try:
-        value = float(value)
-    except ValueError:
-        return "Invalid input"
+        num_value = parse_value(value)
+        s_val = parse_value(s_crit)
+        r_val = parse_value(r_crit)
+    except:
+        return "Invalid breakpoint"
 
-    s_op, s_val = parse_crit(s_crit)
-    r_op, r_val = parse_crit(r_crit)
+    if None in (num_value, s_val, r_val):
+        return "No breakpoint"
 
-    def compare(val, op, ref):
-        if op == '<': return val < ref
-        if op == '<=': return val <= ref
-        if op == '>': return val > ref
-        if op == '>=': return val >= ref
-        if op == '=': return val == ref
-        return False
+    is_disk_diffusion = s_val > r_val if (s_val and r_val) else False
 
-    if s_op and compare(value, s_op, s_val):
-        return "Sensitive"
-    elif r_op and compare(value, r_op, r_val):
-        return "Resistant"
+    if is_disk_diffusion:
+        if num_value >= s_val:
+            return "Sensitive"
+        elif num_value <= r_val:
+            return "Resistant"
+        else:
+            return "Intermediate"
     else:
-        return "Intermediate"
+        if num_value <= s_val:
+            return "Sensitive"
+        elif num_value > r_val:
+            return "Resistant"
+        else:
+            return "Intermediate"
 
 def process_user_results(result_entry, user_results, mic_or_disc):
+    """Process user results with antibiotic breakpoints"""
     interpretations = {}
     breakpoints = result_entry.get("breakpoints", [])
+    
     for ab_name, user_val in user_results.items():
+        if not str(user_val).strip():
+            continue
+            
         for bp in breakpoints:
             if bp["antibiotic"].strip().lower() == ab_name.strip().lower():
-                criteria = bp.get("MIC") if mic_or_disc.lower() == "mic" else bp.get("disk", {}).get("zone_mm", {})
-                s = criteria.get("S")
-                r = criteria.get("R")
-                interpretation = interpret_breakpoint(user_val, s, r)
-                site = bp.get("class", "N/A")  # or infection site if available
-                print(f"[DEBUG] ✅ Matched {ab_name} to breakpoint entry")
-                interpretations[ab_name] = {
-                    "value": user_val,
-                    "S": s,
-                    "R": r,
-                    "interpretation": interpretation,
-                    "site": site
-                }
+                try:
+                    if mic_or_disc.lower() == "mic":
+                        criteria = bp.get("MIC", {})
+                        s = criteria.get("S")
+                        r = criteria.get("R")
+                    else:
+                        criteria = bp.get("disk", {}).get("zone_mm", {})
+                        s = criteria.get("S")
+                        r = criteria.get("R")
+                    
+                    interpretation = interpret_breakpoint(user_val, s, r)
+                    
+                    interpretations[ab_name] = {
+                        "value": user_val,
+                        "S": str(s) if s is not None else "-",
+                        "R": str(r) if r is not None else "-",
+                        "interpretation": interpretation,
+                        "site": bp.get("class", "N/A"),
+                        "breakpoints": bp
+                    }
+                except Exception as e:
+                    print(f"Error processing {ab_name}: {str(e)}")
                 break
-            else:
-                print(f"[DEBUG] Skipping: {bp['antibiotic']} (no match for {ab_name})")
+                
     return interpretations
-
-
-            
