@@ -1,57 +1,336 @@
 {
-  "organisms": "Achromobacter xylosoxidans",
-  "clinical_group": "Achromobacter",
+  "organisms": ["Streptococcus pneumoniae"],
+  "clinical_group": "NA",
   "breakpoints": [
     {
       "class": "Penicillins",
-      "antibiotic": "Piperacillin-tazobactam",
+      "antibiotic": "Benzylpenicillin (non-meningitis)",
       "MIC": {
-        "S": "<= 41",
-        "R": "> 41",
+        "S": "<= 0.06",
+        "R": "> 2",
         "ATU": null
       },
       "disk": {
-        "content_ug": "30-6",
+        "content_ug": null,
         "zone_mm": {
-          "S": ">= 26",
-          "R": "< 26",
+          "S": "NoteA",
+          "R": "NoteA",
           "ATU": null
         }
       }
     },
     {
-      "class": "Carbapenems",
-      "antibiotic": "Meropenem",
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin (meningitis)",
       "MIC": {
-        "S": "<= 1",
-        "R": "> 4",
+        "S": "<= 0.06",
+        "R": "> 0.06",
         "ATU": null
       },
       "disk": {
-        "content_ug": 10,
+        "content_ug": null,
         "zone_mm": {
-          "S": ">= 26",
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin (non-meningitis)",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 2,
+        "zone_mm": {
+          "S": ">= 22",
+          "R": "< 19",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin (meningitis)",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin (non-meningitis)",
+      "MIC": {
+        "S": "Note1,4",
+        "R": "Note1,4",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA,B",
+          "R": "NoteA,B",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin-clavulanic acid (oral)",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA,B",
+          "R": "NoteA,B",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Oxacillin (screen only)",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 1,
+        "zone_mm": {
+          "S": ">= 20",
           "R": "< 20",
           "ATU": null
         }
       }
     },
     {
-      "class": "Miscellaneous agents",
-      "antibiotic": "Trimethoprim-sulfamethoxazole1",
+      "class": "Cephalosporins",
+      "antibiotic": "Cefaclor",
+      "MIC": {
+        "S": "<= 0.001",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 50",
+          "R": "< 28",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefotaxime (non-meningitis)",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftriaxone (non-meningitis)",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem (non-meningitis)",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 20",
+          "R": "< 17",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Moxifloxacin",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 22",
+          "R": "< 22",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Erythromycin",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 15,
+        "zone_mm": {
+          "S": ">= 21",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Glycopeptides",
+      "antibiotic": "Vancomycin",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 17",
+          "R": "< 17",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 23",
+          "R": "< 19",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Oxazolidinones",
+      "antibiotic": "Linezolid",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 21",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous",
+      "antibiotic": "Rifampicin",
       "MIC": {
         "S": "<= 0.125",
         "R": "> 0.125",
         "ATU": null
       },
       "disk": {
-        "content_ug": "1.25-23.75",
+        "content_ug": 5,
         "zone_mm": {
-          "S": ">= 26A",
-          "R": "< 26A",
+          "S": ">= 20",
+          "R": "< 20",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25/23.75",
+        "zone_mm": {
+          "S": ">= 19",
+          "R": "< 16",
           "ATU": null
         }
       }
     }
+  ],
+  "notes": [
+    "NA = Not Applicable",
+    "IE = Insufficient Evidence",
+    "NoteA/B/C = See EUCAST guidelines for special interpretations",
+    "Meningitis vs non-meningitis breakpoints differ for certain antibiotics",
+    "For S. pneumoniae, penicillin breakpoints vary by infection site (meningitis vs non-meningitis)"
   ]
 }

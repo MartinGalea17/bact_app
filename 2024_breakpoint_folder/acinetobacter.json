@@ -1,0 +1,1307 @@
+{
+  "organism_": null,
+  "clinical_group": "Acinetobacter",
+  "breakpoints": [
+    {
+      "antibiotic_class": "Penicillins",
+      "antibiotics": [
+        {
+          "antibiotic": "Benzylpenicillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ampicillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ampicillin-sulbactam",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Amoxicillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Amoxicillin-clavulanic acid",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Piperacillin",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Piperacillin-tazobactam",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ticarcillin-clavulanic acid",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Temocillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Phenoxymethylpenicillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Oxacillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cloxacillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Dicloxacillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Flucloxacillin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Mecillinam oral (pivmecillinam) (uncomplicated UTI only)",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Cephalosporins",
+      "antibiotics": [
+        {
+          "antibiotic": "Cefaclor",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefadroxil",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefalexin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefazolin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefepime",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefiderocol",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "NoteA",
+            "resistant": "NoteA",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefixime",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefotaxime",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefoxitin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefpodoxime",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftaroline",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftazidime",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftazidime-avibactam",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftibuten",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftobiprole",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftolozane-tazobactam",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ceftriaxone",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefuroxime iv",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Cefuroxime oral",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Carbapenems",
+      "antibiotics": [
+        {
+          "antibiotic": "Doripenem",
+          "mic": {
+            "sensitive": "≤0.001",
+            "resistant": ">2",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥50",
+            "resistant": "<22",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ertapenem",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Imipenem",
+          "mic": {
+            "sensitive": "≤2",
+            "resistant": ">4",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥24",
+            "resistant": "<21",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Imipenem-relebactam",
+          "mic": {
+            "sensitive": "Note1",
+            "resistant": "Note1",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "NoteA",
+            "resistant": "NoteA",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Meropenem (indications other than meningitis)",
+          "mic": {
+            "sensitive": "≤2",
+            "resistant": ">8",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥21",
+            "resistant": "<15",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Meropenem (meningitis)",
+          "mic": {
+            "sensitive": "≤2",
+            "resistant": ">2",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥21",
+            "resistant": "<21",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Meropenem-vaborbactam",
+          "mic": {
+            "sensitive": "Note1",
+            "resistant": "Note1",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "NoteA",
+            "resistant": "NoteA",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Monobactams",
+      "antibiotics": [
+        {
+          "antibiotic": "Aztreonam",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Fluoroquinolones",
+      "antibiotics": [
+        {
+          "antibiotic": "Ciprofloxacin",
+          "mic": {
+            "sensitive": "≤0.001",
+            "resistant": ">1",
+            "atu": null
+          },
+          "disk": {
+            "content": "5",
+            "sensitive": "≥50",
+            "resistant": "<21",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Delafloxacin",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Levofloxacin",
+          "mic": {
+            "sensitive": "≤0.5",
+            "resistant": ">1",
+            "atu": null
+          },
+          "disk": {
+            "content": "5",
+            "sensitive": "≥23",
+            "resistant": "<20",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Moxifloxacin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Nalidixic acid (screen only)",
+          "mic": {
+            "sensitive": "NA",
+            "resistant": "NA",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "NA",
+            "resistant": "NA",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Norfloxacin (uncomplicated UTI only)",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Ofloxacin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Aminoglycosides",
+      "antibiotics": [
+        {
+          "antibiotic": "Amikacin (systemic infections)",
+          "mic": {
+            "sensitive": "≤8",
+            "resistant": ">8",
+            "atu": null
+          },
+          "disk": {
+            "content": "30",
+            "sensitive": "≥19",
+            "resistant": "<19",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Amikacin (infections originating from the urinary tract)",
+          "mic": {
+            "sensitive": "≤8",
+            "resistant": ">8",
+            "atu": null
+          },
+          "disk": {
+            "content": "30",
+            "sensitive": "≥19",
+            "resistant": "<19",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Gentamicin (systemic infections)",
+          "mic": {
+            "sensitive": "≤4",
+            "resistant": ">4",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥17",
+            "resistant": "<17",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Gentamicin (infections originating from the urinary tract)",
+          "mic": {
+            "sensitive": "≤4",
+            "resistant": ">4",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥17",
+            "resistant": "<17",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Netilmicin",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Tobramycin (systemic infections)",
+          "mic": {
+            "sensitive": "≤4",
+            "resistant": ">4",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥17",
+            "resistant": "<17",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Tobramycin (infections originating from the urinary tract)",
+          "mic": {
+            "sensitive": "≤4",
+            "resistant": ">4",
+            "atu": null
+          },
+          "disk": {
+            "content": "10",
+            "sensitive": "≥17",
+            "resistant": "<17",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Glycopeptides and lipoglycopeptides",
+      "antibiotics": [
+        {
+          "antibiotic": "Dalbavancin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Oritavancin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Teicoplanin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Telavancin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Vancomycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Macrolides, lincosamides and streptogramins",
+      "antibiotics": [
+        {
+          "antibiotic": "Azithromycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Clarithromycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Erythromycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Roxithromycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Telithromycin",
+          "mic": {
+            "sensitive": null,
+            "resistant": null,
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": null,
+            "resistant": null,
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Clindamycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Quinupristin-dalfopristin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Tetracyclines",
+      "antibiotics": [
+        {
+          "antibiotic": "Doxycycline",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Eravacycline",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Minocycline",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Tetracycline",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Tigecycline",
+          "mic": {
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "IE",
+            "resistant": "IE",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Oxazolidinones",
+      "antibiotics": [
+        {
+          "antibiotic": "Linezolid",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Tedizolid",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        }
+      ]
+    },
+    {
+      "antibiotic_class": "Miscellaneous agents",
+      "antibiotics": [
+        {
+          "antibiotic": "Chloramphenicol",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Colistin",
+          "mic": {
+            "sensitive": "≤2",
+            "resistant": ">2",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "NoteA",
+            "resistant": "NoteA",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Daptomycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Fosfomycin iv",
+          "mic": {
+            "sensitive": "Note3",
+            "resistant": "Note3",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "NoteB",
+            "resistant": "NoteB",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Fosfomycin oral",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Fusidic acid",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Lefamulin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Metronidazole",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Nitrofurantoin (uncomplicated UTI only)",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Nitroxoline (uncomplicated UTI only)",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Rifampicin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Spectinomycin",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Trimethoprim (uncomplicated UTI only)",
+          "mic": {
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          },
+          "disk": {
+            "content": null,
+            "sensitive": "-",
+            "resistant": "-",
+            "atu": null
+          }
+        },
+        {
+          "antibiotic": "Trimethoprim-sulfamethoxazole",
+          "mic": {
+            "sensitive": "≤2",
+            "resistant": ">4",
+            "atu": null
+          },
+          "disk": {
+            "content": "1.25-23.75",
+            "sensitive": "≥14",
+            "resistant": "<11",
+            "atu": null
+          }
+        }
+      ]
+    }
+  ]
+}
