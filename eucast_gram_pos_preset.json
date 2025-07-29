@@ -1,3 +1,4 @@
+
 [
   {
     "name": "N/A",
@@ -47,10 +48,10 @@
     "medium": "MHF co2 @ 0.5mF",
     "antibiotic_strips": [
       "Benzylpenicillin",
-      "Ampicillinicillin",
+      "Ampicillin",
       "Ceftriaxone",
-      "Levofloxacinfloxacin",
-      "Vancomycinncomycin"
+      "Levofloxacin",
+      "Vancomycin"
     ],
     "antibiotic_discs": [
       "Erythromycin + Clindamycin (D-Test)"
