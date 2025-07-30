@@ -1,0 +1,150 @@
+{
+  "organisms": "NA",
+  "clinical_group": "Bacteroides",
+  "breakpoints": [
+    {
+      "antibiotic": "Ampicillin-sulbactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "21",
+        "R": "21",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "10-10",
+        "zone_mm": {
+          "S": "25",
+          "R": "25",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Amoxicillin-clavulanic acid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "22",
+        "R": "22",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "2-1",
+        "zone_mm": {
+          "S": "14",
+          "R": "14",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Piperacillin-tazobactam",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "23",
+        "R": "23",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "30-6",
+        "zone_mm": {
+          "S": "24",
+          "R": "24",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Ertapenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "(2)4",
+        "R": "(2)4",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "10",
+        "zone_mm": {
+          "S": "(23)A",
+          "R": "(23)A",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Imipenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "1",
+        "R": "1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "10",
+        "zone_mm": {
+          "S": "29",
+          "R": "29",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Meropenem",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "1",
+        "R": "1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "10",
+        "zone_mm": {
+          "S": "28",
+          "R": "28",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Clindamycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "(4)4",
+        "R": "(4)4",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "2",
+        "zone_mm": {
+          "S": "(10)A,B",
+          "R": "(10)A,B",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "antibiotic": "Metronidazole",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "4",
+        "R": "4",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "5",
+        "zone_mm": {
+          "S": "25",
+          "R": "25",
+          "ATU": ""
+        }
+      }
+    }
+  ]
+}
