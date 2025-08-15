@@ -6,7 +6,8 @@ import pandas as pd
 import bcrypt
 import plotly
 from graph_testing import complete_graph,create_circular_zones
-import time
+from datetime import datetime
+import time 
 from streamlit_lottie import st_lottie
 from test import (
     clean_get_gram_neg,
@@ -575,14 +576,15 @@ def show_app():
                 else:
                     st.warning(f"❌ '{family_input}' not found in the database.")
 
-    elif option == "🔔Notifications":
+    elif option == "🔔 Notifications":
         with st.form("place to enter notifications"):
             with st.container(border = False): 
                 col1, col2 = st.columns(2)
                 with col1:
                     title = st.text_input("Enter Title")
                 with col2:
-                    notification_level = st.multiselect("Notification level", ["🚨High","⚠️Medium","📢Low"], max_selections=1)
+                    level = ["🚨High","⚠️Medium","📢Low"]
+                    notification_level = st.multiselect("Notification level", level, max_selections=1)
             main_info = st.text_area("Input notification")
             notification = st.form_submit_button("Submit notification")
 
@@ -591,13 +593,15 @@ def show_app():
                                   "⚠️Medium":"🟡",
                                   "📢Low":"🟢"}
 
-            if notification:
+            if notification and notification_level:
                 notification_container = st.container(border=True)
                 with notification_container:
-                    if notification_level == "🚨High":
-
-                        st.write(f"{title} {notification_color}")
-                        st.write(main_info)
+                    tab1,tab2,tab3 = st.tabs(["🚨High","⚠️Medium","📢Low"])
+                    
+                    if "🚨High" in notification_level:
+                        with tab1:
+                            st.write(f"{title} {notification_color}")
+                            st.write(main_info)
                 
                 
 
@@ -648,3 +652,4 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
