@@ -6,8 +6,7 @@ import pandas as pd
 import bcrypt
 import plotly
 from graph_testing import complete_graph,create_circular_zones
-from datetime import datetime
-import time 
+import time
 from streamlit_lottie import st_lottie
 from test import (
     clean_get_gram_neg,
@@ -19,6 +18,7 @@ from test import (
     get_breakpoints,
     process_user_results,
     matching_name_input)
+from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
 
 # --- Authentication function ---
 def check_login(username, password):
@@ -76,25 +76,76 @@ def show_app():
 
     with st.sidebar:
         st_lottie(lotties_json, speed=1, reverse=False, loop=True, quality="high", height=100, width=100)
-        st.sidebar.title(" ☰   MENU")
+        st.sidebar.title(" ☰  MENU")
         st.sidebar.write("Use the menu below to navigate:")
-        user_info = st.sidebar.selectbox("User Info", ["-- Select --", "🔑 Login", "logout", "👤 User Info"])
+        user_info = st.sidebar.selectbox("User Info", ["-- Select --", "🔑 Login", "logout", "👨‍💻Admin"])
 
-        if user_info == "👤 User Info":
-            user_info_container = st.container(border=True)
-            with user_info_container:
-                if st.session_state.get("logged_in", False):
-                    st.success(f"🔓 Logged in as {st.session_state.username}")
-                else:
-                    st.warning("You are not logged in.")
+    if user_info == "👨‍💻Admin":
+        user_info_container = st.container(border=True)
+        
+        with user_info_container:
+            if st.session_state.get("logged_in", False):
+                st.success(f"🔓 Logged in as {st.session_state.username}")
+            else:
+                st.warning("You are not logged in.")
+        tab1,tab2,tab3 = st.tabs(["🔔Manage Notifications", "⚙️Settings", "👥Users"])
 
-        if user_info == "logout":
-            if st.button("Logout"):
-                print("[INFO] User logged out")
-                st.session_state.logged_in = False
-                st.session_state.username = ""
-                st.success("🔒 You have been logged out.")
-                st.rerun()
+        with tab1:
+            st.subheader("Manage Notifications")
+            with st.form("add_notification_form"):
+                with st.container(border = False): 
+                    col1, col2 = st.columns(2)
+                with col1:
+                    title = st.text_input("Enter Title")
+                with col2:
+                    level = ["🚨High","⚠️Medium","📢Low"]
+                    notification_level = st.selectbox("Notification level", level)
+                main_info = st.text_area("Input notification")
+                notification = st.form_submit_button("Submit notification")
+
+            if notification and notification_level: 
+                if title and main_info:
+                    add_notifications(title, main_info, notification_level, author="Admin")
+                    st.success("✅ Notification added successfully")
+                else: 
+                    st.error("⚠️ Please fill all fields")
+
+            # Display existing notifications
+            notifications = load_notifications()
+
+            notifications = load_notifications()
+
+            if notifications:  # only loop if there are notifications
+                for note in notifications:
+                    col1, col2 = st.columns([4, 1])
+                with col1:
+                    st.write(f"{note['title']} - {note['level']}")
+                    st.write(note["message"])
+                with col2:
+                    if st.button("Delete", key=f"delete_{note['id']}"):
+                        if delete_notification(note['id']):
+                            st.success(f"Deleted notification: {note['title']}")
+                            st.rerun()  # only rerun after deletion
+                        else:
+                            st.error("Failed to delete notification")
+                    else:
+                        st.info("No notifications available.")
+
+        with tab2:
+            st.subheader("Settings")
+            st.info("Admin settings will go here")
+
+        with tab3: 
+            st.subheader("Users")
+            st.info("User mangement will go here ")
+
+    if user_info == "logout":
+        if st.button("Logout"):
+            print("[INFO] User logged out")
+            st.session_state.logged_in = False
+            st.session_state.username = ""
+            st.success("🔒 You have been logged out.")
+            st.rerun()
 
     option = st.sidebar.selectbox("Select a section", ["-- Select --", "🧪 Antibiotic lookup/ Sensitivites", "🦠 Bacteria Lookup", "🔔Notifications"])
     print(f"[DEBUG] Selected option: {option}")
@@ -151,7 +202,6 @@ def show_app():
 
                     else:
                         st.warning("Please select a Gram type and search type to proceed.")
-
 
             print(f"[DEBUG tab1] Input selected: {species_clinical_dynamic_input}")
             main_antibiotic_presets_container = st.container(border=True)
@@ -270,7 +320,6 @@ def show_app():
                                 st.session_state["antibiotics_left"] = antibiotics_left
                                 st.session_state["matched_left_input"] = left_name_input
                             
-
                                 status.update(label="Done matching organism A")
                                 st.rerun()
 
@@ -345,7 +394,6 @@ def show_app():
                                     st.session_state["antibiotics_right"] = antibiotics_right
                                     st.session_state["matched_right_input"] = matched_right_input
 
-
                                     status.update(label="Done matching organism B")
                                     st.rerun()
 
@@ -399,9 +447,7 @@ def show_app():
 
                             bact_left = st.session_state.get("bact_name_left")
                             group = st.session_state.get("clinical_group_left")
-                            
-
-                            
+              
                             if not bact_left:
                                 st.error(f"❌ Bacterium name not found for: {st.session_state.get('left_name_input')}. Please check your input.")
                             else:
@@ -576,35 +622,39 @@ def show_app():
                 else:
                     st.warning(f"❌ '{family_input}' not found in the database.")
 
-    elif option == "🔔 Notifications":
-        with st.form("place to enter notifications"):
-            with st.container(border = False): 
-                col1, col2 = st.columns(2)
-                with col1:
-                    title = st.text_input("Enter Title")
-                with col2:
-                    level = ["🚨High","⚠️Medium","📢Low"]
-                    notification_level = st.multiselect("Notification level", level, max_selections=1)
-            main_info = st.text_area("Input notification")
-            notification = st.form_submit_button("Submit notification")
-
-            #add color coding to the notifications
-            notification_color = {"🚨High":"🔴",
-                                  "⚠️Medium":"🟡",
-                                  "📢Low":"🟢"}
-
-            if notification and notification_level:
-                notification_container = st.container(border=True)
-                with notification_container:
-                    tab1,tab2,tab3 = st.tabs(["🚨High","⚠️Medium","📢Low"])
-                    
-                    if "🚨High" in notification_level:
-                        with tab1:
-                            st.write(f"{title} {notification_color}")
-                            st.write(main_info)
+    elif option == "🔔Notifications":
+        notifications = load_notifications() # to read the notifications from the json file
+        new_notification_container = st.container(border=True)
+        with new_notification_container:
+            st.title("🔔Notifications")
+            high,medium,low = st.tabs(["🚨High","⚠️Medium","📢Low"])
+        with high:
+            highs = [n for n in notifications if n["level"] == "🚨High"]
+            if not highs:
+                st.info("No high priority notifications")
+            for n in sorted(highs, key=lambda x: x["timestamp"], reverse=True):
+                st.markdown(f"**{n['title']}** ({n['timestamp']})")
+                st.write(n["message"])
+                st.divider()
+                        
+        with medium: 
+            mediums = [n for n in notifications if n["level"] == "⚠️Medium"]
+            if not mediums:
+                st.info("No high priority notifications")
+            for n in sorted(mediums, key=lambda x: x["timestamp"], reverse=True):
+                st.markdown(f"**{n['title']}** ({n['timestamp']})")
+                st.write(n["message"])
+                st.divider()
+                        
+        with low:
+            lows = [n for n in notifications if n["level"] == "📢Low"]
+            if not lows:
+                st.info("No high priority notifications")
+            for n in sorted(lows, key=lambda x: x["timestamp"], reverse=True):
+                st.markdown(f"**{n['title']}** ({n['timestamp']})")
+                st.write(n["message"])
+                st.divider()
                 
-                
-
     st.sidebar.markdown("Developed by Martin Galea, version 1.0")
 
 # --- App Entry Point ---
@@ -652,4 +702,3 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
-
