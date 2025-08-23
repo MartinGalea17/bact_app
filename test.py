@@ -4,28 +4,32 @@ import os
 import streamlit as st
 import re
 from difflib import get_close_matches
+
 with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
     presets = json.load(f)  # loads the JSON content into a Python list of dicts
+    
 @st.cache_data
 def clean_get_gram_neg(presets):
     names = []
     clinical_groups = []
+    neg_site = []
     for entry in presets:
        raw_name = entry.get("name","").strip()
        raw_clinical_group = entry.get("clinical_group","").strip()
+       raw_site = entry.get("site", "").strip()
        name = raw_name.lower()
        clinical_group = raw_clinical_group.lower()
+       site = raw_site.lower()
 
        if name not in ["", "n/a"] or clinical_group not in ["", "n/a"]:
-            if name not in ["", "n/a"]:
-               names.append(raw_name),
-            if clinical_group not in ["","n/a"]:
-                clinical_groups.append((entry["clinical_group"]).strip())
-
-    return names, clinical_groups
+            
+            names.append(raw_name)
+            clinical_groups.append((entry["clinical_group"]).strip())
+            neg_site.append(site)
+    return names, clinical_groups, neg_site
 
 # Get the cleaned lists
-names, clinical_groups = clean_get_gram_neg(presets)
+names, clinical_groups, neg_site = clean_get_gram_neg(presets)
 
 # Print them separately
 print("[DEBUG]List of valid gram negative names:")
@@ -41,21 +45,23 @@ with open('eucast_gram_pos_preset.json', 'r', encoding='utf-8') as f:
 def clean_get_gram_pos(pos_presets):
    pos_names =[]
    pos_clinical_groups = []
+   pos_site = []
    for entry in pos_presets:
       raw_name = entry.get("name","").strip()
       raw_clinical__group = entry.get("clinical_group","").strip()
+      pos_raw_site = entry.get("site", "").strip()
       name = raw_name.lower()
       clinical_group = raw_clinical__group.lower()
+      site = pos_raw_site.lower()
 
       if name not in ("","n/a") or clinical_group not in ("","n/a"):
-         if name not in ["","n/a"]:
-             pos_names.append(raw_name)
-         if clinical_group not in ["","n/a"]:
-            pos_clinical_groups.append(raw_clinical__group)
+        pos_names.append(raw_name)
+        pos_clinical_groups.append(raw_clinical__group)
+        pos_site.append(site)
 
-   return pos_names, pos_clinical_groups
+   return pos_names, pos_clinical_groups, pos_site
 
-pos_names, pos_clinical__groups = clean_get_gram_pos(pos_presets)
+pos_names, pos_clinical__groups, pos_site = clean_get_gram_pos(pos_presets)
 
 print("[DEBUG]List of gram positive valid names: ")
 print(pos_names)
@@ -123,7 +129,8 @@ def get_relevant_preset(bacterium_name, clinical_group, sterility_check, mic_dis
                     print(f"[DEBUG] Found MIC antibiotics for {bacterium_name}:")
                     return bacterium_name, entry["antibiotic_strips"], sterility_check
                 elif mic_disc == "disc" and "antibiotic_discs" in entry:
-                    return bacterium_name, entry["antibiotic_discs"], sterility_check
+                    print(f"[DEBUG] Found Disc antibiotics for {bacterium_name}")
+                    return bacterium_name, entry["antibiotic_discs"], sterility_check             
                 else:
                     print(f"❌ No MIC or disc antibiotics found for {bacterium_name} at {sterility_check}.")
                     return bacterium_name, None, sterility_check
@@ -144,7 +151,8 @@ def get_relevant_preset(bacterium_name, clinical_group, sterility_check, mic_dis
     # Final fallback
     return clinical_group, None, None
 
-#this is a function that will be used to get the brakpoints for the bacterium name or clinical group 
+#this is a function that will be used to get the brakpoints for the bacterium name or clinical group
+@st.cache_data 
 def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
     all_data = []
     all_organisms = []
@@ -176,8 +184,6 @@ def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
                             print(f"✅ Loaded {filename}")
                          else:
                               print(f"⚠️ Skipped non-dictionary entry in {filename}")
-                    
-
 
                except json.JSONDecodeError as e:
                     print(f"❌ Error decoding {filename}: {e}")
@@ -214,7 +220,7 @@ def get_breakpoints(bacterium_name, all_data, clinical_group=None):
                 print(f"[DEBUG] ✅ Matched by clinical group: {entry_group}")
                 return entry
 
-    print("[DEBUG] ❌ No breakpoint match found.")
+    print(f"[DEBUG] ❌ No breakpoint match found for bacterium: '{bacterium_name}' and clinical group: '{clinical_group}'.")
     return None
 
 def matching_name_input(user_input, species, cutoff = 0.6):
@@ -235,60 +241,101 @@ def matching_name_input(user_input, species, cutoff = 0.6):
         return None    
 
 def interpret_breakpoint(value, s_crit, r_crit):
-    def parse_crit(crit):
-        if not crit: return None, None
-        match = re.match(r'(<=?|>=?|=)?\s*([\d.]+)', str(crit))
-        if match:
-            op, num = match.groups()
-            return op or '=', float(num)
-        return None, None
+    #Function for EUCAST interpretation that handles MIC and disk correctly
+
+    def parse_value(val):
+        if val in (None, "", "-", "IE", "NA"):
+            return None, None
+        if isinstance(val, str):
+            match = re.match(r'(<=|>=|≤|≥|<|>|=)?\s*([\d.]+)', val)
+            if match:
+                op, num_str = match.groups()
+                return op or "=", float(num_str)
+        try:
+            return "=", float(val)
+        except (ValueError, TypeError):
+            return None, None
+
+    def compare(op, a, b):
+        if op in ("≤", "<=", "<"): return a <= b
+        if op in ("≥", ">=", ">"): return a >= b
+        return a == b
 
     try:
-        value = float(value)
-    except ValueError:
-        return "Invalid input"
+        num_value = float(value)
+    except (ValueError, TypeError):
+        return "Invalid breakpoint"
 
-    s_op, s_val = parse_crit(s_crit)
-    r_op, r_val = parse_crit(r_crit)
+    s_op, s_val = parse_value(s_crit)
+    r_op, r_val = parse_value(r_crit)
 
-    def compare(val, op, ref):
-        if op == '<': return val < ref
-        if op == '<=': return val <= ref
-        if op == '>': return val > ref
-        if op == '>=': return val >= ref
-        if op == '=': return val == ref
-        return False
+    if None in (s_val, r_val):
+        return "No breakpoint"
 
-    if s_op and compare(value, s_op, s_val):
-        return "Sensitive"
-    elif r_op and compare(value, r_op, r_val):
-        return "Resistant"
-    else:
-        return "Intermediate"
+    # Disk diffusion if S cutoff is larger than R cutoff
+    is_disk = s_val > r_val
 
+    if is_disk:  
+        if compare(s_op, num_value, s_val):
+            return "Sensitive"
+        elif compare(r_op, num_value, r_val):
+            return "Resistant"
+        else:
+            return "Intermediate"
+    else:  # MIC
+        if compare(s_op, num_value, s_val):
+            return "Sensitive"
+        elif compare(r_op, num_value, r_val):
+            return "Resistant"
+        else:
+            return "Intermediate"
+        
 def process_user_results(result_entry, user_results, mic_or_disc):
+    """Process user results with antibiotic breakpoints"""
     interpretations = {}
     breakpoints = result_entry.get("breakpoints", [])
+    
     for ab_name, user_val in user_results.items():
+        if not str(user_val).strip():
+            continue
+            
         for bp in breakpoints:
             if bp["antibiotic"].strip().lower() == ab_name.strip().lower():
-                criteria = bp.get("MIC") if mic_or_disc.lower() == "mic" else bp.get("disk", {}).get("zone_mm", {})
-                s = criteria.get("S")
-                r = criteria.get("R")
-                interpretation = interpret_breakpoint(user_val, s, r)
-                site = bp.get("class", "N/A")  # or infection site if available
-                print(f"[DEBUG] ✅ Matched {ab_name} to breakpoint entry")
-                interpretations[ab_name] = {
-                    "value": user_val,
-                    "S": s,
-                    "R": r,
-                    "interpretation": interpretation,
-                    "site": site
-                }
+                try:
+                    if mic_or_disc.lower() == "mic":
+                        criteria = bp.get("MIC", {})
+                        s = criteria.get("S")
+                        r = criteria.get("R")
+                    else:
+                        criteria = bp.get("disk", {}).get("zone_mm", {})
+                        s = criteria.get("S")
+                        r = criteria.get("R")
+                    
+                    interpretation = interpret_breakpoint(user_val, s, r)
+                    
+                    interpretations[ab_name] = {
+                        "value": user_val,
+                        "S": str(s) if s is not None else "-",
+                        "R": str(r) if r is not None else "-",
+                        "interpretation": interpretation,
+                        "site": bp.get("class", "N/A"),
+                        "breakpoints": bp
+                    }
+                except Exception as e:
+                    print(f"Error processing {ab_name}: {str(e)}")
                 break
-            else:
-                print(f"[DEBUG] Skipping: {bp['antibiotic']} (no match for {ab_name})")
+                
     return interpretations
 
+def extract_numeric(val):
+    """Extract numeric part from breakpoint strings like '≤0.25' or '≥20'."""
+    if val in (None, "-", ""):
+        return 0.0
+    if isinstance(val, str):
+        num_str = re.sub(r'[^0-9.]', '', val)
+        return float(num_str) if num_str else 0.0
+    try:
+        return float(val)
+    except (ValueError, TypeError):
+        return 0.0
 
-            
