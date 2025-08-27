@@ -1,0 +1,250 @@
+{
+  "organisms": ["Haemophilus influenzae"],
+  "clinical_group": "respiratory",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "IE",
+          "R": "IE",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin (screen only)",
+      "MIC": {
+        "S": "NA",
+        "R": "NA",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1 unit",
+        "zone_mm": {
+          "S": ">= 12",
+          "R": "< 12",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin (non-meningitis)",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 2,
+        "zone_mm": {
+          "S": ">= 18",
+          "R": "< 18",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin (meningitis)",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "IE",
+          "R": "IE",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin-clavulanic acid (IV)",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "20/10",
+        "zone_mm": {
+          "S": ">= 15",
+          "R": "< 15",
+          "ATU": "26-28"
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Piperacillin",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "IE",
+          "R": "IE",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefaclor",
+      "MIC": {
+        "S": null,
+        "R": null,
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": null,
+          "R": null,
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefepime",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 28",
+          "R": "< 28",
+          "ATU": "28-33"
+        }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem (non-meningitis)",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": {
+          "S": ">= 20",
+          "R": "< 20",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin (non-meningitis)",
+      "MIC": {
+        "S": "<= 0.06",
+        "R": "> 0.06",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 30",
+          "R": "< 30",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Azithromycin",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 25",
+          "R": "< 25",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Chloramphenicol",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 28",
+          "R": "< 28",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25/23.75",
+        "zone_mm": {
+          "S": ">= 23",
+          "R": "< 20",
+          "ATU": null
+        }
+      }
+    }
+  ],
+  "notes": [
+    "IE = Insufficient Evidence",
+    "NA = Not Applicable",
+    "NoteA/B/C = See EUCAST guidelines for special interpretations",
+    "Meningitis vs non-meningitis breakpoints differ for certain antibiotics"
+  ]
+}

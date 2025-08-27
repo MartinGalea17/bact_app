@@ -1,0 +1,168 @@
+{
+  "organisms": "Kingella kingae",
+  "clinical_group": "na",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin",
+      "MIC": { "S": "<= 0.03", "R": "> 0.03", "ATU": null },
+      "disk": {
+        "content_ug": "1 unit",
+        "zone_mm": { "S": ">= 25", "R": "< 25", "ATU": null }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin",
+      "MIC": { "S": "<= 0.062", "R": "> 0.062", "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": "NoteA", "R": "NoteA", "ATU": null }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin",
+      "MIC": { "S": "<= 0.1252", "R": "> 0.1252", "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": "NoteA", "R": "NoteA", "ATU": null }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin-clavulanic acid",
+      "MIC": { "S": "Note3", "R": "Note3", "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": "NoteB", "R": "NoteB", "ATU": null }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefotaxime",
+      "MIC": { "S": "<= 0.125", "R": "> 0.125", "ATU": null },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": { "S": ">= 27", "R": "< 27", "ATU": null }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftriaxone",
+      "MIC": { "S": "<= 0.06", "R": "> 0.06", "ATU": null },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": { "S": ">= 30", "R": "< 30", "ATU": null }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefuroxime iv",
+      "MIC": { "S": "<= 0.5", "R": "> 0.5", "ATU": null },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": { "S": ">= 29", "R": "< 29", "ATU": null }
+      }
+    },
+    {
+      "class": "Carbapenems",
+      "antibiotic": "Meropenem",
+      "MIC": { "S": "<= 0.03", "R": "> 0.03", "ATU": null },
+      "disk": {
+        "content_ug": 10,
+        "zone_mm": { "S": ">= 30", "R": "< 30", "ATU": null }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "MIC": { "S": "<= 0.06", "R": "> 0.06", "ATU": null },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": { "S": ">= 28", "R": "< 28", "ATU": null }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": { "S": "<= 0.125", "R": "> 0.125", "ATU": null },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": { "S": ">= 28", "R": "< 28", "ATU": null }
+      }
+    },
+    {
+      "class": "Macrolides and lincosamides",
+      "antibiotic": "Azithromycin",
+      "MIC": { "S": "<= 0.251", "R": "> 0.251", "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": "NoteA", "R": "NoteA", "ATU": null }
+      }
+    },
+    {
+      "class": "Macrolides and lincosamides",
+      "antibiotic": "Clarithromycin",
+      "MIC": { "S": "<= 0.51", "R": "> 0.51", "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": "NoteA", "R": "NoteA", "ATU": null }
+      }
+    },
+    {
+      "class": "Macrolides and lincosamides",
+      "antibiotic": "Erythromycin",
+      "MIC": { "S": "<= 0.5", "R": "> 0.5", "ATU": null },
+      "disk": {
+        "content_ug": 15,
+        "zone_mm": { "S": ">= 20", "R": "< 20", "ATU": null }
+      }
+    },
+    {
+      "class": "Macrolides and lincosamides",
+      "antibiotic": "Clindamycin",
+      "MIC": { "S": null, "R": null, "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": null, "R": null, "ATU": null }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "MIC": { "S": "<= 0.51", "R": "> 0.51", "ATU": null },
+      "disk": {
+        "content_ug": null,
+        "zone_mm": { "S": "NoteA", "R": "NoteA", "ATU": null }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "MIC": { "S": "<= 0.5", "R": "> 0.5", "ATU": null },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": { "S": ">= 28", "R": "< 28", "ATU": null }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Rifampicin",
+      "MIC": { "S": "<= 0.5", "R": "> 0.5", "ATU": null },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": { "S": ">= 20", "R": "< 20", "ATU": null }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "MIC": { "S": "<= 0.25", "R": "> 0.25", "ATU": null },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": { "S": ">= 28", "R": "< 28", "ATU": null }
+      }
+    }
+  ]
+}

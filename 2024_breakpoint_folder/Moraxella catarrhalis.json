@@ -1,0 +1,212 @@
+{
+  "organisms": [
+    "Moraxella catarrhalis"
+  ],
+  "clinical_group": "respiratory",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Amoxicillin-clavulanic acid",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "20/10",
+        "zone_mm": {
+          "S": ">= 19",
+          "R": "< 19",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Penicillins",
+      "antibiotic": "Ampicillin-sulbactam",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "10/10",
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefixime",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 0.5",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 21",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Cefotaxime",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 20",
+          "R": "< 17",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Cephalosporins",
+      "antibiotic": "Ceftriaxone",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 24",
+          "R": "< 21",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "MIC": {
+        "S": "<= 0.125",
+        "R": "> 0.125",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 31",
+          "R": "< 31",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Levofloxacin",
+      "MIC": {
+        "S": "<= 0.125",
+        "R": "> 0.125",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 5,
+        "zone_mm": {
+          "S": ">= 29",
+          "R": "< 29",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Azithromycin",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 15,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Erythromycin",
+      "MIC": {
+        "S": "<= 0.25",
+        "R": "> 0.25",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 15,
+        "zone_mm": {
+          "S": ">= 23",
+          "R": "< 23",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "MIC": {
+        "S": "<= 1",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "MIC": {
+        "S": "<= 2",
+        "R": "> 2",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": 30,
+        "zone_mm": {
+          "S": ">= 26",
+          "R": "< 26",
+          "ATU": null
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Trimethoprim-sulfamethoxazole",
+      "MIC": {
+        "S": "<= 0.5",
+        "R": "> 1",
+        "ATU": null
+      },
+      "disk": {
+        "content_ug": "1.25-23.75",
+        "zone_mm": {
+          "S": ">= 18",
+          "R": "< 15",
+          "ATU": null
+        }
+      }
+    }
+  ]
+}
