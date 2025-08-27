@@ -1,0 +1,139 @@
+{
+  "organisms": "Campylobacter coli",
+  "clinical_group": "",
+  "breakpoints": [
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.001",
+        "R": "0.5",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "5",
+        "zone_mm": {
+          "S": "50",
+          "R": "26",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Azithromycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "",
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Clarithromycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "",
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Erythromycin",
+      "sample_type": "C. jejuni",
+      "administration": "",
+      "MIC": {
+        "S": "41",
+        "R": "41",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "15",
+        "zone_mm": {
+          "S": "20",
+          "R": "20",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Macrolides",
+      "antibiotic": "Erythromycin",
+      "sample_type": "C. coli",
+      "administration": "",
+      "MIC": {
+        "S": "81",
+        "R": "81",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "15",
+        "zone_mm": {
+          "S": "24",
+          "R": "24",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Doxycycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "Note1",
+        "R": "Note1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "",
+        "zone_mm": {
+          "S": "NoteA",
+          "R": "NoteA",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "21",
+        "R": "21",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "30",
+        "zone_mm": {
+          "S": "30",
+          "R": "30",
+          "ATU": ""
+        }
+      }
+    }
+  ]
+}

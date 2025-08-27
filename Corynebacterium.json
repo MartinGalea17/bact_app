@@ -1,0 +1,177 @@
+{
+  "organisms": "N/A",
+  "clinical_group": "Corynebacterium",
+  "breakpoints": [
+    {
+      "class": "Penicillins",
+      "antibiotic": "Benzylpenicillin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.001",
+        "R": "1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "1 unit",
+        "zone_mm": {
+          "S": "50",
+          "R": "12",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Ciprofloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.001",
+        "R": "1",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "5",
+        "zone_mm": {
+          "S": "50",
+          "R": "25",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Fluoroquinolones",
+      "antibiotic": "Moxifloxacin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.5",
+        "R": "0.5",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "5",
+        "zone_mm": {
+          "S": "25",
+          "R": "25",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Aminoglycosides",
+      "antibiotic": "Gentamicin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "IE",
+        "R": "IE",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "IE",
+        "zone_mm": {
+          "S": "IE",
+          "R": "IE",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Glycopeptides",
+      "antibiotic": "Vancomycin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "2",
+        "R": "2",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "5",
+        "zone_mm": {
+          "S": "17A",
+          "R": "17A",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Macrolides and lincosamides",
+      "antibiotic": "Clindamycin1",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.5",
+        "R": "0.5",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "2",
+        "zone_mm": {
+          "S": "20",
+          "R": "20",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Tetracyclines",
+      "antibiotic": "Tetracycline",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "2",
+        "R": "2",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "30",
+        "zone_mm": {
+          "S": "24",
+          "R": "24",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Oxazolidinones",
+      "antibiotic": "Linezolid",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "2",
+        "R": "2",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "10",
+        "zone_mm": {
+          "S": "25",
+          "R": "25",
+          "ATU": ""
+        }
+      }
+    },
+    {
+      "class": "Miscellaneous agents",
+      "antibiotic": "Rifampicin",
+      "sample_type": "",
+      "administration": "",
+      "MIC": {
+        "S": "0.06",
+        "R": "0.06",
+        "ATU": ""
+      },
+      "disk": {
+        "content_ug": "5",
+        "zone_mm": {
+          "S": "30",
+          "R": "30",
+          "ATU": ""
+        }
+      }
+    }
+  ]
+}
