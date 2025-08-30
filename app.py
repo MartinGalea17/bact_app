@@ -18,7 +18,10 @@ from test import (
     get_breakpoints,
     process_user_results,
     matching_name_input,
-    extract_numeric)
+    extract_numeric,
+    find_matching_rules,
+    get_rules
+    )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
 
 # --- Authentication function ---
@@ -42,6 +45,7 @@ def show_app():
     # Load assets
     with open("animated_logo.json", "r") as f:
         lotties_json = json.load(f)
+    
 
     species, df, genus, family, clinical_group, gram_stain, cell_shape = get_data_in_classified_data()
     print("[DEBUG] Loaded classified data")
@@ -66,6 +70,12 @@ def show_app():
     unique_pos_groups = sorted(set(pos_clinical_groups))
     unique_pos_site = sorted(set(pos_site))
     print(f"[DEBUG]pos sites {unique_pos_site}")
+
+    with open('eucast_rules.json', 'r', encoding='utf-8') as f:
+        rules = json.load(f)
+        print("[DEBUG]✅ Loaded eucast rules")
+    extracted_rules = get_rules(rules)
+
 
     container = st.container(border=True)
     container.title('🧫 Bacteriology helper APP')
@@ -242,48 +252,51 @@ def show_app():
             # Top filters
             with st.form("global_filters", clear_on_submit=False):
                 st.header("🎛️ Shared filters")
-                with st.container():
-                    col1, col2, col3, col4 = st.columns(4, vertical_alignment="center")
-                    with col1:
-                        mic_disc = st.radio("Select MIC or Disc", ["MIC", "Disc"],key="mic_disc_filter")
-                        print(f"[DEBUG tab 2] Filter choosen is {mic_disc}")
-                    with col2:
-                        sterility = st.radio("Filter by", ["Sterile", "Urine", "Other"],key="sterility_type")
-                        print(f"[DEBUG tab 2] Filter choosen {sterility}")
-                    with col3:
-                        site = st.selectbox("Select a section", ["-- Select --", "Normal", "❤️ Endocarditis", "🧠CSF"],key="infection_site_filter")
-                    with col4:
-                        date = st.selectbox("Select Eucast date", ["-- Select --", "2021", "2024", "2025"],key="eucast_date_filter")
 
-                    submitted_filters = st.form_submit_button("Apply Filters")
+                col1, col2, col3, col4 = st.columns(4, vertical_alignment="center")
+                with col1:
+                     mic_disc = st.radio("Select MIC or Disc", ["MIC", "Disc"],key="mic_disc_filter",horizontal=False)
+                     print(f"[DEBUG tab 2] Filter choosen is {mic_disc}")
+                with col2:
+                    sterility = st.radio("Filter by", ["Sterile", "Urine", "Other"],key="sterility_type")
+                    print(f"[DEBUG tab 2] Filter choosen {sterility}")
+                with col3:
+                    site = st.selectbox("Select a section", ["-- Select --", "Normal", "❤️ Endocarditis", "🧠CSF"],key="infection_site_filter")
+                with col4:
+                    date = st.selectbox("Select Eucast date", ["-- Select --", "2021", "2024", "2025"],key="eucast_date_filter")
 
-                    #if submitted_filters:
-                        # print(f"[DEBUG] Filters applied: MIC/Disc: {mic_disc}, Sterility: {sterility}, Site: {site}, Date: {date}")
-                        #st.session_state["filters_applied"] = True
-                        #st.session_state["mic_disc_filter"] = mic_disc hashed out due to error 
-                        #st.session_state["sterility_type"] = sterility
-                        #st.session_state["infection_site_filter"] = site
-                        #st.session_state["eucast_date_filter"] = date
+                submitted_filters = st.form_submit_button("Apply Filters")
 
-                    default_session_states = {
-                    "left_name_input":"",
-                    "right_name_input":"",
-                    "bact_name_left": "",
-                    "bact_name_right":"",
-                    "clinical_group_left":"",
-                    "clinical_group_right":"",
-                    "antibiotics_left": [],
-                    "antibiotics_right": [],
-                    "left_user_result": {},
-                    "right_user_result": {},
-                    "left_submitted": False,
-                    "right_submitted": False,
-                    "sterility_type": "",
-                    "mic_disc_filter": "",}
+                if submitted_filters:
+                    st.success(f"✅ Applied filters → "
+                    f"MIC/Disc: {st.session_state.mic_disc_filter}, "
+                    f"Sterility: {st.session_state.sterility_type}, "
+                    f"Site: {st.session_state.infection_site_filter}, "
+                    f"Date: {st.session_state.eucast_date_filter}")
+
+
+                    #defaullts for organism states only 
+            default_session_states = {
+                "left_name_input":"",
+                "right_name_input":"",
+                "bact_name_left": "",
+                "bact_name_right":"",
+                "clinical_group_left":"",
+                "clinical_group_right":"",
+                "antibiotics_left": [],
+                "antibiotics_right": [],
+                "left_user_result": {},
+                "right_user_result": {},
+                "left_submitted": False,
+                "right_submitted": False,
+                "sterility_type": "",
+                "mic_disc_filter": "",}
 
             for key, val in default_session_states.items():
                 if key not in st.session_state:
-                    st.session_state[key] = val
+                    st.session_state[key] = val 
+
+
             input_results_container = st.container(border=True)
             with input_results_container:     
                 left, right = st.columns(2, vertical_alignment="top")
@@ -325,7 +338,7 @@ def show_app():
                                     #save to session state befrore rerun
                                     st.session_state["bact_name_left"] = bact_name_left
                                     st.session_state["clinical_group_left"] = clinical_group_left
-                                    st.session_state["antibiotics_left"] = antibiotics_left
+                                    st.session_state["antibiotics_left"] = antibiotics_left or []
                                     st.session_state["matched_left_input"] = left_name_input
                             
                                     status.update(label="Done matching organism A")
@@ -342,7 +355,7 @@ def show_app():
                     # Antibiotic input container - ACCESSES session state
                     if "antibiotics_left" in st.session_state:
                         with st.container(border=True):
-                            if st.session_state.get("left_name_input","").strip():
+                            if st.session_state.antibiotics_left: 
                                 st.success(f"✅ Found preset for {st.session_state.bact_name_left} " f"({st.session_state.mic_disc_filter.upper()}):")
 
                                 if "left_user_result" not in st.session_state:
@@ -351,7 +364,8 @@ def show_app():
                                 temp_results = {}
                                 # Create input fields for each antibiotic
                                 for antibiotic in st.session_state.antibiotics_left:
-                                    result = st.text_input(f"Enter result for {antibiotic}:", value=st.session_state.left_user_result.get(antibiotic, ""), key=f"left_res_{antibiotic}")
+                                    left_raw_value = st.session_state.left_user_result.get(antibiotic, "")
+                                    result = st.text_input(f"Enter result for {antibiotic}:", value=str(left_raw_value), key=f"left_res_{antibiotic}")
                                     temp_results[antibiotic] = result
                 
                                 if st.button("📤 Submit Left Results"):
@@ -399,7 +413,7 @@ def show_app():
                                         #save to session state before rerun
                                         st.session_state["bact_name_right"] = bact_name_right
                                         st.session_state["clinical_group_right"] = clinical_group_right
-                                        st.session_state["antibiotics_right"] = antibiotics_right
+                                        st.session_state["antibiotics_right"] = antibiotics_right or []
                                         st.session_state["matched_right_input"] = matched_right_input
 
                                         status.update(label="Done matching organism B")
@@ -417,7 +431,7 @@ def show_app():
                         # Antibiotic input container - ACCESSES session state
                         if "antibiotics_right" in st.session_state:
                             with st.container(border=True):
-                                if st.session_state.get("right_name_input", "").strip():
+                                if st.session_state.antibiotics_right:
                                     st.success(f"✅ Found preset for {st.session_state.bact_name_right} " f"({st.session_state.mic_disc_filter.upper()}):")
                 
                                     # Initialize results dict if not exists
@@ -426,8 +440,9 @@ def show_app():
                 
                                     # Create input fields for each antibiotic
                                     for antibiotic in st.session_state.antibiotics_right:
+                                        right_raw_value = st.session_state.right_user_result.get(antibiotic, "")
                                         result = st.text_input(
-                                        f"Enter result for {antibiotic}:",value=st.session_state.right_user_result.get(antibiotic, ""),key=f"right_res_{antibiotic}")
+                                        f"Enter result for {antibiotic}:",value=str(right_raw_value),key=f"right_res_{antibiotic}")
                                         st.session_state.right_user_result[antibiotic] = result
                 
                                     if st.button("📤 Submit right Results"):
@@ -468,18 +483,25 @@ def show_app():
                                         result = get_breakpoints(bact_left, all_data, group)
 
                                 if result:
-                                    interpretations = process_user_results(result, final_results, st.session_state["mic_disc_filter"])
-                                    for ab, info in interpretations.items():
+                                    matches_left = find_matching_rules(st.session_state["bact_name_left"], extracted_rules)
+                                    interpretations_left = process_user_results(result,final_results, st.session_state["mic_disc_filter"],matches_left)
+                                    for ab, info in interpretations_left.items():
                                         # Add color coding for interpretation
                                         color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
                                         st.markdown(f"<p><b>🔬 {ab} ({info['site']})</b><br>"f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
                                         f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",unsafe_allow_html=True)
+                                        
+                                        #display rules
+                                        if "notes" in info and info["notes"]:
+                                            for note in info ["notes"] if isinstance(info["notes"], list) else [info["notes"]]:
+                                                st.markdown(f"<span style='color:orange;'>⚠ {note}</span>", unsafe_allow_html=True)
+
                                         print(f"[DEBUG for color] Interpretation for {ab}: '{info['interpretation']}'")
                                         print(f"[DEBUG] {ab}: {info}")
 
+
                                         with st.expander(f"Further info for {ab}"):
                                             st.write(f"🔬 {ab} ({info['site']})")
-                                            st.write(f"Further information for {ab}:")
                                             st.write(f"User Value: {info['value']}")
                                             st.write(f"Eucast INPUT DATE breakpoints: S: {info['S']}, R: {info['R']}")
                                             st.write(f"Interpretation: {info['interpretation']}")
@@ -537,17 +559,25 @@ def show_app():
                                 result = get_breakpoints(matched_right_input, all_data, clinical_group_right)
         
                                 if result:
-                                    interpretations = process_user_results(result, final_results, st.session_state["mic_disc_filter"])
-                                    for ab, info in interpretations.items():
+                                    
+                                    matches_right = find_matching_rules(st.session_state["bact_name_right"], extracted_rules)
+
+                                    
+                                    interpretations_right = process_user_results(result,final_results,st.session_state["mic_disc_filter"],matches_right)
+                                    for ab, info in interpretations_right.items():
                                         # Add color coding for interpretation
                                         color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
-                                        st.markdown(
-                                            f"<p><b>🔬 {ab} ({info['site']})</b><br>"
-                                            f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
-                                            f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",
-                                            unsafe_allow_html=True)
-                                        print(f"[DEBUG for color] Interpretation for {ab}: '{info['interpretation']}'")
-                                        print(f"[DEBUG] {ab}: {info}")
+                                        st.markdown(f"<p><b>🔬 {ab} ({info['site']})</b><br>"
+                                        f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
+                                        f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",unsafe_allow_html=True)
+                                        
+                                        #display rules
+                                        if "notes" in info and info["notes"]:
+                                            for note in info ["notes"] if isinstance(info["notes"], list) else [info["notes"]]:
+                                                    st.markdown(f"<span style='color:orange;'>🚩 {note}</span>", unsafe_allow_html=True)
+                                        
+                                            print(f"[DEBUG for color] Interpretation for {ab}: '{info['interpretation']}'")
+                                            print(f"[DEBUG] {ab}: {info}")
 
                                         def to_float(val):
                                             if val in ('-', ''):
@@ -560,7 +590,6 @@ def show_app():
                                         # # Expander for each antibiotic result
                                         with st.expander(f"Further info for {ab}"):
                                             st.write(f"🔬 {ab} ({info['site']})")
-                                            st.write(f"Further information for {ab}:")
                                             st.write(f"User Value: {info['value']}")
                                             st.write(f"Eucast INPUT DATE breakpoints: S: {info['S']}, R: {info['R']}")
                                             st.write(f"Interpretation: {info['interpretation']}")
@@ -677,6 +706,14 @@ def show_app():
 # --- App Entry Point ---
 if not st.session_state.get("logged_in", False):
     print("[INFO] Showing login form")
+    header_logo_container = st.container(border=False)
+    left, right = st.columns(2, vertical_alignment="center")
+    with header_logo_container:
+        with left:
+            logo_image = r"C:\Users\marti\Desktop\code\logo.png" # Path to your logo image
+            st.image(logo_image)  # Display logo on login page
+        with right:
+            st.header("Antibiotiogram Interpretation App")
     st.subheader("🔐 Login to Access the App")
     with st.form("login_form"):
         username = st.text_input("Username")
