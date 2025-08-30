@@ -5,6 +5,7 @@ import streamlit as st
 import re
 from difflib import get_close_matches
 
+
 with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
     presets = json.load(f)  # loads the JSON content into a Python list of dicts
     
@@ -145,8 +146,12 @@ def get_relevant_preset(bacterium_name, clinical_group, sterility_check, mic_dis
                     return clinical_group, entry["antibiotic_strips"], sterility_check
                 elif mic_disc == "disc" and "antibiotic_discs" in entry:
                     return clinical_group, entry["antibiotic_discs"], sterility_check
+                else:
+                    print(f"❌ No MIC or disc antibiotics found for clinical group {clinical_group} at {sterility_check}")
         except KeyError as e:
             print(f"KeyError (fallback): {e} in entry: {entry}")
+
+    #possibility to add a final fallback using gram stain and morphology to get a close match
 
     # Final fallback
     return clinical_group, None, None
@@ -158,6 +163,7 @@ def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
     all_organisms = []
     all_clinical_groups = []
     all_antibiotic_groups = []
+    all_names = []
 
     for filename in os.listdir(json_folder):
      if filename.endswith(".json"):
@@ -175,10 +181,13 @@ def load_all_breakpoints(json_folder='2024_breakpoint_folder'):
                             organisms = entry.get("organisms", [])
                             clinical_group = entry.get("clinical_group","")
                             antibiotic_groups = entry.get("class")
+                            names = entry.get("names","")
 
                             all_organisms.append(organisms)
                             all_clinical_groups.append(clinical_group)
                             all_antibiotic_groups.append(antibiotic_groups)
+                            all_names.append(names)
+
 
                             all_data.append(entry)
                             print(f"✅ Loaded {filename}")
@@ -290,7 +299,55 @@ def interpret_breakpoint(value, s_crit, r_crit):
         else:
             return "Intermediate"
         
-def process_user_results(result_entry, user_results, mic_or_disc):
+with open('eucast_rules.json', 'r', encoding='utf-8') as f:
+    rules = json.load(f)  # loads the JSON content into a Python list of dicts
+    print("[DEBUG] ✅ Loaded rules" )
+@st.cache_data
+# Extract rules as dicts
+def get_rules(rules):
+    extracted = []
+    for entry in rules:
+        rule = entry.get("rule")
+        organisms = entry.get("organisms", [])
+        antibiotics = entry.get("antibiotics", [])
+        notes = entry.get("notes", "")
+        extracted.append({
+            "rule": rule,
+            "organisms": organisms,
+            "antibiotics": antibiotics,
+            "notes": notes
+        })
+    return extracted
+
+extracted_rules = get_rules(rules)
+
+# Find matching rules
+def find_matching_rules(organism_input, extracted, antibiotic_input=None, extracted_rules=extracted_rules):
+    organism_input = organism_input.lower()
+    if antibiotic_input:
+        antibiotic_input = antibiotic_input.lower()
+
+    matches= []
+    for entry in extracted:
+        if any (organism_input == org.lower () for org in entry["organisms"]): 
+            antibiotics_found = [] 
+            for ab in entry["antibiotics"]:
+                ab_name = ab.get("name","").lower()
+                ab_res = str(ab.get("R","")).lower()
+                if ab_res == "true":
+                    if not antibiotic_input or ab_name == antibiotic_input:
+                        antibiotics_found.append({"name": ab_name, "resistant": True})
+                        
+            if antibiotics_found:
+                matches.append({
+                    "rule": entry["rule"],
+                    "organisms": entry["organisms"],
+                    "antibiotics": antibiotics_found,
+                    "notes": entry["notes"]
+                })
+    return matches
+     
+def process_user_results(result_entry, user_results, mic_or_disc, matches):
     """Process user results with antibiotic breakpoints"""
     interpretations = {}
     breakpoints = result_entry.get("breakpoints", [])
@@ -319,13 +376,24 @@ def process_user_results(result_entry, user_results, mic_or_disc):
                         "R": str(r) if r is not None else "-",
                         "interpretation": interpretation,
                         "site": bp.get("class", "N/A"),
-                        "breakpoints": bp
+                        "breakpoints": bp,
+                        "warning": False,  # 🚩 default no warning
+                        "notes": ""
                     }
                 except Exception as e:
                     print(f"Error processing {ab_name}: {str(e)}")
                 break
-                
-    return interpretations
+        for ab_name, interp in interpretations.items():         
+            for match in matches:
+                for ab_rule in match["antibiotics"]:
+                    if ab_name.lower() == ab_rule["name"].lower():
+                        #check if eucast expected resistance condluics with user result
+                        if ab_rule["resistant"] and interp["interpretation"] == "Sensitive":
+                            interp["interpretation"] = "R*"
+                            interp["notes"] = f"🚩 Ecuast rule: {match["rule"]} → expected resistance"
+                        else:
+                            interp["notes"] = match.get("notes", "") 
+    return interpretations 
 
 def extract_numeric(val):
     """Extract numeric part from breakpoint strings like '≤0.25' or '≥20'."""
@@ -338,4 +406,3 @@ def extract_numeric(val):
         return float(val)
     except (ValueError, TypeError):
         return 0.0
-
