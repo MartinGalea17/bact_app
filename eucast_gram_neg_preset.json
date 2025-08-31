@@ -1162,5 +1162,22 @@
       ""
     ],
     "guidance": "Use Eucast bp's (N.gonorrhoeae)"
-  }
+  },
+  {
+  "name": "N/A",
+  "clinical_group": "Anaerobes", # including actinomyces and propionibacterium/cutibacterium 
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "PG",
+    "AMP",
+    "AUG",
+    "CD",
+    "MTZ"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+}, 
 ]
+
