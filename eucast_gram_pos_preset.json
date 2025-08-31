@@ -441,7 +441,7 @@
     "AMP",
     "CRO",
     "VA",
-    "CD",],
+    "CD"],
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 lactococcus spp"
 },
@@ -455,7 +455,7 @@
     "Benzylpenicillin",
     "VA",
     "ERY",
-    "CD",],
+    "CD"],
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 - Micrococcus spp"
 },
@@ -475,4 +475,103 @@
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 - Abiotrophia, Granulicatella spp"
 },
+},
+  {
+  "name": "Corynebacterium",
+  "clinical_group": "Brevibacterium",
+  "morphology": "rods",
+  "site": "Other",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Cipro",
+    "VA",
+    "CD",
+    "TETRA",
+    "RIF"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast corynebactrium bp's"
+},
+},
+  {
+  "name": "Listeria",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "Sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "AMP",
+    "MP",
+    "COT"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Listeria monocytogenes bp's"
+},
+  },
+  {
+  "name": "Lactobacillus",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "Other",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "CD",
+    "ERY",
+    "IMI",
+    "VA"],
+  "antibiotic_discs":["..."],
+  "guidance": ""
+},
+  },
+  {
+  "name": "Bacillus, brevibacillus, cohnella, lysinibacillus, paenibacillus, sporoloactobacillus",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "CIP",
+    "Va",
+    "CD",],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
+  },
+  {
+  "name": "Nocardia",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "other",
+  "medium": "MH+SB air @ 1mF for 48-72 hrs",
+  "antibiotic_strips": [
+    "AMI",
+    "AUG",
+    "CRO",
+    "Tetra",
+    "Genta",
+    "imi",
+    "linezolid",
+    "COT"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
+   },
+  {
+  "name": "N/A",
+  "clinical_group": "Anaerobes",
+  "Gram_Stain": "Gram Positive",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "Brucells Ano2 @ 1mF",
+  "antibiotic_strips": [
+    "PG",
+    "AMP",
+    "AUG",
+    "CD",
+    "MTZ"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Anaerobes gram positive"
+}, 
+
 
