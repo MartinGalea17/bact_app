@@ -431,5 +431,48 @@
   "guidance": "CLSI bp's M45 Rothia mucilaginosa"
 },
 {
-
+  "name": "Lactococcus",
+  "clinical_group": "N/A",
+  "morphology": "cocci",
+  "site": "sterile",
+  "medium": "MHF air @ 0.5MHF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "AMP",
+    "CRO",
+    "VA",
+    "CD",],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI bp's M45 lactococcus spp"
+},
+  {
+  "name": "N/A",
+  "clinical_group": "Micrococcus, kocuria, nesterenkonia, dermacoccus, kytococcus",
+  "morphology": "cocci",
+  "site": "sterile",
+  "medium": "MHF air @ 0.5MHF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "VA",
+    "ERY",
+    "CD",],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI bp's M45 - Micrococcus spp"
+},
+    {
+  "name": "N/A",
+  "clinical_group": "Abiotrophia, Granulicatella",
+  "morphology": "cocci",
+  "site": "sterile",
+  "medium": "MHF air @ 2 mF or TMSAvitox co2",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "AMP",
+    "CRO",
+    "VA",
+    "CIPRO",
+    "CD"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI bp's M45 - Abiotrophia, Granulicatella spp"
+},
 
