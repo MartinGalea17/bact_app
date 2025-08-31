@@ -396,5 +396,40 @@
       "..."
     ],
     "guidance": "Eucast bps Staphylococcus"
-  }
-]
+  },
+  {
+  "name": "Gemella",
+  "clinical_group": "N/A",
+  "morphology": "cocci",
+  "site":"other",
+  "info": "N/A",
+  "medium": "MHFco2 @ 1mf",
+  "antibiotic_strips": [
+  "Benzylpenicillin",
+  "CRO",
+  "Vancomycin",
+  "Erythromycin",
+  "Levo",
+  "Clindamycin"],
+"antibiotic_discs":["..."],
+"guidance": "CLSI bp's M45 Gemell spp"
+},
+{
+  "name": "Rothia mucilaginosa",
+  "clinical_group": "N/A",
+  "morphology": "cocci",
+  "site": "sterile",
+  "medium": "MHF air @ 1MHF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Vancomycin",
+    "Erythromycin",
+    "Clindamycin",
+    "levo",
+    "Cot"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI bp's M45 Rothia mucilaginosa"
+},
+{
+
+
