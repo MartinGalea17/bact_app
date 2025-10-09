@@ -14,150 +14,177 @@ from test import (
     get_data_in_classified_data,
     get_relevant_preset,
     match_bacterium_name_to_clinical_group,
-    load_all_breakpoints, 
-    get_breakpoints,
+    load_and_normalize_breakpoints, 
+    get_refined_breakpoints,
     process_user_results,
     matching_name_input,
     extract_numeric,
     find_matching_rules,
-    get_rules
+    get_rules,
+    get_relevant_preset_entry
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
+logo_image = r"C:\Users\marti\Desktop\code\logo.png" # Path to your logo image
 
 # --- Authentication function ---
 def check_login(username, password):
-    try:
-        hashed_pw = st.secrets["users"][username]
-        hashed_pw = "".join(hashed_pw.split())
-        print(f"[DEBUG] Checking login for user: {username}")
-        return bcrypt.checkpw(password.encode(), hashed_pw.encode())
-    except KeyError:
-        st.warning("Username not found.")
-        print(f"[ERROR] Username '{username}' not found in secrets")
+    users = st.secrets["users"]
+    if username not in users:
+        return False
+    stored_hash = users[username]["password"]
+    if bcrypt.checkpw(password.encode(), stored_hash.encode()):
+        st.session_state["role"] = users[username]["role"]
+        return True
+    else:
         return False
     
+#logout dialog confirmation
+@st.dialog("Confirm Logout")
+def confirm_logout():
+    st.write("Are you sure you want to logout?👋")
+    if st.button("Yes logout"):
+        print("[INFO] User logged out")
+        st.session_state.logged_in = False
+        st.session_state.username = ""
+        st.success("🔒 You have been logged out.")
+        st.rerun()
+#confirm delete notificaiton dialog
+@st.dialog("Confirm Delete Notification")
+def confirm_delete_notification():
+    st.write("Are you sure you want to delete this notification?")
+    if st.button("Yes, Delete"):
+        print("[INFO] Notification deleted")
+
 # --- Show App Logic ---
 def show_app():
     print("[INFO] Running show_app()")
-# Load data once at the top
-    all_data = load_all_breakpoints()
 
-    # Load assets
-    with open("animated_logo.json", "r") as f:
-        lotties_json = json.load(f)
-    
+    # --- Load normalized breakpoint data ---
+    json_folder = "2024_breakpoint_folder"  # adjust path if needed
+    all_data = load_and_normalize_breakpoints(json_folder=json_folder)
+    print(f"[DEBUG] Loaded {len(all_data)} normalized breakpoint entries from {json_folder}")
 
+    # --- Load classified bacterial data ---
     species, df, genus, family, clinical_group, gram_stain, cell_shape = get_data_in_classified_data()
-    print("[DEBUG] Loaded classified data")
+    print("[DEBUG] Loaded classified bacterial data")
 
+    # --- Load Gram-negative presets ---
     with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
         presets = json.load(f)
-        print("[DEBUG] Loaded gram-negative presets")
+        print("[DEBUG] Loaded Gram-negative presets")
 
-    names, clinical_groups,neg_site = clean_get_gram_neg(presets)
+    names, clinical_groups, neg_site = clean_get_gram_neg(presets)
     unique_names = sorted(set(names))
     unique_groups = sorted(set(clinical_groups))
-    unique_neg_site =sorted(set(neg_site))
-    print(f"[DEBUG]neg sites {unique_neg_site}")
-    
+    unique_neg_site = sorted(set(neg_site))
+    print(f"[DEBUG] Gram-negative sites: {unique_neg_site}")
 
+    # --- Load Gram-positive presets ---
     with open('eucast_gram_pos_preset.json', 'r', encoding='utf-8') as f:
         pos_presets = json.load(f)
-        print("[DEBUG] Loaded gram-positive presets")
+        print("[DEBUG] Loaded Gram-positive presets")
 
-    pos_names, pos_clinical_groups,pos_site = clean_get_gram_pos(pos_presets)
+    pos_names, pos_clinical_groups, pos_site = clean_get_gram_pos(pos_presets)
     unique_pos_names = sorted(set(pos_names))
     unique_pos_groups = sorted(set(pos_clinical_groups))
     unique_pos_site = sorted(set(pos_site))
-    print(f"[DEBUG]pos sites {unique_pos_site}")
+    print(f"[DEBUG] Gram-positive sites: {unique_pos_site}")
 
+    # --- Load rules ---
     with open('eucast_rules.json', 'r', encoding='utf-8') as f:
         rules = json.load(f)
-        print("[DEBUG]✅ Loaded eucast rules")
+        print("[DEBUG] ✅ Loaded EUCAST rules")
     extracted_rules = get_rules(rules)
-
 
     container = st.container(border=True)
     container.title('🧫 Bacteriology helper APP')
     container.markdown(
         "Welcome to the Bacterial Antibiotic Susceptibility App! "
         "This app helps you find the relevant antibiotic susceptibility data for various bacteria. "
-        "Please select a section from the dropdown list below to get started."
-    )
+        "Please select a section from the dropdown list below to get started.")
 
+    # --- Sidebar for navigation ---
     with st.sidebar:
-        st_lottie(lotties_json, speed=1, reverse=False, loop=True, quality="high", height=100, width=100)
+        st.sidebar.image(logo_image,width=150)
         st.sidebar.title(" ☰  MENU")
         st.sidebar.write("Use the menu below to navigate:")
-        user_info = st.sidebar.selectbox("User Info", ["-- Select --", "🔑 Login", "logout", "👨‍💻Admin"])
-
-    if user_info == "👨‍💻Admin":
-        user_info_container = st.container(border=True)
+        user_menu = st.sidebar.selectbox("Select a section", ["-- Select --","🥼Account", "🔐logout"])
+        print(f"[DEBUG] User menu selection: {user_menu}")
         
+    if st.session_state.get("role") == "admin" and user_menu == "🥼Account":
+        st.subheader("👨‍💻 Admin section")
+        print("[DEBUG] Admin section accessed")
+
+        user_info_container = st.container(border=True)
         with user_info_container:
             if st.session_state.get("logged_in", False):
                 st.success(f"🔓 Logged in as {st.session_state.username}")
+                tab1,tab2,tab3 = st.tabs(["🔔Manage Notifications", "⚙️Settings", "👥Users"])
+            
+                with tab1:
+                    st.subheader("Manage Notifications")
+                    with st.form("add_notification_form"):
+                        with st.container(border = False): 
+                            col1, col2 = st.columns(2)
+                        with col1:
+                            title = st.text_input("Enter Title")
+                        with col2:
+                            level = ["🚨High","⚠️Medium","📢Low"]
+                            notification_level = st.selectbox("Notification level", level)
+                        main_info = st.text_area("Input notification")
+                        notification = st.form_submit_button("Submit notification")
+
+                    if notification and notification_level: 
+                        if title and main_info:
+                            add_notifications(title, main_info, notification_level, author="Admin")
+                            st.success("✅ Notification added successfully")
+
+
+                            # Display existing notifications
+                            notifications = load_notifications()
+
+                            notifications = load_notifications()
+
+                            if notifications:  # only loop if there are notifications
+                                for note in notifications:
+                                    col1, col2 = st.columns([4, 1])
+                                    with col1:
+                                        st.write(f"{note['title']} - {note['level']}")
+                                        st.write(note["message"])
+                                    with col2:
+                                        if st.button("Delete", key=f"delete_{note['id']}"):
+                                            if delete_notification(note['id']):
+                                                st.success(f"Deleted notification: {note['title']}")
+                                                st.rerun()  # only rerun after deletion
+                                            else:
+                                                st.error("Failed to delete notification")
+                            else:
+                                st.info("No notifications available.")
+                        else: 
+                            st.error("⚠️ Please fill all fields")
+                with tab2:
+                    st.subheader("Settings")
+                    st.info("Admin settings will go here")
+
+                with tab3: 
+                    st.subheader("Users")
+                    st.info("User mangement will go here ")
             else:
                 st.warning("You are not logged in.")
-        tab1,tab2,tab3 = st.tabs(["🔔Manage Notifications", "⚙️Settings", "👥Users"])
 
-        with tab1:
-            st.subheader("Manage Notifications")
-            with st.form("add_notification_form"):
-                with st.container(border = False): 
-                    col1, col2 = st.columns(2)
-                with col1:
-                    title = st.text_input("Enter Title")
-                with col2:
-                    level = ["🚨High","⚠️Medium","📢Low"]
-                    notification_level = st.selectbox("Notification level", level)
-                main_info = st.text_area("Input notification")
-                notification = st.form_submit_button("Submit notification")
-
-            if notification and notification_level: 
-                if title and main_info:
-                    add_notifications(title, main_info, notification_level, author="Admin")
-                    st.success("✅ Notification added successfully")
-                else: 
-                    st.error("⚠️ Please fill all fields")
-
-            # Display existing notifications
-            notifications = load_notifications()
-
-            notifications = load_notifications()
-
-            if notifications:  # only loop if there are notifications
-                for note in notifications:
-                    col1, col2 = st.columns([4, 1])
-                with col1:
-                    st.write(f"{note['title']} - {note['level']}")
-                    st.write(note["message"])
-                with col2:
-                    if st.button("Delete", key=f"delete_{note['id']}"):
-                        if delete_notification(note['id']):
-                           st.success(f"Deleted notification: {note['title']}")
-                           st.rerun()  # only rerun after deletion
-                        else:
-                            st.error("Failed to delete notification")
-                    else:
-                        st.info("No notifications available.")
-
-        with tab2:
-            st.subheader("Settings")
-            st.info("Admin settings will go here")
-
-        with tab3: 
-            st.subheader("Users")
-            st.info("User mangement will go here ")
-
-    if user_info == "logout":
+    
+    elif st.session_state.get("role") == "user" and user_menu == "🥼Account":
+        st.subheader("👤 User Section")
+        if st.session_state.get("logged_in", False):
+            st.success(f" 👤 Logged in as {st.session_state.get('username')}")
+        else:
+            st.warning("You are not logged in.")
+    
+    elif user_menu == "🔐logout":
         if st.button("Logout"):
-            print("[INFO] User logged out")
-            st.session_state.logged_in = False
-            st.session_state.username = ""
-            st.success("🔒 You have been logged out.")
-            st.rerun()
-
+            confirm_logout()
+        
+    # --- Main application sections ---
     option = st.sidebar.selectbox("Select a section", ["-- Select --", "🧪 Antibiotic lookup/ Sensitivites", "🦠 Bacteria Lookup", "🔔Notifications"])
     print(f"[DEBUG] Selected option: {option}")
 
@@ -167,7 +194,7 @@ def show_app():
         container1.markdown(
             "This section provides antibiotic preset information for various bacteria and automatic antibiotic results. "
             "Please select from the following tabs.")
-        tab1, tab2= container1.tabs(["🔍 AST preset lookup", "💊Antibiotic Sensitivities"])
+        tab1, tab2,tab3= container1.tabs(["🔍 AST preset lookup", "💊Antibiotic Sensitivities","🧐 Panel verification"])
 
         with tab1:
             container2 = st.container(border=True)
@@ -204,7 +231,8 @@ def show_app():
                         filtered_groups = sorted({
                             e.get("clinical_group", "").strip()
                             for e in pos_presets
-                            if e.get("site", "").strip().lower() == input_site and e.get("clinical_group", "").strip().lower() not in ("", "n/a")})
+                            if e.get("clinical_group", "").strip().lower() not in ("", "n/a") and (not input_site or e.get("site","").strip().lower() == input_site)
+                        })
                         species_clinical_dynamic_input = st.selectbox("Enter Clinical Group", filtered_groups)
 
                     elif gram_type == "Gram Negative 🔴" and search_type == "Species Name":
@@ -233,14 +261,11 @@ def show_app():
                 input_site = site_map.get(sterility_check,"").lower()
 
                 target_presets = pos_presets if gram_type == "Gram Positive 🟣" else presets
-                selected_preset = None
-                if species_clinical_dynamic_input:
-                    for entry in target_presets:
-                        key = 'name' if search_type == "Species Name" else 'clinical_group'
-                        if (entry.get(key, "").strip().lower() == species_clinical_dynamic_input.strip().lower()
-                           and entry.get("site","").strip().lower() == input_site):
-                            selected_preset = entry
-                            break
+                selected_preset = get_relevant_preset_entry(
+                bacterium_name=species_clinical_dynamic_input.strip().lower() if search_type == "Species Name" else "",
+                clinical_group=species_clinical_dynamic_input.strip().lower() if search_type == "Clinical Group" else "",
+                sterility_check=input_site,
+                mic_or_disc=st.session_state.get("mic_disc_filter", "MIC").lower())
 
                 if selected_preset:
                     st.success(f"✅ Found preset for {species_clinical_dynamic_input}")
@@ -300,133 +325,163 @@ def show_app():
             input_results_container = st.container(border=True)
             with input_results_container:     
                 left, right = st.columns(2, vertical_alignment="top")
-                # Organism A input section
+                # --- Organism A input section ---
                 with left:
-                    with st.form(key ='left_organism_form'):
+                    with st.form(key='left_organism_form'):
                         st.subheader("🦠 Organism A")
 
                         # Input for organism name
                         left_name_input = st.text_input("Enter Organism Name:", key="left_name_input")
 
                         if st.form_submit_button("📤Submit"):
-                            matched_left_input = None # safe default value for when no input
-                            clinical_group_left = None # safe default value for when no input
+                            matched_left_input = None
+                            clinical_group_left = None
+
                             with st.status("Matching organism A...") as status:
-                                st.write("Relax dude this will not take long")
+                                st.write("Relax dude, this will not take long")
                                 time.sleep(1)
-                            
-                                if left_name_input.strip():
-                                    print(f"[DEBUG] Processing left organism:{left_name_input}")
 
-                                    # Load species and df
-                                    species, df, *_ = get_data_in_classified_data()
-                                    # Match partial input
-                                    matched_left_input = matching_name_input(left_name_input, species) or left_name_input
-                                
+                            if left_name_input.strip():
+                                print(f"[DEBUG] Processing left organism: {left_name_input}")
 
-                                    # Match to clinical group
-                                    bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(
-                                        matched_left_input, df, species)
+                                # Load species and df
+                                species, df, *_ = get_data_in_classified_data()
 
-                                    # Get relevant preset panel
-                                    name, antibiotics_left, sterility_check = get_relevant_preset(
-                                        bacterium_name=bact_name_left if bact_name_left else matched_left_input.strip().lower(),
-                                        clinical_group=clinical_group_left.strip().lower() if clinical_group_left else "",
-                                        sterility_check=st.session_state["sterility_type"].strip().lower(),
-                                        mic_disc=st.session_state["mic_disc_filter"].strip().lower())
-                                
-                                    #save to session state befrore rerun
-                                    st.session_state["bact_name_left"] = bact_name_left
-                                    st.session_state["clinical_group_left"] = clinical_group_left
-                                    st.session_state["antibiotics_left"] = antibiotics_left or []
-                                    st.session_state["matched_left_input"] = left_name_input
-                            
-                                    status.update(label="Done matching organism A")
-                                    st.rerun()
+                                # Match partial input
+                                matched_left_input = matching_name_input(left_name_input, species) or left_name_input
 
-                                    # Show matched info
-                                    st.success(f"✅ Matched species: {bact_name_left} with {clinical_group_left} clinical group")
-                                    print(f"[DEBUG] Matched left input: {matched_left_input} wihh clinical group {clinical_group_left}")
+                                # Match to clinical group
+                                bact_name_left, clinical_group_left = match_bacterium_name_to_clinical_group(
+                                    matched_left_input, df, species)
 
-                                else:
-                                    st.warning("❌ Please enter a valid organism name before submitting.")
-                                    print(f"[DEBUG] Matched left input: {matched_left_input} with clinical group {clinical_group_left}") 
+                                # Get relevant preset panel (new logic fully integrated)
+                                _, antibiotics_left, _ = get_relevant_preset(
+                                    bacterium_name=bact_name_left if bact_name_left else matched_left_input.strip().lower(),
+                                    clinical_group=clinical_group_left.strip().lower() if clinical_group_left else "",
+                                    sterility_check=st.session_state["sterility_type"].strip().lower(),
+                                    mic_disc=st.session_state["mic_disc_filter"].strip().lower())
 
-                    # Antibiotic input container - ACCESSES session state
+                                # Save to session state before rerun
+                                st.session_state["bact_name_left"] = bact_name_left
+                                st.session_state["clinical_group_left"] = clinical_group_left
+                                st.session_state["antibiotics_left"] = antibiotics_left or []
+                                st.session_state["matched_left_input"] = left_name_input
+
+                                status.update(label="Done matching organism A")
+                                st.rerun()
+
+                                # Show matched info
+                                st.success(f"✅ Matched species: {bact_name_left} with {clinical_group_left} clinical group")
+                                print(f"[DEBUG] Matched left input: {matched_left_input} with clinical group {clinical_group_left}")
+
+                            else:
+                                st.warning("❌ Please enter a valid organism name before submitting.")
+                                print(f"[DEBUG] Matched left input: {matched_left_input} with clinical group {clinical_group_left}")
+
+                     # --- Antibiotic input container ---
                     if "antibiotics_left" in st.session_state:
                         with st.container(border=True):
-                            if st.session_state.antibiotics_left: 
-                                st.success(f"✅ Found preset for {st.session_state.bact_name_left} " f"({st.session_state.mic_disc_filter.upper()}):")
+                            if st.session_state.antibiotics_left:
+                                st.success(f"✅ Found preset for {st.session_state.bact_name_left} ({st.session_state.mic_disc_filter.upper()}):")
 
                                 if "left_user_result" not in st.session_state:
                                     st.session_state.left_user_result = {}
-                
+
                                 temp_results = {}
                                 # Create input fields for each antibiotic
                                 for antibiotic in st.session_state.antibiotics_left:
                                     left_raw_value = st.session_state.left_user_result.get(antibiotic, "")
                                     result = st.text_input(f"Enter result for {antibiotic}:", value=str(left_raw_value), key=f"left_res_{antibiotic}")
                                     temp_results[antibiotic] = result
-                
+
                                 if st.button("📤 Submit Left Results"):
                                     st.session_state.left_user_result = temp_results
                                     st.session_state.left_submitted = True
                                     st.rerun()
                             else:
-                                st.warning(f"❌ No preset found for {st.session_state.bact_name_left} "f"(clinical group: {st.session_state.clinical_group_left})")
+                                st.warning(f"❌ No preset found for {st.session_state.bact_name_left} (clinical group: {st.session_state.clinical_group_left})")
                     else:
                         st.info("ℹ️ Please enter a bacterial species to begin.")
 
+                    # --- Organism B input section ---
                 with right:
-                        with st.form(key = 'Right_organism_form'):
-                            st.subheader("🦠 Organism B")
+                    with st.form(key='right_organism_form'):
+                        st.subheader("🦠 Organism B")
 
-                            # Input for organism name
-                            right_name_input = st.text_input("Enter Organism Name:", key="right_name_input")
+                        # Input for organism name
+                        right_name_input = st.text_input("Enter Organism Name:", key="right_name_input")
 
-                            if st.form_submit_button("📤Submit"):
-                                matched_right_input = None # safe default value for when no input
-                                clinical_group_right = None # safe default value for when no input
-                                with st.status("Matching organism B...") as status:
-                                    st.write("Relax dude this will not take long")
-                                    time.sleep(1)
-                                
-                                    if right_name_input.strip():
-                                        print(f"[DEBUG] Processing right organism: {right_name_input}")
-                                        # Load species and df
-                                        species, df, *_ = get_data_in_classified_data()
+                        if st.form_submit_button("📤Submit"):
+                            matched_right_input = None
+                            clinical_group_right = None
 
-                                        # Match partial input
-                                        matched_right_input = matching_name_input(right_name_input, species) or right_name_input
+                        with st.status("Matching organism B...") as status:
+                            st.write("Relax dude, this will not take long")
+                            time.sleep(1)
 
-                                        # Match to clinical group
-                                        bact_name_right, clinical_group_right = match_bacterium_name_to_clinical_group(
-                                            matched_right_input, df, species)
 
-                                        # Get relevant preset panel
-                                        name, antibiotics_right, sterility_check = get_relevant_preset(
-                                            bacterium_name=bact_name_right if bact_name_right else matched_right_input.strip().lower(),
-                                            clinical_group=clinical_group_right.strip().lower() if clinical_group_right else "",
-                                            sterility_check=st.session_state["sterility_type"].strip().lower(),
-                                            mic_disc=st.session_state["mic_disc_filter"].strip().lower())
-                                    
-                                        #save to session state before rerun
-                                        st.session_state["bact_name_right"] = bact_name_right
-                                        st.session_state["clinical_group_right"] = clinical_group_right
-                                        st.session_state["antibiotics_right"] = antibiotics_right or []
-                                        st.session_state["matched_right_input"] = matched_right_input
+                            matched_right_input = None  # safe default value
+                            clinical_group_right = None  # safe default
+                            if right_name_input.strip():
+                                print(f"[DEBUG] Processing right organism: {right_name_input}")
 
-                                        status.update(label="Done matching organism B")
-                                        st.rerun()
+                                # Load species and df
+                                species, df, *_ = get_data_in_classified_data()
 
-                                        # Show matched info
-                                        st.success(f"✅ Matched species: {bact_name_right} with {clinical_group_right} clinical group")
-                                        print(f"[DEBUG] Matched right input: {matched_right_input} wihh clinical group {clinical_group_right}")
+                                # Match partial input
+                                matched_right_input = matching_name_input(right_name_input, species) or right_name_input
 
-                                    
-                                    else:
-                                        st.warning("❌ Please enter a valid organism name before submitting.")
-                                        print(f"[DEBUG] Matched right input: {matched_right_input} with clinical group {clinical_group_right}") 
+                                # Match to clinical group
+                                bact_name_right, clinical_group_right = match_bacterium_name_to_clinical_group(
+                                    matched_right_input, df, species)
+
+                                # Get relevant preset panel (new logic fully integrated)
+                                _, antibiotics_right, _ = get_relevant_preset(
+                                    bacterium_name=bact_name_right if bact_name_right else matched_right_input.strip().lower(),
+                                    clinical_group=clinical_group_right.strip().lower() if clinical_group_right else "",
+                                    sterility_check=st.session_state["sterility_type"].strip().lower(),
+                                    mic_disc=st.session_state["mic_disc_filter"].strip().lower())
+
+                                # Save to session state before rerun
+                                st.session_state["bact_name_right"] = bact_name_right
+                                st.session_state["clinical_group_right"] = clinical_group_right
+                                st.session_state["antibiotics_right"] = antibiotics_right or []
+                                st.session_state["matched_right_input"] = matched_right_input
+
+                                status.update(label="Done matching organism B")
+                                st.rerun()
+
+                                # Show matched info
+                                st.success(f"✅ Matched species: {bact_name_right} with {clinical_group_right} clinical group")
+                                print(f"[DEBUG] Matched right input: {matched_right_input} with clinical group {clinical_group_right}")
+
+                            else:
+                                st.warning("❌ Please enter a valid organism name before submitting.")
+                                print(f"[DEBUG] Matched right input: {matched_right_input} with clinical group {clinical_group_right}")
+
+                    # --- Antibiotic input container ---
+                    if "antibiotics_right" in st.session_state:
+                        with st.container(border=True):
+                            if st.session_state.antibiotics_right:
+                                st.success(f"✅ Found preset for {st.session_state.bact_name_right} ({st.session_state.mic_disc_filter.upper()}):")
+
+                                if "right_user_result" not in st.session_state:
+                                    st.session_state.right_user_result = {}
+
+                                temp_results = {}
+                                for antibiotic in st.session_state.antibiotics_right:
+                                    right_raw_value = st.session_state.right_user_result.get(antibiotic, "")
+                                    result = st.text_input(f"Enter result for {antibiotic}:", value=str(right_raw_value), key=f"right_res_{antibiotic}")
+                                    temp_results[antibiotic] = result
+
+                                if st.button("📤 Submit Right Results"):
+                                    st.session_state.right_user_result = temp_results
+                                    st.session_state.right_submitted = True
+                                    st.rerun()
+                            else:
+                                st.warning(f"❌ No preset found for {st.session_state.bact_name_right} (clinical group: {st.session_state.clinical_group_right})")
+                    else:
+                        st.info("ℹ️ Please enter a bacterial species to begin.")
 
                         # Antibiotic input container - ACCESSES session state
                         if "antibiotics_right" in st.session_state:
@@ -480,20 +535,25 @@ def show_app():
                                         st.error(f"❌ Bacterium name not found for: {st.session_state.get('left_name_input')}. Please check your input.")
                                     else:
                                         st.success(f"✅ Results recorded for {bact_left}:")
-                                        result = get_breakpoints(bact_left, all_data, group)
+                                        refined_bps = get_refined_breakpoints(
+                                            bacterium_name=bact_left,
+                                            preset_antibiotics=st.session_state["antibiotics_left"],
+                                            normalized_data=all_data,
+                                            clinical_group=group)
 
-                                if result:
+                                if refined_bps:
                                     matches_left = find_matching_rules(st.session_state["bact_name_left"], extracted_rules)
-                                    interpretations_left = process_user_results(result,final_results, st.session_state["mic_disc_filter"],matches_left)
+                                    interpretations_left = process_user_results(final_results,st.session_state["mic_disc_filter"],matches_left,refined_bps)
                                     for ab, info in interpretations_left.items():
                                         # Add color coding for interpretation
                                         color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
-                                        st.markdown(f"<p><b>🔬 {ab} ({info['site']})</b><br>"f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
+                                        st.markdown(f"<p><b>🔬 {ab} ({info['site']})</b><br>"f"User Value: {info['value']}| S: {info['S']} | R: {info['R']}<br>"
                                         f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",unsafe_allow_html=True)
                                         
                                         #display rules
                                         if "notes" in info and info["notes"]:
                                             for note in info ["notes"] if isinstance(info["notes"], list) else [info["notes"]]:
+
                                                 st.markdown(f"<span style='color:orange;'>⚠ {note}</span>", unsafe_allow_html=True)
 
                                         print(f"[DEBUG for color] Interpretation for {ab}: '{info['interpretation']}'")
@@ -503,7 +563,7 @@ def show_app():
                                         with st.expander(f"Further info for {ab}"):
                                             st.write(f"🔬 {ab} ({info['site']})")
                                             st.write(f"User Value: {info['value']}")
-                                            st.write(f"Eucast INPUT DATE breakpoints: S: {info['S']}, R: {info['R']}")
+                                            st.write(f"Eucast INPUT DATE breakpoints:")
                                             st.write(f"Interpretation: {info['interpretation']}")
                                             if st.session_state['mic_disc_filter'] == 'MIC':
                                             # create MIC graph
@@ -556,14 +616,19 @@ def show_app():
                                     st.write("Relax dude this will not take long")
                                     time.sleep(1)
                                 st.success(f"✅ Results recorded for {matched_right_input}:")
-                                result = get_breakpoints(matched_right_input, all_data, clinical_group_right)
+                                refined_bps = get_refined_breakpoints(
+                                    bacterium_name=bact_left,
+                                    preset_antibiotics=st.session_state["antibiotics_right"],
+                                    normalized_data=all_data,
+                                    clinical_group=group)
+
         
-                                if result:
+                                if refined_bps:
                                     
                                     matches_right = find_matching_rules(st.session_state["bact_name_right"], extracted_rules)
 
                                     
-                                    interpretations_right = process_user_results(result,final_results,st.session_state["mic_disc_filter"],matches_right)
+                                    interpretations_right = process_user_results(final_results,refined_bps,st.session_state["mic_disc_filter"],matches_right)
                                     for ab, info in interpretations_right.items():
                                         # Add color coding for interpretation
                                         color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
@@ -619,6 +684,25 @@ def show_app():
                                 else:
                                     st.warning("❌ No breakpoints found for this organism")
                                     st.session_state.right_user_result = {}
+        with tab3:
+            st.header("Panel Verification")
+            st.subheader("This section will allow you to verify your panels against the presets and rules.")
+            st.warning("This section is under development. Please check back later.")
+
+            with st.container(border=True):
+                left, right = st.columns(2, vertical_alignment="top")
+                with left:
+                    st.subheader("Input Panel Image", help="Use your device camera to take a picture of the antibiotic panel.")
+                    enable_camera = st.checkbox("Enable Camera 📷")
+                    picture = st.camera_input("Take a picture of the panel", disabled = not enable_camera)
+
+                    if picture:
+                        st.image(picture, caption="Panel Image")
+
+                with right:
+                    st.subheader("Results")
+                    st.info("Panel verification results here")
+                    
 
 
     elif option == "🦠 Bacteria Lookup":
@@ -686,7 +770,7 @@ def show_app():
         with medium: 
             mediums = [n for n in notifications if n["level"] == "⚠️Medium"]
             if not mediums:
-                st.info("No high priority notifications")
+                st.info("No medium priority notifications")
             for n in sorted(mediums, key=lambda x: x["timestamp"], reverse=True):
                 st.markdown(f"**{n['title']}** ({n['timestamp']})")
                 st.write(n["message"])
@@ -695,7 +779,7 @@ def show_app():
         with low:
             lows = [n for n in notifications if n["level"] == "📢Low"]
             if not lows:
-                st.info("No high priority notifications")
+                st.info("No low priority notifications")
             for n in sorted(lows, key=lambda x: x["timestamp"], reverse=True):
                 st.markdown(f"**{n['title']}** ({n['timestamp']})")
                 st.write(n["message"])
@@ -706,21 +790,33 @@ def show_app():
 # --- App Entry Point ---
 if not st.session_state.get("logged_in", False):
     print("[INFO] Showing login form")
-    header_logo_container = st.container(border=False)
-    left, right = st.columns(2, vertical_alignment="center")
-    with header_logo_container:
-        with left:
-            logo_image = r"C:\Users\marti\Desktop\code\logo.png" # Path to your logo image
-            st.image(logo_image)  # Display logo on login page
-        with right:
-            st.header("Antibiotiogram Interpretation App")
-    st.subheader("🔐 Login to Access the App")
-    with st.form("login_form"):
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
-        submitted = st.form_submit_button("Login")
+    
+
+    left_spacer, main, right_spacer = st.columns([1,2,1])
+    with main:
+        st.header("Bacteriology helper app")
+        with st.container(border=False,width=900,height="content", horizontal_alignment="center"):
+            
+            left, right = st.columns([1, 1], vertical_alignment="center")
+            
+            with left:
+                st.image(logo_image,width=150)   # Display logo on login page
+            
+            with right:
+                st.subheader("🔐 Login to Access the App")
+            
+            with st.form("login_form"):
+                    username = st.text_input("Username")
+                    password = st.text_input("Password", type="password")
+                    submitted = st.form_submit_button("Login")
 
         if submitted:
+            users = st.secrets["users"]
+            matched_user = None
+            for key, user in users.items():
+                if username == user.get("username"):
+                    matched_user = user
+                    break
             print(f"[DEBUG] Login submitted with username: {username}")
             if check_login(username, password):
                 # Initialize all session state variables HERE after successful login
