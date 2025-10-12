@@ -468,7 +468,7 @@
        "Meropenem", 
        "Ciprofloxacin", 
        "Amikacin", 
-       "Gentamicin(LC)", 
+       "Gentamicin", 
        "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
@@ -481,7 +481,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "Member of the enterobacterales ",
+    "clinical_group": "enterobacterales",
     "morphology": "rods",
     "site": "other",
     "info": "N/A",
@@ -510,7 +510,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "Member of the enterobacterales ",
+    "clinical_group": "enterobacterales",
     "morphology": "rods",
     "site": "sterile",
     "info": "N/A",
@@ -539,9 +539,9 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "Member of the enterobacterales ",
+    "clinical_group": "enterobacterales",
     "morphology": "rods",
-    "site": "utines",
+    "site": "urines",
     "info": "N/A",
     "medium": "MHair (0.5mF)",
     "antibiotic_strips": [
@@ -687,7 +687,7 @@
     "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
     "antibiotic_strips": [
       "Ciprofloxacin", 
-      "Erytromycin", 
+      "Erythromycin", 
       "Tetracycline"
     ],
     "antibiotic_discs": [
@@ -704,11 +704,11 @@
     "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
     "antibiotic_strips": [
       "Ciprofloxacin",
-      "Erytromycin", 
+      "Erythromycin", 
       "Tetracycline",
       "Amoxicillin-clavulanic acid",
       "Ertapenem",
-      "Gentamicin(LC)"
+      "Gentamicin"
     ],
     "antibiotic_discs": [
       ""
@@ -724,11 +724,11 @@
     "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
     "antibiotic_strips": [
       "Ciprofloxacin",
-      "Erytromycin",
+      "Erythromycin",
       "Tetracycline",
       "Amoxicillin-clavulanic acid",
       "Ertapenem",
-      "Gentamicin(LC)"
+      "Gentamicin"
     ],
     "antibiotic_discs": [
       ""
@@ -775,7 +775,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -799,7 +799,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin (screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -823,7 +823,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -847,7 +847,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -872,7 +872,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -897,7 +897,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug",
       "Ceftriaxone,Ciprofloxacin",
       "Trimethoprim-sulfamethoxazole",
@@ -921,7 +921,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -946,7 +946,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -972,7 +972,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -1018,7 +1018,7 @@
       "Amoxicillin-clavulanic acid",
       "Ceftriaxone",
       "Ciprofloxacin",
-      "Erytromycin",
+      "Erythromycin",
       "Tetracycline",
       "Trimethoprim-sulfamethoxazole"
     ],
@@ -1154,7 +1154,7 @@
       "Cefixime", 
       "Ceftriaxone", 
       "Ciprofloxacin", 
-      "Azithro", 
+      "Azithromycin", 
       "Tetracycline", 
       "Spectinomycin"
     ],
@@ -1165,19 +1165,66 @@
   },
   {
   "name": "N/A",
-  "clinical_group": "Anaerobes", # including actinomyces and propionibacterium/cutibacterium 
+  "clinical_group": "Anaerobes",  
   "Gram_Stain": "Gram Negative",
   "morphology": "N/A",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
   "antibiotic_strips": [
-    "PG",
-    "AMP",
-    "AUG",
-    "CD",
-    "MTZ"],
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast Gram negative anaerobes bp's"
-}, 
+},
+ {
+  "name": "actinomyces",
+  "clinical_group": "Anaerobes", 
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+},
+ {
+  "name": "propionibacterium",
+  "clinical_group": "Anaerobes", 
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+},
+ {
+  "name": "cutibacterium",
+  "clinical_group": "Anaerobes",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+}
 ]
-
