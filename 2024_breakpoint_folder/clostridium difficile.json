@@ -1,0 +1,76 @@
+{
+    "organism": "Clostridioides difficile",
+    "Version": "2024",
+    "clinical_group": "Anaerobes",
+    "breakpoints": [
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Vancomycin",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "2",
+                "R": "2",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "IP",
+                "zone_mm": {
+                    "S": "IP",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Fidaxomicin",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "0.5",
+                "R": "0.5",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "IP",
+                "zone_mm": {
+                    "S": "IP",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Metronidazole",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "2",
+                "R": "2",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "IP",
+                "zone_mm": {
+                    "S": "IP",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        }
+    ]
+}

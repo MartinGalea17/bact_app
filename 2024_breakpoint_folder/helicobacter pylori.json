@@ -1,0 +1,145 @@
+{
+    "organism": "Helicobacter pylori",
+    "Version": "2024",
+    "clinical_group": "",
+    "breakpoints": [
+        {
+            "class": "Penicillins",
+            "antibiotic": "Amoxicillin",
+            "sample_type": "",
+            "administration": "oral",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "≤0.125",
+                "R": ">0.125",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "",
+                "zone_mm": {
+                    "S": "",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Fluoroquinolones",
+            "antibiotic": "Levofloxacin",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "≤1",
+                "R": ">1",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "",
+                "zone_mm": {
+                    "S": "",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Macrolides",
+            "antibiotic": "Clarithromycin",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "≤0.25",
+                "R": ">0.25",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "",
+                "zone_mm": {
+                    "S": "",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Tetracyclines",
+            "antibiotic": "Tetracycline",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "≤1",
+                "R": ">1",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "",
+                "zone_mm": {
+                    "S": "",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Miscellaneous agents",
+            "antibiotic": "Metronidazole",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "≤8",
+                "R": ">8",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "",
+                "zone_mm": {
+                    "S": "",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Miscellaneous agents",
+            "antibiotic": "Rifampicin",
+            "极ample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "≤1",
+                "R": ">1",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "",
+                "zone_mm": {
+                    "S": "",
+                    "R": "",
+                    "ATU": ""
+                }
+            }
+        }
+    ]
+}

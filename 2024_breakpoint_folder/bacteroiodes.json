@@ -1,0 +1,244 @@
+{
+    "organism": [
+        "Bacteroides acidifaciens",
+        "Bacteroides barnesiaes",
+        "Bacteroides caccae",
+        "Bacteroides caecicola",
+        "Bacteroides caecigallinarum",
+        "Bacteroides cellulosilyticus",
+        "Bacteroides cellulosolvens",
+        "Bacteroides clarus",
+        "Bacteroides coagulans",
+        "Bacteroides coprocola",
+        "Bacteroides coprophilus",
+        "Bacteroides coprosuis",
+        "Bacteroides dorei",
+        "Bacteroides eggerthii",
+        "Bacteroides gracilis",
+        "Bacteroides faecichinchillae",
+        "Bacteroides faecis",
+        "Bacteroides finegoldii",
+        "Bacteroides fluxus",
+        "Bacteroides fragilis",
+        "Bacteroides galacturonicus",
+        "Bacteroides gallinaceum",
+        "Bacteroides gallinarum",
+        "Bacteroides goldsteinii",
+        "Bacteroides graminisolvens",
+        "Bacteroides helcogene",
+        "Bacteroides intestinalis",
+        "Bacteroides luti",
+        "Bacteroides massiliensis",
+        "Bacteroides nordii",
+        "Bacteroides oleiciplenus",
+        "Bacteroides oris",
+        "Bacteroides ovatus",
+        "Bacteroides paurosaccharolyticus",
+        "Bacteroides plebeius",
+        "Bacteroides polypragmatus",
+        "Bacteroides propionicifaciens",
+        "Bacteroides putredinis",
+        "Bacteroides pyogenes",
+        "Bacteroides reticulotermitis",
+        "Bacteroides rodentium",
+        "Bacteroides salanitronis",
+        "Bacteroides salyersiae",
+        "Bacteroides sartorii",
+        "Bacteroides sedimenti",
+        "Bacteroides stercoris",
+        "Bacteroides suis",
+        "Bacteroides tectus",
+        "Bacteroides thetaiotaomicron",
+        "Bacteroides uniformis",
+        "Bacteroides vulgatus",
+        "Bacteroides xylanisolvens"
+    ],
+    "Version": "2024",
+    "clinical_group": "Anaerobes",
+    "breakpoints": [
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Ampicillin-sulbactam",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "2",
+                "R": "2",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "10-10",
+                "zone_mm": {
+                    "S": "25",
+                    "R": "25",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Amoxicillin-clavulanic acid",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "2",
+                "R": "2",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "2-1",
+                "zone_mm": {
+                    "S": "14",
+                    "R": "14",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Piperacillin-tazobactam",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "2",
+                "R": "2",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "30-6",
+                "zone_mm": {
+                    "S": "24",
+                    "R": "24",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Ertapenem",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "2",
+                "R": "2",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "10",
+                "zone_mm": {
+                    "S": "23",
+                    "R": "23",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Imipenem",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "1",
+                "R": "1",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "10",
+                "zone_mm": {
+                    "S": "29",
+                    "R": "29",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Meropenem",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "1",
+                "R": "1",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "10",
+                "zone_mm": {
+                    "S": "28",
+                    "R": "28",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Clindamycin",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "4",
+                "R": "4",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "2",
+                "zone_mm": {
+                    "S": "10",
+                    "R": "10",
+                    "ATU": ""
+                }
+            }
+        },
+        {
+            "class": "Antimicrobial agent",
+            "antibiotic": "Metronidazole",
+            "sample_type": "",
+            "administration": "",
+            "name": "",
+            "group": "",
+            "exclude_name": "",
+            "exclude_group": "",
+            "MIC": {
+                "S": "4",
+                "R": "4",
+                "ATU": ""
+            },
+            "disk": {
+                "content_ug": "5",
+                "zone_mm": {
+                    "S": "25",
+                    "R": "25",
+                    "ATU": ""
+                }
+            }
+        }
+    ]
+}
