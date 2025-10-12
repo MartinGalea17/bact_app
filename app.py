@@ -41,19 +41,33 @@ def check_login(username, password):
 #logout dialog confirmation
 @st.dialog("Confirm Logout")
 def confirm_logout():
-    st.write("Are you sure you want to logout?👋")
-    if st.button("Yes logout"):
-        print("[INFO] User logged out")
-        st.session_state.logged_in = False
-        st.session_state.username = ""
-        st.success("🔒 You have been logged out.")
-        st.rerun()
-#confirm delete notificaiton dialog
-@st.dialog("Confirm Delete Notification")
-def confirm_delete_notification():
-    st.write("Are you sure you want to delete this notification?")
-    if st.button("Yes, Delete"):
-        print("[INFO] Notification deleted")
+    st.warning("Are you sure you want to logout?👋")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Yes logout"):
+            print("[INFO] User logged out")
+            st.session_state.logged_in = False
+            st.session_state.username = ""
+            st.success("🔒 You have been logged out.")
+            st.rerun()
+    with col2:
+        if st.button("❌ Cancel"):
+            st.info("Logout cancelled.")
+
+#confirm delete notification dialog
+@st.dialog("Confirm Delete Noification")
+def confirm_delete(note):
+    st.warning("Are you sure you want to delete this notification?")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("✅ Yes, delete"):
+            if delete_notification(note["id"]):
+                st.success(f"Deleted notification: {note['title']}")
+                st.rerun()  # only rerun after deletion
+    with col2:
+        if st.button("❌ Cancel", key=f"cancel_{note['id']}"):
+            st.info("Deletion cancelled.")
+        
 
 # --- Show App Logic ---
 def show_app():
@@ -138,30 +152,27 @@ def show_app():
                         if title and main_info:
                             add_notifications(title, main_info, notification_level, author="Admin")
                             st.success("✅ Notification added successfully")
-
-
-                            # Display existing notifications
-                            notifications = load_notifications()
-
-                            notifications = load_notifications()
-
-                            if notifications:  # only loop if there are notifications
-                                for note in notifications:
-                                    col1, col2 = st.columns([4, 1])
-                                    with col1:
-                                        st.write(f"{note['title']} - {note['level']}")
-                                        st.write(note["message"])
-                                    with col2:
-                                        if st.button("Delete", key=f"delete_{note['id']}"):
-                                            if delete_notification(note['id']):
-                                                st.success(f"Deleted notification: {note['title']}")
-                                                st.rerun()  # only rerun after deletion
-                                            else:
-                                                st.error("Failed to delete notification")
-                            else:
-                                st.info("No notifications available.")
+                            st.rerun()  # only rerun after adding notification
                         else: 
                             st.error("⚠️ Please fill all fields")
+
+                            # Display existing notifications
+                    st.divider()
+                    st.subheader("📜 Existing Notifications")
+
+                    notifications = load_notifications()
+
+                    if notifications:  # only loop if there are notifications
+                        for note in notifications:
+                            col1, col2 = st.columns([4, 1])
+                            with col1:
+                                st.write(f"{note['title']} - {note['level']}")
+                                st.write(note["message"])
+                            with col2:
+                                if st.button("🗑 Delete", key=f"delete_{note['id']}"):
+                                    confirm_delete(note)
+                    else:
+                        st.info("No notifications available.")
                 with tab2:
                     st.subheader("Settings")
                     st.info("Admin settings will go here")
