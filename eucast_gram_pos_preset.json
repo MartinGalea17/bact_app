@@ -56,7 +56,7 @@
     "antibiotic_discs": [
       "Erythromycin + Clindamycin (D-Test)"
     ],
-    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
    {
     "name": "N/A",
@@ -75,7 +75,7 @@
     "antibiotic_discs": [
       "Erythromycin + Clindamycin (D-Test)"
     ],
-    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
   {
     "name": "N/A",
@@ -93,7 +93,7 @@
       "Vancomycin",
       "Erythromycin + Clindamycin (D-Test)"
     ],
-    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
   {
     "name": "N/A",
@@ -111,7 +111,7 @@
       "Vancomycin",
       "Erythromycin + Clindamycin (D-Test)"
     ],
-    "guidance": "Eucast bps viridans streptococci and CLSI bps for levo(M100 - Streprococcus spp.viridans group)"
+    "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
   {
     "name": "Streptococcus pneumoniae",
@@ -126,7 +126,7 @@
       "Ceftriaxone",
       "Imipenem",
       "Meropenem(only for CSF's and when requested)",
-      "levo",
+      "Levofloxacin",
       "Vancomycin",
       "Erythromycin",
       "Tetracycline"
@@ -150,7 +150,7 @@
       "Ceftriaxone",
       "Imipenem",
       "Meropenem(only for CSF's and when requested)",
-      "levo",
+      "Levofloxacin",
       "Vancomycin",
       "Erythromycin",
       "Tetracycline"
@@ -171,7 +171,7 @@
     "antibiotic_strips": [
       "Benzylpenicillin",
       "Ampicillin(2ug)",
-      "CTX",
+      "Cefotaxime ",
       "Ceftriaxone",
       "Clindamycin"
     ],
@@ -189,7 +189,7 @@
     "antibiotic_discs": [
       "Benzylpenicillin",
       "Ampicillin(2ug)",
-      "CTX",
+      "Cefotaxime  ",
       "Ceftriaxone",
       "Clindamycin"
     ],
@@ -197,7 +197,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "Aerococcus species",
+    "clinical_group": "Aerococcus",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -215,7 +215,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "Aerococcus species",
+    "clinical_group": "Aerococcus",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -239,12 +239,12 @@
     "info": "N/A",
     "medium": "MH air @ 0.5mF",
     "antibiotic_strips": [
-      "Ampicillinicillin",
-      "Gentamycin(HC)",
+      "Ampicillin",
+      "Gentamycin",
       "Vancomycin",
       "Teicoplanin",
-      "TGC",
-      "Linzolid"
+      "Tigecycline",
+      "linezolid"
     ],
     "antibiotic_discs": [],
     "guidance": "Eucast bps Enterococcus"
@@ -261,7 +261,7 @@
       "Ampicillin",
       "Vancomycin",
       "Teicoplanin",
-      "TGC"
+      "Tigecycline"
     ],
     "guidance": "Eucast bps Enterococcus"
   },
@@ -406,10 +406,10 @@
   "medium": "MHFco2 @ 1mf",
   "antibiotic_strips": [
   "Benzylpenicillin",
-  "CRO",
+  "Ceftriaxone ",
   "Vancomycin",
   "Erythromycin",
-  "Levo",
+  "Levofloxacin",
   "Clindamycin"],
 "antibiotic_discs":["..."],
 "guidance": "CLSI bp's M45 Gemell spp"
@@ -425,8 +425,8 @@
     "Vancomycin",
     "Erythromycin",
     "Clindamycin",
-    "levo",
-    "Cot"],
+    "Levofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 Rothia mucilaginosa"
 },
@@ -438,10 +438,10 @@
   "medium": "MHF air @ 0.5MHF",
   "antibiotic_strips": [
     "Benzylpenicillin",
-    "AMP",
-    "CRO",
-    "VA",
-    "CD"],
+    "Ampicillin",
+    "Ceftriaxone ",
+    "Vancomycin",
+    "Clindamycin"],
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 lactococcus spp"
 },
@@ -453,9 +453,9 @@
   "medium": "MHF air @ 0.5MHF",
   "antibiotic_strips": [
     "Benzylpenicillin",
-    "VA",
-    "ERY",
-    "CD"],
+    "Vancomycin",
+    "Erythromycin",
+    "Clindamycin"],
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 - Micrococcus spp"
 },
@@ -467,14 +467,13 @@
   "medium": "MHF air @ 2 mF or TMSAvitox co2",
   "antibiotic_strips": [
     "Benzylpenicillin",
-    "AMP",
-    "CRO",
-    "VA",
-    "CIPRO",
-    "CD"],
+    "Ampicillin",
+    "Ceftriaxone ",
+    "Vancomycin",
+    "Ciptrofloxacin ",
+    "Clindamycin"],
   "antibiotic_discs":["..."],
   "guidance": "CLSI bp's M45 - Abiotrophia, Granulicatella spp"
-},
 },
   {
   "name": "Corynebacterium",
@@ -484,14 +483,13 @@
   "medium": "MHFco2 @ 1mF",
   "antibiotic_strips": [
     "Benzylpenicillin",
-    "Cipro",
-    "VA",
-    "CD",
-    "TETRA",
-    "RIF"],
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin",
+    "Tetracycline",
+    "Rifampin"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast corynebactrium bp's"
-},
 },
   {
   "name": "Listeria",
@@ -501,13 +499,12 @@
   "medium": "MHFco2 @ 1mF",
   "antibiotic_strips": [
     "Benzylpenicillin",
-    "AMP",
-    "MP",
-    "COT"],
+    "Ampicillin",
+    "Meropenem",
+    "Trimethoprim-sulfamethoxazole"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast Listeria monocytogenes bp's"
 },
-  },
   {
   "name": "Lactobacillus",
   "clinical_group": "N/A",
@@ -516,28 +513,91 @@
   "medium": "MHFco2 @ 1mF",
   "antibiotic_strips": [
     "Benzylpenicillin",
-    "CD",
-    "ERY",
-    "IMI",
-    "VA"],
+    "Clindamycin",
+    "Erythromycin",
+    "Imipenem ",
+    "Vancomycin"],
   "antibiotic_discs":["..."],
   "guidance": ""
 },
-  },
   {
-  "name": "Bacillus, brevibacillus, cohnella, lysinibacillus, paenibacillus, sporoloactobacillus",
+  "name": "Bacillus",
   "clinical_group": "N/A",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
   "antibiotic_strips": [
-    "CIP",
-    "Va",
-    "CD",],
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast Bacillus bp's"
 },
-  },
+  {
+  "name": "brevibacillus",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
+  {
+  "name": "cohnella",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
+  {
+  "name": "lysinibacillus",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
+  {
+  "name": "paenibacillus",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
+  {
+  "name": "sporoloactobacillus",
+  "clinical_group": "N/A",
+  "morphology": "rods",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Bacillus bp's"
+},
   {
   "name": "Nocardia",
   "clinical_group": "N/A",
@@ -545,33 +605,32 @@
   "site": "other",
   "medium": "MH+SB air @ 1mF for 48-72 hrs",
   "antibiotic_strips": [
-    "AMI",
-    "AUG",
-    "CRO",
-    "Tetra",
-    "Genta",
-    "imi",
+    "Amikacin",
+    "Augmentin",
+    "Ceftriaxone ",
+    "Tetracycline",
+    "Gentamycin",
+    "Imipenem ",
     "linezolid",
-    "COT"],
+    "Trimethoprim-sulfamethoxazole"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast Bacillus bp's"
 },
-   },
   {
   "name": "N/A",
-  "clinical_group": "Anaerobes",
+  "clinical_group": "Anaerobe",
   "Gram_Stain": "Gram Positive",
   "morphology": "N/A",
   "site": "sterile",
   "medium": "Brucells Ano2 @ 1mF",
   "antibiotic_strips": [
-    "PG",
-    "AMP",
-    "AUG",
-    "CD",
-    "MTZ"],
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Augmentin",
+    "Clindamycin",
+    "Metronidazole"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast Anaerobes gram positive"
-}, 
-
+}
+]
 
