@@ -35,3 +35,7 @@ Clone the repository and install dependencies:
 git clone https://github.com/MartinGalea17/bact_app.git
 cd bact_app
 pip install -r requirements.txt
+
+📜 License
+
+MIT License © 2025 Martin Galea
