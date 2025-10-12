@@ -1,0 +1,859 @@
+[
+  {
+    "rule": "1.1",
+    "organisms": ["Citrobacter koseri", "Citrobacter amalonaticus"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.2",
+    "organisms": ["Citrobacter freundii"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.3",
+    "organisms": ["Enterobacter cloacae complex"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.4",
+    "organisms": ["Escherichia hermannii"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.5",
+    "organisms": ["Hafnia alvei"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": false},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": true},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.6",
+    "organisms": ["Klebsiella aerogenes"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": "Resistance expected due to chromosomal AmpC β-lactamase—cefoxitin breakpoints not defined."
+  },
+  {
+    "rule": "1.7",
+    "organisms": ["Klebsiella pneumoniae complex"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.8",
+    "organisms": ["Klebsiella oxytoca"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.9",
+    "organisms": ["Leclercia adecarboxylata"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": false},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": false},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": true},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.10",
+    "organisms": ["Morganella morganii"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": true},
+      {"name": "Cefadroxil", "R": true},
+      {"name": "Cefoxitin", "R": true},
+      {"name": "Cefuroxime", "R": true},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.11",
+    "organisms": ["Plesiomonas shigelloides"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.12",
+    "organisms": ["Proteus mirabilis"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": false},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": false},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.13",
+    "organisms": ["Proteus penneri"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": true},
+      {"name": "Cefadroxil", "R": true},
+      {"name": "Cefoxitin", "R": true},
+      {"name": "Cefuroxime", "R": true},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.14",
+    "organisms": ["Proteus vulgaris"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": true},
+      {"name": "Cefadroxil", "R": true},
+      {"name": "Cefoxitin", "R": true},
+      {"name": "Cefuroxime", "R": true},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.15",
+    "organisms": ["Providencia rettgeri"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": true},
+      {"name": "Cefadroxil", "R": true},
+      {"name": "Cefoxitin", "R": true},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.16",
+    "organisms": ["Providencia stuartii"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": false},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": true},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.17",
+    "organisms": ["Raoultella spp."],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Cefazolin", "R": false},
+      {"name": "Cephalothin", "R": false},
+      {"name": "Cephalexin", "R": false},
+      {"name": "Cefadroxil", "R": false},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": true},
+      {"name": "Tetracyclines", "R": true},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.18",
+    "organisms": ["Serratia marcescens"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": true},
+      {"name": "Cefadroxil", "R": true},
+      {"name": "Cefoxitin", "R": false},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": false}
+    ],
+    "notes": "Intrinsic resistance to tetracycline and doxycycline; susceptibility may vary for minocycline and tigecycline."
+  },
+  {
+    "rule": "1.19",
+    "organisms": ["Yersinia enterocolitica"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Cefazolin", "R": true},
+      {"name": "Cephalothin", "R": true},
+      {"name": "Cephalexin", "R": true},
+      {"name": "Cefadroxil", "R": true},
+      {"name": "Cefoxitin", "R": true},
+      {"name": "Cefuroxime", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Nitrofurantoin", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.20",
+    "organisms": ["Yersinia pseudotuberculosis"],
+    "antibiotics": [
+      {"name": "All listed antibiotics", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.21",
+    "organisms": ["Aeromonas hydrophila"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": false},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Other listed", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.22",
+    "organisms": ["Aeromonas veronii"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Other listed", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.23",
+    "organisms": ["Aeromonas dhakensis"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ticarcillin", "R": true},
+      {"name": "Other listed", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.24",
+    "organisms": ["Aeromonas caviae"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Other listed", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "1.25",
+    "organisms": ["Aeromonas jandaei"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Other listed", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "2.1",
+    "organisms": ["Acinetobacter baumannii", "Acinetobacter pittii", "Acinetobacter nosocomialis"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ticarcillin", "R": false},
+      {"name": "Chloramphenicol", "R": false},
+      {"name": "Aminoglycosides", "R": false},
+      {"name": "Trimethoprim", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Ciprofloxacin", "R": true}
+    ],
+    "notes": "May appear susceptible to ampicillin-sulbactam; interpret with caution."
+  },
+  {
+    "rule": "2.2",
+    "organisms": ["Achromobacter xylosoxidans", "Burkholderia cepacia complex"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Trimethoprim", "R": true},
+      {"name": "Other listed", "R": false}
+    ],
+    "notes": "Burkholderia complex may appear susceptible in vitro but are clinically resistant."
+  },
+  {
+    "rule": "2.3",
+    "organisms": ["Elizabethkingia meningoseptica"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Chloramphenicol", "R": true},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Trimethoprim", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Tetracyclines", "R": true},
+      {"name": "Tigecycline", "R": true},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Ciprofloxacin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "2.4",
+    "organisms": ["Elizabethkingia anophelis"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Chloramphenicol", "R": true},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Trimethoprim", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Tetracyclines", "R": true},
+      {"name": "Tigecycline", "R": true},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Ciprofloxacin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "2.5",
+    "organisms": ["Ochrobactrum anthropi"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Chloramphenicol", "R": true},      {"name": "Aminoglycosides", "R": true},
+      {"name": "Trimethoprim", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Tetracyclines", "R": true},
+      {"name": "Tigecycline", "R": true},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Ciprofloxacin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "2.6",
+    "organisms": ["Pseudomonas aeruginosa"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulanic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Chloramphenicol", "R": true},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Tetracyclines", "R": true},
+      {"name": "Trimethoprim", "R": false},
+      {"name": "Fosfomycin", "R": false},
+      {"name": "Tigecycline", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Ciprofloxacin", "R": false}
+    ],
+    "notes": "Resistances reflect intrinsic permeability barriers and efflux."
+  },
+  {
+    "rule": "2.7",
+    "organisms": ["Stenotrophomonas maltophilia"],
+    "antibiotics": [
+      {"name": "Ampicillin/Amoxicillin", "R": true},
+      {"name": "Amoxicillin-clavulonic acid", "R": true},
+      {"name": "Ampicillin-sulbactam", "R": true},
+      {"name": "Chloramphenicol", "R": true},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Trimethoprim", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Tigecycline", "R": true},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Tetracyclines", "R": false},
+      {"name": "Ciprofloxacin", "R": false}
+    ],
+    "notes": "Always resistant to tetracycline; susceptibility varies for doxycycline, minocycline, tigecycline."
+  },
+  {
+    "rule": "3.1",
+    "organisms": ["Haemophilus influenzae"],
+    "antibiotics": [
+      {"name": "Fusidic acid", "R": true},
+      {"name": "Streptogramins", "R": true},
+      {"name": "Trimethoprim", "R": false},
+      {"name": "Nalidixic acid", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "3.2",
+    "organisms": ["Moraxella catarrhalis"],
+    "antibiotics": [
+      {"name": "Streptogramins", "R": true},
+      {"name": "Nalidixic acid", "R": true},
+      {"name": "Fusidic acid", "R": false},
+      {"name": "Trimethoprim", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "3.3",
+    "organisms": ["Neisseria spp."],
+    "antibiotics": [
+      {"name": "Streptogramins", "R": true},
+      {"name": "Fusidic acid", "R": false},
+      {"name": "Trimethoprim", "R": false},
+      {"name": "Nalidixic acid", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "3.4",
+    "organisms": ["Campylobacter fetus"],
+    "antibiotics": [
+      {"name": "Streptogramins", "R": true},
+      {"name": "Fusidic acid", "R": false},
+      {"name": "Trimethoprim", "R": false},
+      {"name": "Nalidixic acid", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "3.5",
+    "organisms": ["Campylobacter jejuni", "Campylobacter coli"],
+    "antibiotics": [
+      {"name": "Fusidic acid", "R": true},
+      {"name": "Streptogramins", "R": true},
+      {"name": "Trimethoprim", "R": true},
+      {"name": "Nalidixic acid", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.1",
+    "organisms": ["Staphylococcus saprophyticus"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Ceftazidime", "R": true},
+      {"name": "Cephalosporins (except ceftazidime)", "R": true},
+      {"name": "Aminoglycosides", "R": false},
+      {"name": "Macrolides", "R": false},
+      {"name": "Clindamycin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.2",
+    "organisms": ["Staphylococcus cohnii"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.3",
+    "organisms": ["Staphylococcus xylosus"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Aminoglycosides", "R": false},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.4",
+    "organisms": ["Staphylococcus capitis"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Aminoglycosides", "R": false},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.5",
+    "organisms": ["Other coagulase-negative staphylococci", "Staphylococcus aureus"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Streptogramins", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.6",
+    "organisms": ["Streptococcus spp."],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Fusidic acid", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.7",
+    "organisms": ["Enterococcus faecalis"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Aminoglycosides (LLR)", "R": true},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": true},
+      {"name": "Quinupristin-dalfopristin", "R": true},
+      {"name": "Vancomycin", "R": true},
+      {"name": "Teicoplanin", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Novobiocin", "R": true},
+      {"name": "Sulfonamides", "R": true}
+    ],
+    "notes": "LLR = low-level aminoglycoside resistance; synergy with β-lactams may be effective unless high-level resistance is present."
+  },
+  {
+    "rule": "4.8",
+    "organisms": ["Enterococcus gallinarum", "Enterococcus casseliflavus"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": true},
+      {"name": "Quinupristin-dalfopristin", "R": true},
+      {"name": "Vancomycin", "R": true},
+      {"name": "Teicoplanin", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Novobiocin", "R": true},
+      {"name": "Sulfonamides", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.9",
+    "organisms": ["Enterococcus faecium"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": true},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": true},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Aminoglycosides (LLR)", "R": true},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": true},
+      {"name": "Quinupristin-dalfopristin", "R": true},
+      {"name": "Vancomycin", "R": true},
+      {"name": "Teicoplanin", "R": true}
+    ],
+    "notes": "LLR as above; intrinsic resistance to cephalosporins present."
+  },
+  {
+    "rule": "4.10",
+    "organisms": ["Corynebacterium spp."],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": false},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Fusidic acid", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.11",
+    "organisms": ["Listeria monocytogenes"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": false},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Nalidixic acid", "R": true},
+      {"name": "Cefotaxime", "R": true},
+      {"name": "Ceftriaxone", "R": true},
+      {"name": "Fosfomycin", "R": true},
+      {"name": "Fusidic acid", "R": false},
+      {"name": "Streptogramins", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.12",
+    "organisms": ["Leuconostoc spp.", "Pediococcus spp."],
+    "antibiotics": [
+      {"name": "All listed antibiotics", "R": false}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "4.13",
+    "organisms": ["Lactobacillus spp. (L. casei, L. casei var. rhamnosus)"],
+    "antibiotics": [
+      {"name": "Aztreonam", "R": false},
+      {"name": "Temocillin", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Nalidixic acid", "R": false},
+      {"name": "Vancomycin", "R": true},
+      {"name": "Aminoglycosides", "R": true},
+      {"name": "Macrolides", "R": true},
+      {"name": "Clindamycin", "R": true},
+      {"name": "Fusidic acid", "R": true},
+      {"name": "Streptogramins", "R": true}
+    ],
+    "notes": ""
+  },
+  {
+    "rule": "5.1",
+    "organisms": ["Clostridium ramosum", "Clostridium innocuum"],
+    "antibiotics": [
+      {"name": "Vancomycin", "R": true},
+      {"name": "Aztreonam", "R": false},
+      {"name": "Aminoglycosides", "R": false},
+      {"name": "Polymyxin B/Colistin", "R": false},
+      {"name": "Nalidixic acid", "R": false}
+    ],
+    "notes": ""
+  }
+]
