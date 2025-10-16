@@ -1,3 +1,4 @@
+
 import streamlit as st
 import re
 import json
@@ -23,7 +24,7 @@ from test import (
     get_relevant_preset_entry
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
-logo_image = "logo.png"  #logo image
+logo_image = r"C:\Users\marti\Desktop\code\logo.png" # Path to your logo image
 
 # --- Authentication function ---
 def check_login(username, password):
@@ -413,116 +414,8 @@ def show_app():
                     else:
                         st.info("ℹ️ Please enter a bacterial species to begin.")
 
-                    # --- Organism B input section ---
+                # --- Results Interpretation Section ---
                 with right:
-                    with st.form(key='right_organism_form'):
-                        st.subheader("🦠 Organism B")
-
-                        # Input for organism name
-                        right_name_input = st.text_input("Enter Organism Name:", key="right_name_input")
-
-                        if st.form_submit_button("📤Submit"):
-                            matched_right_input = None
-                            clinical_group_right = None
-
-                        with st.status("Matching organism B...") as status:
-                            st.write("Relax dude, this will not take long")
-                            time.sleep(1)
-
-
-                            matched_right_input = None  # safe default value
-                            clinical_group_right = None  # safe default
-                            if right_name_input.strip():
-                                print(f"[DEBUG] Processing right organism: {right_name_input}")
-
-                                # Load species and df
-                                species, df, *_ = get_data_in_classified_data()
-
-                                # Match partial input
-                                matched_right_input = matching_name_input(right_name_input, species) or right_name_input
-
-                                # Match to clinical group
-                                bact_name_right, clinical_group_right = match_bacterium_name_to_clinical_group(
-                                    matched_right_input, df, species)
-
-                                # Get relevant preset panel (new logic fully integrated)
-                                _, antibiotics_right, _ = get_relevant_preset(
-                                    bacterium_name=bact_name_right if bact_name_right else matched_right_input.strip().lower(),
-                                    clinical_group=clinical_group_right.strip().lower() if clinical_group_right else "",
-                                    sterility_check=st.session_state["sterility_type"].strip().lower(),
-                                    mic_disc=st.session_state["mic_disc_filter"].strip().lower())
-
-                                # Save to session state before rerun
-                                st.session_state["bact_name_right"] = bact_name_right
-                                st.session_state["clinical_group_right"] = clinical_group_right
-                                st.session_state["antibiotics_right"] = antibiotics_right or []
-                                st.session_state["matched_right_input"] = matched_right_input
-
-                                status.update(label="Done matching organism B")
-                                st.rerun()
-
-                                # Show matched info
-                                st.success(f"✅ Matched species: {bact_name_right} with {clinical_group_right} clinical group")
-                                print(f"[DEBUG] Matched right input: {matched_right_input} with clinical group {clinical_group_right}")
-
-                            else:
-                                st.warning("❌ Please enter a valid organism name before submitting.")
-                                print(f"[DEBUG] Matched right input: {matched_right_input} with clinical group {clinical_group_right}")
-
-                    # --- Antibiotic input container ---
-                    if "antibiotics_right" in st.session_state:
-                        with st.container(border=True):
-                            if st.session_state.antibiotics_right:
-                                st.success(f"✅ Found preset for {st.session_state.bact_name_right} ({st.session_state.mic_disc_filter.upper()}):")
-
-                                if "right_user_result" not in st.session_state:
-                                    st.session_state.right_user_result = {}
-
-                                temp_results = {}
-                                for antibiotic in st.session_state.antibiotics_right:
-                                    right_raw_value = st.session_state.right_user_result.get(antibiotic, "")
-                                    result = st.text_input(f"Enter result for {antibiotic}:", value=str(right_raw_value), key=f"right_res_{antibiotic}")
-                                    temp_results[antibiotic] = result
-
-                                if st.button("📤 Submit Right Results"):
-                                    st.session_state.right_user_result = temp_results
-                                    st.session_state.right_submitted = True
-                                    st.rerun()
-                            else:
-                                st.warning(f"❌ No preset found for {st.session_state.bact_name_right} (clinical group: {st.session_state.clinical_group_right})")
-                    else:
-                        st.info("ℹ️ Please enter a bacterial species to begin.")
-
-                        # Antibiotic input container - ACCESSES session state
-                        if "antibiotics_right" in st.session_state:
-                            with st.container(border=True):
-                                if st.session_state.antibiotics_right:
-                                    st.success(f"✅ Found preset for {st.session_state.bact_name_right} " f"({st.session_state.mic_disc_filter.upper()}):")
-                
-                                    # Initialize results dict if not exists
-                                    if "right_user_result" not in st.session_state:
-                                        st.session_state.right_user_result = {}
-                
-                                    # Create input fields for each antibiotic
-                                    for antibiotic in st.session_state.antibiotics_right:
-                                        right_raw_value = st.session_state.right_user_result.get(antibiotic, "")
-                                        result = st.text_input(
-                                        f"Enter result for {antibiotic}:",value=str(right_raw_value),key=f"right_res_{antibiotic}")
-                                        st.session_state.right_user_result[antibiotic] = result
-                
-                                    if st.button("📤 Submit right Results"):
-                                        st.session_state.right_submitted = True
-                                        st.rerun()
-
-                                else:
-                                    st.warning(f"❌ No preset found for {st.session_state.bact_name_right} "f"(clinical group: {st.session_state.clinical_group_right})")
-                        else:
-                            st.info("ℹ️ Please enter a bacterial species to begin.")
-
-                result_container = st.container(border=True)
-                with result_container:
-                    left, right = st.columns(2, vertical_alignment="top")
-                    with left:
                         header_left = st.container(border=True)
                         with header_left:
                             st.header("📄Results")
@@ -601,117 +494,24 @@ def show_app():
                                 else:
                                     st.warning("❌ No breakpoints found for this organism")
                                     st.session_state.left_user_result = {}
+            with tab3:      
+                st.header("Panel Verification")
+                st.subheader("This section will allow you to verify your panels against the presets and rules.")
+                st.warning("This section is under development. Please check back later.")
+
+                with st.container(border=True):
+                    left, right = st.columns(2, vertical_alignment="top")
+                    with left:
+                        st.subheader("Input Panel Image", help="Use your device camera to take a picture of the antibiotic panel.")
+                        enable_camera = st.checkbox("Enable Camera 📷")
+                        picture = st.camera_input("Take a picture of the panel", disabled = not enable_camera)
+
+                        if picture:
+                            st.image(picture, caption="Panel Image")
 
                     with right:
-                        right_header = st.container(border=True)
-                        with right_header:
-                            st.header("📄Results")
-
-                        interpretation_container_right = st.container()
-
-                        if st.session_state.right_submitted:
-                            with interpretation_container_right:
-                                # Get values from session state with defaults
-                                bact_name_right = st.session_state.get("bact_name_right", "")
-                                clinical_group_right = st.session_state.get("clinical_group_right", "")
-                                matched_right_input = st.session_state.get("matched_right_input", right_name_input)
-
-                                if not bact_name_right:
-                                    st.error(f"❌ Bacterium name not found for: {right_name_input}. Please check your input.")
-
-                                final_results = {k.replace("right_", ""): v 
-                                                for k, v in st.session_state.right_user_result.items()
-                                                if v.strip()}
-                                with st.status("Processing right-side results...") as status:
-                                    st.write("Relax dude this will not take long")
-                                    time.sleep(1)
-                                st.success(f"✅ Results recorded for {matched_right_input}:")
-                                refined_bps = get_refined_breakpoints(
-                                    bacterium_name=bact_left,
-                                    preset_antibiotics=st.session_state["antibiotics_right"],
-                                    normalized_data=all_data,
-                                    clinical_group=group)
-
-        
-                                if refined_bps:
-                                    
-                                    matches_right = find_matching_rules(st.session_state["bact_name_right"], extracted_rules)
-
-                                    
-                                    interpretations_right = process_user_results(final_results,refined_bps,st.session_state["mic_disc_filter"],matches_right)
-                                    for ab, info in interpretations_right.items():
-                                        # Add color coding for interpretation
-                                        color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
-                                        st.markdown(f"<p><b>🔬 {ab} ({info['site']})</b><br>"
-                                        f"User Value: {info['value']} | S: {info['S']} | R: {info['R']}<br>"
-                                        f"<span style='color:{color}; font-weight:bold;'>➤ {info['interpretation']}</span></p>",unsafe_allow_html=True)
-                                        
-                                        #display rules
-                                        if "notes" in info and info["notes"]:
-                                            for note in info ["notes"] if isinstance(info["notes"], list) else [info["notes"]]:
-                                                    st.markdown(f"<span style='color:orange;'>🚩 {note}</span>", unsafe_allow_html=True)
-                                        
-                                            print(f"[DEBUG for color] Interpretation for {ab}: '{info['interpretation']}'")
-                                            print(f"[DEBUG] {ab}: {info}")
-
-                                        def to_float(val):
-                                            if val in ('-', ''):
-                                                return 0.0
-                                        # remove any non-numeric characters except decimal point
-                                            match = re.search(r"\d+(\.\d+)?", str(val))
-                                            return float(match.group()) if match else 0.0
-
-                                
-                                        # # Expander for each antibiotic result
-                                        with st.expander(f"Further info for {ab}"):
-                                            st.write(f"🔬 {ab} ({info['site']})")
-                                            st.write(f"User Value: {info['value']}")
-                                            st.write(f"Eucast INPUT DATE breakpoints: S: {info['S']}, R: {info['R']}")
-                                            st.write(f"Interpretation: {info['interpretation']}")
-                                            if st.session_state['mic_disc_filter'] == 'MIC':
-                                            # create MIC graph
-
-                                                graph = complete_graph(
-                                                    ab_name=ab,
-                                                    s_val=extract_numeric(info["S"]),
-                                                    r_val=extract_numeric(info["R"]),
-                                                    user_val=extract_numeric(info["value"]),
-                                                    test_type="mic")
-                                            else:
-                                            # create disk graph
-                                                st.write("Disk interpretations.")
-                                                graph = create_circular_zones(
-                                                    ab_name2=ab,
-                                                    s_val2=extract_numeric(info["S"]),
-                                                    r_val2=extract_numeric(info["R"]),
-                                                    user_val2=extract_numeric(info["value"]))
-
-                                            st.plotly_chart(graph, use_container_width=True)
-
-                                    st.success("✅ Right-side results processed successfully!")       
-                                    st.session_state.right_user_result = {}
-                                    status.update(label="Right-side results processed successfully")
-                                else:
-                                    st.warning("❌ No breakpoints found for this organism")
-                                    st.session_state.right_user_result = {}
-        with tab3:
-            st.header("Panel Verification")
-            st.subheader("This section will allow you to verify your panels against the presets and rules.")
-            st.warning("This section is under development. Please check back later.")
-
-            with st.container(border=True):
-                left, right = st.columns(2, vertical_alignment="top")
-                with left:
-                    st.subheader("Input Panel Image", help="Use your device camera to take a picture of the antibiotic panel.")
-                    enable_camera = st.checkbox("Enable Camera 📷")
-                    picture = st.camera_input("Take a picture of the panel", disabled = not enable_camera)
-
-                    if picture:
-                        st.image(picture, caption="Panel Image")
-
-                with right:
-                    st.subheader("Results")
-                    st.info("Panel verification results here")
+                        st.subheader("Results")
+                        st.info("Panel verification results here")
                     
 
 
@@ -795,7 +595,7 @@ def show_app():
                 st.write(n["message"])
                 st.divider()
                 
-    st.sidebar.markdown("Version 1.0")
+    st.sidebar.markdown("Developed by Martin Galea, version 1.0")
 
 # --- App Entry Point ---
 if not st.session_state.get("logged_in", False):
@@ -862,6 +662,3 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
-
-
-
