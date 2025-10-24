@@ -21,10 +21,12 @@ from test import (
     extract_numeric,
     find_matching_rules,
     get_rules,
-    get_relevant_preset_entry
+    get_relevant_preset_entry,
+    add_additional_antibiotics,
+    update_antibiotic_panel
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
-logo_image = "logo.png" # Path to your logo image
+logo_image = r"C:\Users\marti\Desktop\code\logo.png" # Path to your logo image
 
 # --- Authentication function ---
 def check_login(username, password):
@@ -287,9 +289,9 @@ def show_app():
         with tab2:
             # Top filters
             with st.form("global_filters", clear_on_submit=False):
-                st.header("🎛️ Shared filters")
+                st.header("🎛️ Filters")
 
-                col1, col2, col3, col4 = st.columns(4, vertical_alignment="center")
+                col1, col2, col3, col4, = st.columns(4, vertical_alignment="center")
                 with col1:
                      mic_disc = st.radio("Select MIC or Disc", ["MIC", "Disc"],key="mic_disc_filter",horizontal=False)
                      print(f"[DEBUG tab 2] Filter choosen is {mic_disc}")
@@ -300,6 +302,7 @@ def show_app():
                     site = st.selectbox("Select a section", ["-- Select --", "Normal", "❤️ Endocarditis", "🧠CSF"],key="infection_site_filter")
                 with col4:
                     date = st.selectbox("Select Eucast date", ["-- Select --", "2021", "2024", "2025"],key="eucast_date_filter")
+                
 
                 submitted_filters = st.form_submit_button("Apply Filters")
 
@@ -339,7 +342,7 @@ def show_app():
                 # --- Organism A input section ---
                 with left:
                     with st.form(key='left_organism_form'):
-                        st.subheader("🦠 Organism A")
+                        st.subheader("🦠 Organism Input")
 
                         # Input for organism name
                         left_name_input = st.text_input("Enter Organism Name:", key="left_name_input")
@@ -394,6 +397,34 @@ def show_app():
                         with st.container(border=True):
                             if st.session_state.antibiotics_left:
                                 st.success(f"✅ Found preset for {st.session_state.bact_name_left} ({st.session_state.mic_disc_filter.upper()}):")
+                                
+                                 # Get the list of additional antibiotics from your logic
+                                additional_options = add_additional_antibiotics(
+                                bacterium_name=st.session_state.bact_name_left,
+                                clinical_group=st.session_state.clinical_group_left,
+                                all_data=all_data)  
+
+                                add_antibiotic = st.multiselect("Add Antibiotic to panel (optional)",options=additional_options, key="additional_antibiotic_input", 
+                                    help="Showing antibiotics accosiated with the seleted organism only. According to Eucast data.")
+                                
+                              # Button to trigger panel update
+                                if st.button("➕ Add Antibiotic", key="add_antibiotic_button"):
+                                    selected = st.session_state.get("additional_antibiotic_input", [])
+                                    if selected:
+                                        updated_panel,added,skipped = update_antibiotic_panel(selected,st.session_state["antibiotics_left"],
+                                        organism_name=st.session_state["bact_name_left"],all_data=all_data)
+                
+                                        st.session_state["antibiotics_left"] = updated_panel
+                                        if added:
+                                            st.success(f"✅ Added {len(added)} antibiotic(s): {', '.join(added)}")
+                                        if skipped:
+                                            st.warning(f"⚠️ Skipped {len(skipped)} antibiotic(s) already in panel: {', '.join(skipped)}")
+                                        if not added and not skipped:
+                                            st.info("ℹ️ No changes made to the panel.")
+                                    else:
+                                        st.info("ℹ️ No additional antibiotics selected.")
+                                st.divider()
+                            
 
                                 if "left_user_result" not in st.session_state:
                                     st.session_state.left_user_result = {}
@@ -662,4 +693,3 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
-
