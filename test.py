@@ -6,6 +6,28 @@ import re
 from difflib import get_close_matches
 import traceback
 
+antibiotics_to_add = {
+    "names": [
+        "Benzylpenicillin", "Phenoxymethylpenicillin", "Ampicillin", "Amoxicillin",
+        "Cloxacillin", "Flucloxacillin", "Piperacillin", "Ticarcillin",
+        "Amoxicillin-clavulanic acid", "Ampicillin-sulbactam", "Piperacillin-tazobactam",
+        "Ticarcillin-clavulanic acid", "Cefalexin", "Cefazolin", "Cefuroxime",
+        "Cefotaxime", "Ceftriaxone", "Ceftazidime", "Cefepime", "Ceftaroline",
+        "Imipenem", "Meropenem", "Ertapenem", "Doripenem", "Aztreonam",
+        "Gentamicin", "Tobramycin", "Amikacin", "Netilmicin",
+        "Erythromycin", "Clarithromycin", "Azithromycin", "Roxithromycin",
+        "Clindamycin", "Tetracycline", "Doxycycline", "Minocycline", "Tigecycline",
+        "Vancomycin", "Teicoplanin", "Linezolid", "Tedizolid",
+        "Ciprofloxacin", "Levofloxacin", "Moxifloxacin", "Ofloxacin", "Norfloxacin",
+        "Trimethoprim", "Sulfamethoxazole", "Trimethoprim-sulfamethoxazole",
+        "Colistin", "Polymyxin B", "Rifampicin", "Metronidazole", "Tinidazole",
+        "Chloramphenicol", "Fosfomycin", "Nitrofurantoin", "Daptomycin", "Mupirocin",
+        "Ceftolozane-tazobactam", "Cefiderocol", "Dalbavancin", "Oritavancin",
+        "Quinupristin-dalfopristin", "Spectinomycin", "Kanamycin", "Streptomycin",
+        "Telithromycin", "Delafloxacin", "Plazomicin", "Cefotetan", "Cefmetazole","Pefloxacin"
+    ]
+}
+
 with open('eucast_gram_neg_preset.json', 'r', encoding='utf-8') as f:
     presets = json.load(f)  # loads the JSON content into a Python list of dicts
     
@@ -192,7 +214,7 @@ def load_and_normalize_breakpoints(json_folder='2024_breakpoint_folder'):
             data = [data]
         for entry in data:
             if not isinstance(entry, dict):
-                print(f"[WARN] Skipping non-dict entry in {filename}: {repr(entry)[:120]}")
+                print(f"[WARNING] Skipping non-dict entry in {filename}: {repr(entry)[:120]}")
                 continue
             # Normalize the scope fields
             for field in ["organism","version","clinical_group","name","group","exclude_name","exclude_group"]:
@@ -551,7 +573,35 @@ def process_user_results(user_results, mic_or_disc, matches, refined):
 
     return interpretations
 
+def add_additional_antibiotics(bacterium_name, clinical_group, all_data):
+#function to add additional antibioptics to the existing presets if possible after checking if they are present in the eucast data sheet
+    additional_antibiotics = []
+    for entry in all_data:
+        if (bacterium_name in entry.get("organisms","").lower() or clinical_group in entry.get("clinical_group","")):
+                
+            for bp in entry.get("breakpoints", []):
+                antibiotic = bp.get("antibiotic")
+                if antibiotic and antibiotic not in additional_antibiotics:
+                    additional_antibiotics.append(antibiotic)
 
+    return additional_antibiotics
+
+def update_antibiotic_panel(selected, current_panel, organism_name=None, all_data=None):
+    """
+    Merge selected antibiotics into the current panel.
+    Returns updated panel.
+    """
+    added = []
+    skipped = []
+
+    for ab in selected:
+        if ab not in current_panel:
+            current_panel.append(ab)
+            added.append(ab)
+        else:
+            skipped.append(ab)
+
+    return current_panel, added, skipped
 
 def extract_numeric(val):
     """Extract numeric part from breakpoint strings like '≤0.25' or '≥20'."""
