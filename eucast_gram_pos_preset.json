@@ -298,7 +298,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "coagulase negative staphylococcus",
+    "clinical_group": "Coagulase negative staphylococci",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -319,7 +319,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "coagulase negative staphylococcus",
+    "clinical_group": "Coagulase negative staphylococci",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -340,7 +340,7 @@
   },
   {
     "name": "N/A",
-    "clinical_group": "coagulase negative staphylococcus",
+    "clinical_group": "Coagulase negative staphylococci",
     "morphology": "cocci",
     "site": "urines",
     "info": "Not for urine nephrostomy",
@@ -633,4 +633,5 @@
   "guidance": "Eucast Anaerobes gram positive"
 }
 ]
+
 
