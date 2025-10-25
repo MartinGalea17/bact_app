@@ -626,7 +626,7 @@ def show_app():
                 st.write(n["message"])
                 st.divider()
                 
-    st.sidebar.markdown("Developed by Martin Galea, version 1.0")
+    st.sidebar.markdown("Developed by Martin Galea, version 1.1")
 
 # --- App Entry Point ---
 if not st.session_state.get("logged_in", False):
@@ -693,5 +693,6 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
 
 
