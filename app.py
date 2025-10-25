@@ -26,7 +26,7 @@ from test import (
     update_antibiotic_panel
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
-logo_image = r"C:\Users\marti\Desktop\code\logo.png" # Path to your logo image
+logo_image = "logo.png"  #logo image
 
 # --- Authentication function ---
 def check_login(username, password):
@@ -693,4 +693,5 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
 
