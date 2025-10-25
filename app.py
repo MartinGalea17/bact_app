@@ -405,7 +405,7 @@ def show_app():
                                 all_data=all_data)  
 
                                 add_antibiotic = st.multiselect("Add Antibiotic to panel (optional)",options=additional_options, key="additional_antibiotic_input", 
-                                    help="Showing antibiotics accosiated with the seleted organism only. According to Eucast data.")
+                                    help="Showing antibiotics associated with the selected organism only. According to Eucast data. Not all antibiotics have breakpoints.")
                                 
                               # Button to trigger panel update
                                 if st.button("➕ Add Antibiotic", key="add_antibiotic_button"):
@@ -693,3 +693,4 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
