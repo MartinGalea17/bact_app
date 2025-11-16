@@ -1,0 +1,1231 @@
+
+
+[ 
+  {
+    "name": "N/A",
+    "clinical_group": "Non-Enterobacterales",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin", 
+      "Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Oligella",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin", "Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Shewanella",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin",
+      "Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Alcaligenese",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin",
+      " Tetracycline",
+      "Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Sphingomonas",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)",
+      "Ciprofloxacin",
+      "Amikacin",
+      " Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Psychrobacter phenylpyruvicus",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem", 
+      "Meropenem",
+      "Gentamicin (LC)", 
+      "Ciprofloxacin",
+      "Amikacin", 
+      "Tetracycline",
+      "Pip/tazo BMD",
+      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Roseomonas",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftriaxone", 
+      "Imipenem", 
+      "Gentamicin (LC)", 
+      "Ciprofloxacin",
+      "Amikacin",
+      "Tetracycline"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Achromobacter",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "strips/discs on MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Meropenem",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use Eucast bp'2 (A.xylosoxidans)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Ochrobactrum",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "strips pn MHair (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Imipenem", 
+      "Meropenem", 
+      "Gentamicin(LC)",
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tetracycline", 
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Flavobacterium",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Gentamicin (LC)", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Elizabethkingae",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Gentamicin (LC)", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tetracycline", 
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Chryseobacterium",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Gentamicin (LC)", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Sphingobacterium",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Gentamicin (LC)", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Bordetella",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "If one antibiotic is R, perform the Trimethoprim-sulfamethoxazole MIC strip on MH + SBair",
+    "medium": "MIC strips on MH + SB air (3mF for 3-5 days):",
+    "antibiotic_strips": [
+      "AZT",
+      " ERY"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "NO BP's see zones and discuss"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Stenotrophomonas",
+    "morphology": "rods",
+    "site": "other",
+    "info": "",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam", 
+      "Chloramphenicol", 
+      "Tigecycline"
+    ],
+    "antibiotic_discs": [
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "BMD": [
+      "Colistin"
+    ],
+    "guidance": "Use Eucast bp's s.maltophila for Trimethoprim-sulfamethoxazole Use CLSI bp's (m100 stenotrophomonas maltophila for rest) No bps for colistin",
+    "Rule1": "If Trimethoprim-sulfamethoxazole disc == R do Trimethoprim-sulfamethoxazole strip and speak to Medical staff for potentially other sensitivities"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Stenotrophomonas",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "",
+    "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Chloramphenicol",
+      "Tigecycline"
+    ],
+    "antibiotic_discs": [
+      "Trimethoprim-sulfamethoxazole", 
+      "Levofloxacin"
+    ],
+    "BMD": [
+      "Colistin"
+    ],
+    "guidance": "Use Eucast bp's s.maltophila for Trimethoprim-sulfamethoxazole Use CLSI bp's (m100 stenotrophomonas maltophila for rest) No bps for colistin",
+    "Rule1": "If Trimethoprim-sulfamethoxazole disc == R do Trimethoprim-sulfamethoxazole strip and speak to Medical staff for potentially other sensitivities",
+    "Rule2": "if Trimethoprim-sulfamethoxazole and levo == R speak with Medical staff for potential other sensitivites"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Aeromonas",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair (0.5mF)",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Ceftazidime",
+      "Aztreonam",
+      "Ciprofloxacin",
+      "Levofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "BMD": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Aeromonas spp.)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Aeromonas",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHair (0.5mF)",
+    "antibiotic_strips": [
+      "Ceftazidime",
+      "Aztreonam",
+      "Ciprofloxacin",
+      "Levofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Aeromonas spp.)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Pseudomonas",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Imipenem",
+      "Meropenem", 
+      "Aztreonam", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Tobramycin", 
+      "Ceftazidime"
+    ],
+    "BMD": [
+      "Colistin,Pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Pseudomonas)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Pseudomonas",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Imipenem", 
+      "Meropenem", 
+      "Aztreonam", 
+      "Ciprofloxacin", 
+      "Amikacin",
+      "Tobramycin",
+      "Ceftazidime"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Colistin,Pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Pseudomonas)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Acinetobacter",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Imipenem", 
+      "Meropenem", 
+      "Ciprofloxacin", 
+      "Amikacin", 
+      "Gentamicin(LC)", 
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "BMD": [
+      "Colistin"
+    ],
+    "guidance": "Use Eucast bp's (Acinetobacter)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Acinetobacter",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Imipenem",
+       "Meropenem", 
+       "Ciprofloxacin", 
+       "Amikacin", 
+       "Gentamicin", 
+       "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "BMD": [
+      "Colistin"
+    ],
+    "guidance": "Use Eucast bp's (Acinetobacter)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "enterobacterales",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHair (0.5mF)",
+    "antibiotic_strips": [
+      "Fosfomycin"
+    ],
+    "antibiotic_discs": [
+      "Ampicillin 10ug", 
+      "Amoxicillin-clavulanic acid 20-10ug", 
+      "Cefotaxime",
+      "Cefoxitin (screen only)",
+      "Ertapenem", 
+      "Imipenem", 
+      "Meropenem", 
+      "Ciprofloxacin",
+      "Amikacin",
+      "Gentamicin", 
+      "Trimethoprim-sulfamethoxazole", 
+      "Ceftazidime-avibactam"
+    ],
+    "BMD": [
+      "pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "enterobacterales",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHair (0.5mF)",
+    "antibiotic_strips": [
+      "Ampicillin",
+      "Amoxicillin-clavulanic acid",
+      "Cefotaxime",
+      "Ceftazidime-avibactam",
+      "Ertapenem",
+      "Imipenem",
+      "Meropenem",
+      "Ciprofloxacin",
+      "Amikacin",
+      "Gentamicin(LC)",
+      "Fosfomycin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      "Cefoxitin (Screen only)"
+    ],
+    "BMD": [
+      "pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "enterobacterales",
+    "morphology": "rods",
+    "site": "urines",
+    "info": "N/A",
+    "medium": "MHair (0.5mF)",
+    "antibiotic_strips": [
+      "Fosfomycin"
+    ],
+    "antibiotic_discs": [
+      "Ampicillin 10ug", 
+      "Amoxicillin-clavulanic acid 20-10ug", 
+      "Cefotaxime", 
+      "Cefoxitin (screen only)",
+      "Ertapenem", 
+      "Imipenem",
+      "Meropenem", 
+      "Ciprofloxacin",
+      "amikacin", 
+      "Gentamicin",
+      "Trimethoprim-sulfamethoxazole",
+      "Ceftazidime-avibactam, Nitro"
+    ],
+    "BMD": [
+      "pip/tazo"
+    ],
+    "guidance": "Use Eucast bp's (Enterobacterales)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "cupravidus",
+    "morphology": "rods",
+    "site": "other",
+    "info": "No Disc Bp's",
+    "medium": "MHair (0.5mF)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam", 
+      "Ceftriaxone",
+      "Imipenem", 
+      "Meropenem", 
+      "Gentamicin",
+      "Amikacin", 
+      "Ciprofloxacin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 – Non-Enterobacterales)"
+  },
+  {
+    "name": "burkholderia cepacia",
+    "clinical_group": "N/A",
+    "morphology": "rods",
+    "site": "other",
+    "info": "No Disc Bp's",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Meropenem",
+      "Levofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M100 - Burkholdria cepacia complex )"
+  },
+  {
+    "name": "burkholderia mallei",
+    "clinical_group": "N/A",
+    "morphology": "rods",
+    "site": "other",
+    "info": "No Disc Bp's",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Ceftazidime-avibactam",
+      "Imipenem",
+      "Tetracycline"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use CLSI bp’s (M45 - Potential bacterial agents of bioterrorism )"
+  },
+  {
+    "name": "burkholderia pseudomallei",
+    "clinical_group": "N/A",
+    "morphology": "rods",
+    "site": "other",
+    "info": "No Disc Bp's",
+    "medium": "MHair (0.5mF, 1mF if mucoid)",
+    "antibiotic_strips": [
+      "Amoxicillin-clavulanic acid", 
+      "Ceftazidime", 
+      "Imipenem", 
+      "Meropenem", 
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      "Tetracycline (Screen only)"
+    ],
+    "guidance": "Use Eucast bp's B. pseudomallei"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Pasteurella",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "MHFco2 (1mF)",
+    "antibiotic_strips": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid",
+      "Cefotaxime",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      "Tetracycline (Screen only)"
+    ],
+    "guidance": "Use Eucast bp's P.multocida"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Pasteurella",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHFco2 (1mF)",
+    "antibiotic_strips": [
+      "Amoxicillin-clavulanic acid 2-1ug",
+      "Cefotaxime",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      "Tetracycline (Screen only)"
+    ],
+    "guidance": "Use Eucast bp's P.multocida"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "campylobacter",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "MH+SB plates should be dried out prior to inoculation to reduce swarming and a maximum of 5 plates are piled up in the incubator during incubation",
+    "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
+    "antibiotic_strips": [
+      "Ciprofloxacin", 
+      "Erythromycin", 
+      "Tetracycline"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's C.jejuni_C.coli"
+  },
+  {
+    "name": "Campylobacter fetus",
+    "clinical_group": "",
+    "morphology": "rods",
+    "site": "sterile",
+    "info": "MH+SB plates should be dried out prior to inoculation to reduce swarming and a maximum of 5 plates are piled up in the incubator during incubation",
+    "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
+    "antibiotic_strips": [
+      "Ciprofloxacin",
+      "Erythromycin", 
+      "Tetracycline",
+      "Amoxicillin-clavulanic acid",
+      "Ertapenem",
+      "Gentamicin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast French bp's ??"
+  },
+  {
+    "name": "Campylobacter fetus",
+    "clinical_group": "",
+    "morphology": "rods",
+    "site": "stools",
+    "info": "MH+SB plates should be dried out prior to inoculation to reduce swarming and a maximum of 5 plates are piled up in the incubator during incubation",
+    "medium": "MH+SB micro aerophilic @ 37 celcius @1mF",
+    "antibiotic_strips": [
+      "Ciprofloxacin",
+      "Erythromycin",
+      "Tetracycline",
+      "Amoxicillin-clavulanic acid",
+      "Ertapenem",
+      "Gentamicin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast French bp's ??"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "sterile",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Negative",
+    "Typing": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin"
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin(screen only)",
+      "Amoxicillin-clavulanic acid 2-1ug",
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "sterile",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Positive",
+    "Typing": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "other",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Negative",
+    "Typing": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin"
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "other",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Positive",
+    "Typing": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "other",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Positive",
+    "Typing": "B",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Rifampicin"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "other",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Negative",
+    "Typing": "B",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin"
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Rifampicin"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "eye swab",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Negative",
+    "Typing": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin"
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug",
+      "Ceftriaxone,Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Chlorophenicol"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "eye swab",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Positive",
+    "Typing": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Chlorophenicol"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "eye swab",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Negative",
+    "Typing": "B",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin"
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Rifampicin",
+      "Chlorophenicol"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "",
+    "clinical_group": "Haemophilus",
+    "morphology": "rods",
+    "site": "eye swab",
+    "pre-AST tests": [
+      "Cefinase,typing"
+    ],
+    "Cefinase": "Positive",
+    "Typing": "B",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Rifampicin",
+      "Chlorophenicol"
+    ],
+    "guidance": "Use Eucast bp's H.influenzae"
+  },
+  {
+    "name": "Kingella kingae",
+    "clinical_group": "N/A",
+    "morphology": "rods",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MHF co2 @ 1mF",
+    "antibiotic_strips": [
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Ceftriaxone",
+      "Meropenem",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole",
+      "Rifampicin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's K.kingae"
+  },
+  {
+    "name": "Moraxella catarrhalis",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "sterile",
+    "pre-AST tests": [
+      "Cefinase"
+    ],
+    "Cefinase": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin-clavulanic acid",
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Erythromycin",
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's M.catarrhalis"
+  },
+  {
+    "name": "Moraxella catarrhalis",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "other",
+    "pre-AST tests": [
+      "Cefinase"
+    ],
+    "Cefinase": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      ""
+    ],
+    "antibiotic_discs": [
+      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Erytomycin",
+      "Tetracycline",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "guidance": "Use Eucast bp's M.catarrhalis"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Moraxella",
+    "morphology": "cocci",
+    "site": "sterile",
+    "pre-AST tests": [
+      "Cefinase"
+    ],
+    "Cefinase": "N/A",
+    "info": "N/A",
+    "medium": "MHF co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Amoxicillin-clavulanic acid",
+      "Ceftazidime-avibactam",
+      "Ceftriaxone",
+      "Meropenem",
+      "Gentamicin",
+      "Amikacin",
+      "Ciprofloxacin",
+      "Trimethoprim-sulfamethoxazole"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's (PK/PD) ofr AUG, CLSI bp's (m100 - non Enterobacterales) for the rest"
+  },
+  {
+    "name": "Neisseria meningitidis",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "other",
+    "info": "N/A",
+    "medium": "MH + SB co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Cefotaxime",
+      "Ceftriaxone",
+      "Meropenem",
+      "Ciprofloxacin",
+      "Rifampicin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's (N.memingitidis)"
+  },
+  {
+    "name": "N/A",
+    "clinical_group": "Neisseria",
+    "morphology": "cocci",
+    "site": "sterile",
+    "info": "N/A",
+    "medium": "TMSA vitox co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Benzylpenicillin",
+      "Ampicillin",
+      "Cefotaxime",
+      "Ceftriaxone",
+      "Meropenem",
+      "Ciprofloxacin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use PK/PD bp's"
+  },
+  {
+    "name": "Neisseria gonorrhoeae",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "other",
+    "pre-AST tests": "Cefinase",
+    "Cefinase": "Negative",
+    "info": "Do not report Benzylpenicillin result, infer the susceptibility to Ampicillin.",
+    "medium": "TMSA vitox co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Benzylpenicillin",
+      "Cefixime", 
+      "Ceftriaxone", 
+      "Ciprofloxacin",
+      "Azithromycin", 
+      "Tetracycline", 
+      "Spectinomycin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's (N.gonorrhoeae)"
+  },
+  {
+    "name": "Neisseria gonorrhoeae",
+    "clinical_group": "N/A",
+    "morphology": "cocci",
+    "site": "other",
+    "pre-AST tests": "Cefinase",
+    "Cefinase": "Positive",
+    "info": "Report ampicillin as R",
+    "medium": "TMSA vitox co2 @ 0.5mF",
+    "antibiotic_strips": [
+      "Cefixime", 
+      "Ceftriaxone", 
+      "Ciprofloxacin", 
+      "Azithromycin", 
+      "Tetracycline", 
+      "Spectinomycin"
+    ],
+    "antibiotic_discs": [
+      ""
+    ],
+    "guidance": "Use Eucast bp's (N.gonorrhoeae)"
+  },
+  {
+  "name": "N/A",
+  "clinical_group": "Anaerobes",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+},
+ {
+  "name": "actinomyces",
+  "clinical_group": "Anaerobes", 
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+},
+ {
+  "name": "propionibacterium",
+  "clinical_group": "Anaerobes", 
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+},
+ {
+  "name": "cutibacterium",
+  "clinical_group": "Anaerobes",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Clindamycin",
+    "Metronidazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast Gram negative anaerobes bp's"
+}
+]
