@@ -573,27 +573,27 @@ def show_app():
                     else:
                         st.warning(f"❌ '{species_input}' not found in the database.")
 
-        if "Genus" in selected_filters:
-            st.subheader("🔍 Search by Genus Name")
-            genus_input = st.text_input("Enter genus name to filter:", key="genus").strip().lower()
-            if genus_input:
-                matched_df = df[df['genus'] == genus_input]
-                if not matched_df.empty:
-                    st.success(f"✅ Found genus: {genus_input}")
-                    st.dataframe(matched_df)
-                else:
-                    st.warning(f"❌ '{genus_input}' not found in the database.")
+                if "Genus" in selected_filters:
+                    st.subheader("🔍 Search by Genus Name")
+                    genus_input = st.text_input("Enter genus name to filter:", key="genus").strip().lower()
+                    if genus_input:
+                        matched_df = df[df['genus'] == genus_input]
+                        if not matched_df.empty:
+                            st.success(f"✅ Found genus: {genus_input}")
+                            st.dataframe(matched_df)
+                        else:
+                            st.warning(f"❌ '{genus_input}' not found in the database.")
 
-        if "Family" in selected_filters:
-            st.subheader("🔍 Search by Family Name")
-            family_input = st.text_input("Enter family name to filter:", key="family_filter").strip().lower()
-            if family_input:
-                matched_df = df[df['family'] == family_input]
-                if not matched_df.empty:
-                    st.success(f"✅ Found family: {family_input}")
-                    st.dataframe(matched_df)
-                else:
-                    st.warning(f"❌ '{family_input}' not found in the database.")
+                if "Family" in selected_filters:
+                    st.subheader("🔍 Search by Family Name")
+                    family_input = st.text_input("Enter family name to filter:", key="family_filter").strip().lower()
+                    if family_input:
+                        matched_df = df[df['family'] == family_input]
+                        if not matched_df.empty:
+                            st.success(f"✅ Found family: {family_input}")
+                            st.dataframe(matched_df)
+                        else:
+                            st.warning(f"❌ '{family_input}' not found in the database.")
 
     elif option == "🔔Notifications":
         notifications = load_notifications() # to read the notifications from the json file
@@ -695,6 +695,7 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
 
 
 
