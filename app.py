@@ -593,10 +593,10 @@ def show_app():
                 family_input = st.text_input("Enter family name to filter:", key="family_filter").strip().lower()
                 if family_input:
                      matched_df = df[df['family'] == family_input]
-                    if not matched_df.empty:
+                     if not matched_df.empty:
                         st.success(f"✅ Found family: {family_input}")
                         st.dataframe(matched_df)
-                    else:
+                     else:
                         st.warning(f"❌ '{family_input}' not found in the database.")
 
     elif option == "🔔Notifications":
@@ -699,6 +699,7 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
 
 
 
