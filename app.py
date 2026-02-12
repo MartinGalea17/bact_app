@@ -587,7 +587,7 @@ def show_app():
                         st.warning(f"❌ '{genus_input}' not found in the database.")
 
         if "Family" in selected_filters:
-            family_filter_container = st.cintainer(border=True)
+            family_filter_container = st.container(border=True)
             with family_filter_container:
                 st.subheader("🔍 Search by Family Name")
                 family_input = st.text_input("Enter family name to filter:", key="family_filter").strip().lower()
@@ -699,6 +699,7 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
+
 
 
 
