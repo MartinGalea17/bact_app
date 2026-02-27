@@ -1,0 +1,15 @@
+{
+  "screen_susceptible": "No beta-lactam resistance detected. Report susceptible to beta-lactams (cefaclor = I). No further testing required.",
+  
+  "mechanism_detected": "Beta-lactam resistance mechanism detected.",
+  
+  "meningitis_resistant": "Report R to benzylpenicillin, ampicillin IV and amoxicillin IV for meningitis/endocarditis and phenoxymethylpenicillin for all indications.",
+  
+  "oxacillin_9_19": "Report susceptible (no further testing) to ampicillin, amoxicillin (non-meningitis), piperacillin +/- inhibitor, cefotaxime, ceftriaxone, cefepime, carbapenems.",
+  
+  "oxacillin_less_9": "Oxacillin <9 mm. Perform full susceptibility testing for beta-lactams and interpret according to breakpoints.",
+  
+  "benzylpen_I": "Report benzylpenicillin: Susceptible, increased exposure (I).",
+  
+  "benzylpen_R": "Report benzylpenicillin: Resistant (R)."
+}
