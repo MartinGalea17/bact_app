@@ -34,10 +34,43 @@ def pneumo_logic(ox, pen, sample_type):
     else:
         return resistance_detected +messages["benzylpen_R"]
 
-   
+#logic for Haeinf
+cefinase_input = int(input("Enter cefinase test result (1 for positive, 0 for negative): "))
+penicillin_input = int(input("Enter penicillin test result: "))
 
+def cefinase_test(cefinase_input):
+    if cefinase_input == 1:
+        print("DEBUG: cefinase_input is 1, Beta-lactamase detected")
+        return "BLPR"
+    elif cefinase_input == 0:
+        print("DEBUG: cefinase_input is 0, No Beta-lactamase detected")
+        return "No enzyme"
+    else:
+        print("DEBUG: Invalid input for cefinase test")
+        return "Invalid input for cefinase test. Please enter 1 for positive or 0 for negative."
     
+def penicillin_test(penicillin_input):
+    if penicillin_input >=12:
+        print("DEBUG: penicillin_input is greater than or equal to 12 indicating no resistance mechanism")
+        return "Screen negative"
+    elif penicillin_input <12:
+        print("DEBUG: penicillin_input is less than 12 indicating a resistance mechanism")
+        return "Screen positive"
+    else:
+        print("DEBUG: Invalid input for penicillin test")
+        return "Invalid input for penicillin test. Please enter a valid number."
+
+def haeinf_logic(cefinase_input, penicillin_input):
+
+    cef_result = cefinase_test(cefinase_input)
+    pen_result = penicillin_test(penicillin_input)
+
+
+
+###    
 ox = int(input("Enter oxacillin test result: "))
 pen = float(input("Enter penicillin test result: "))
 sample_type = input("Enter sample type (e.g., endocarditis, meningitis, other): ")
+
 print(pneumo_logic(ox, pen, sample_type))
+###
