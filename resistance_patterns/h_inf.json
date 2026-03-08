@@ -6,8 +6,9 @@
   "hinf_mechanism_detected":,
   "hinf_beta_lactam_pos": "Mechanism: beta-lacamase with or without PBP3 mutations",
   "hinf_beta_lactam_neg": "Mechanism: PBP3 mutations",
-  "hinf_Aug_>15":,
-  "hing_Aug_<15":,
+  "hinf_Aug_>15":"Mechanism: beta-lactamase only",
+  "hing_Aug_<15":"Mechanism: beta-lactamase and PBP3 mutations",
 }
+
 
 
