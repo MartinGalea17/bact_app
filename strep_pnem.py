@@ -35,6 +35,9 @@ def pneumo_logic(ox, pen, sample_type):
         return resistance_detected +messages["benzylpen_R"]
 
 #logic for Haeinf
+with open("resistance_patterns/h_inf.json") as f:
+    hinf_messages = json.load(f)
+
 cefinase_input = int(input("Enter cefinase test result (1 for positive, 0 for negative): "))
 penicillin_input = int(input("Enter penicillin test result: "))
 
@@ -70,7 +73,10 @@ def haeinf_logic(cefinase_input, penicillin_input):
     print (f" cefinase_input {cefinase_input} and penicillin {penicillin_input}")
     hinf_resistance_detected = hinf_messages["hinf_mechanism_detected"]
 
-    
+    #beta lacamase testing 
+    if beta_lactam == 1:
+        return hinf_resistance_detected + hinf_messages["hinf_beta_lactam_pos"]
+        
     
 
     cef_result = cefinase_test(cefinase_input)
@@ -85,4 +91,5 @@ sample_type = input("Enter sample type (e.g., endocarditis, meningitis, other): 
 
 print(pneumo_logic(ox, pen, sample_type))
 ###
+
 
