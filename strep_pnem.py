@@ -76,8 +76,14 @@ def haeinf_logic(cefinase_input, penicillin_input):
     #beta lacamase testing 
     if beta_lactam == 1:
         return hinf_resistance_detected + hinf_messages["hinf_beta_lactam_pos"]
-        
+
+    if Aug ≥ 15:
+        return hinf_messages["hinf_Aug_>15"]
+    else:
+        return hinf_messages["hing_Aug_<15"]
     
+    if beta_lactam == 0:
+        return hinf_resistance_detected + hinf_messages["hinf_beta_lactam_neg"]
 
     cef_result = cefinase_test(cefinase_input)
     pen_result = penicillin_test(penicillin_input)
@@ -91,5 +97,6 @@ sample_type = input("Enter sample type (e.g., endocarditis, meningitis, other): 
 
 print(pneumo_logic(ox, pen, sample_type))
 ###
+
 
 
