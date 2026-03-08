@@ -4,9 +4,10 @@
   "hinf_cef_neg":"Beta-lactamase not detected",
   "hinf_no_mechanism_detected":,
   "hinf_mechanism_detected":,
-  "hinf_beta_lactam_pos":,
-  "hinf_beta_lactam_neg":,
+  "hinf_beta_lactam_pos": "Mechanism: beta-lacamase with or without PBP3 mutations",
+  "hinf_beta_lactam_neg": "Mechanism: PBP3 mutations",
   "hinf_Aug_>15":,
   "hing_Aug_<15":,
 }
+
 
