@@ -62,6 +62,17 @@ def penicillin_test(penicillin_input):
 
 def haeinf_logic(cefinase_input, penicillin_input):
 
+    if penicillin_input ≥ 12:
+        return hinf_messages # no mechansim detected. no furthur testing 
+    
+    #below this line resistance exists 
+    # showing the first resistance messages 
+    print (f" cefinase_input {cefinase_input} and penicillin {penicillin_input}")
+    hinf_resistance_detected = hinf_messages["hinf_mechanism_detected"]
+
+    
+    
+
     cef_result = cefinase_test(cefinase_input)
     pen_result = penicillin_test(penicillin_input)
 
@@ -74,3 +85,4 @@ sample_type = input("Enter sample type (e.g., endocarditis, meningitis, other): 
 
 print(pneumo_logic(ox, pen, sample_type))
 ###
+
