@@ -1,3 +1,9 @@
 {
-  "name": "haemophilus influenzae"
+  "name": "haemophilus influenzae",
+  "hinf_no_mechanism_detected":,
+  "hinf_mechanism_detected":,
+  "hinf_beta_lactam_pos":,
+  "hinf_beta_lactam_neg":,
+  "hinf_Aug_>15":,
+  "hing_Aug_<15":,
 }
