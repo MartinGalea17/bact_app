@@ -1,5 +1,7 @@
 {
   "name": "haemophilus influenzae",
+  "hinf_cef_pos":"Beta-lactamase detected",
+  "hinf_cef_neg":"Beta-lactamase not detected",
   "hinf_no_mechanism_detected":,
   "hinf_mechanism_detected":,
   "hinf_beta_lactam_pos":,
@@ -7,3 +9,4 @@
   "hinf_Aug_>15":,
   "hing_Aug_<15":,
 }
+
