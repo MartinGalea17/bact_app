@@ -1,4 +1,6 @@
 {
+  "name": "Streptococcus pneumoniae",
+  
   "screen_susceptible": "No beta-lactam resistance detected. Report susceptible to beta-lactams (cefaclor = I). No further testing required.",
   
   "mechanism_detected": "Beta-lactam resistance mechanism detected.",
