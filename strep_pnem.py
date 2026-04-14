@@ -1,9 +1,25 @@
 import json 
+import streamlit as st
+import os
 
-with open("resistance_patterns/strep_pneumoniae.json") as f:
-    messages = json.load(f)
+#load resistance patterns from JSON files in the "resistance_patterns" folder and cache the results to improve performance
+@st.cache_data
+def load_resistance_patterns(folder_path="resistance_patterns"):
+    patters = {}
+    
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".json"):
+            filepath = os.path.join(folder_path, filename)
 
-def pneumo_logic(ox, pen, sample_type):
+            with open(filepath, "r", encoding="utf-8") as f:
+                pattern_data = json.load(f)
+
+                organism_names = pattern_data["name"].strip().lower()
+                patters[organism_names] = pattern_data
+    return patters
+
+#strep pneumo logic
+def pneumo_logic(ox, pen, sample_type, messages, pen_disc=None):
     sample_type = sample_type.lower()
     
 
@@ -20,26 +36,27 @@ def pneumo_logic(ox, pen, sample_type):
 
     if sample_type in ["endocarditis", "meningitis"]:
         return resistance_detected + messages["meningitis_resistant"]
-
-    # STEP 3 — Other indications
-    if 9 <= ox <= 19:
-        return resistance_detected + messages["oxacillin_9_19"]
-
-    if ox < 9:
-        return resistance_detected + messages["oxacillin_less_9"]
+    
     # Benzylpenicillin disc required
     pen_disc = int(input("Enter benzylpenicillin disc zone: "))
     if pen_disc >= 14:
-        return resistance_detected + messages["benzylpen_I"]
+        pen_disc_result = messages["benzylpen_I"]
+        print(f"DEBUG: penicillin disc input {pen_disc}")
     else:
-        return resistance_detected +messages["benzylpen_R"]
+        pen_disc_result = messages["benzylpen_R"]
+    
+    # STEP 3 — Other indications
+    if 9 <= ox <= 19:
+        other_ab_messages = messages["oxacillin_9_19"]
 
+    if ox < 9:
+        other_ab_messages = messages["oxacillin_less_9"]
+    
+    return resistance_detected + pen_disc_result + "\n" + other_ab_messages
+    
 #logic for Haeinf
 with open("resistance_patterns/h_inf.json") as f:
     hinf_messages = json.load(f)
-
-cefinase_input = int(input("Enter cefinase test result (1 for positive, 0 for negative): "))
-penicillin_input = int(input("Enter penicillin test result: "))
 
 def cefinase_test(cefinase_input):
     if cefinase_input == 1:
@@ -51,22 +68,12 @@ def cefinase_test(cefinase_input):
     else:
         print("DEBUG: Invalid input for cefinase test")
         return "Invalid input for cefinase test. Please enter 1 for positive or 0 for negative."
-    
-def penicillin_test(penicillin_input):
-    if penicillin_input >=12:
-        print("DEBUG: penicillin_input is greater than or equal to 12 indicating no resistance mechanism")
-        return "Screen negative"
-    elif penicillin_input <12:
-        print("DEBUG: penicillin_input is less than 12 indicating a resistance mechanism")
-        return "Screen positive"
-    else:
-        print("DEBUG: Invalid input for penicillin test")
-        return "Invalid input for penicillin test. Please enter a valid number."
 
-def haeinf_logic(cefinase_input, penicillin_input):
 
-    if penicillin_input ≥ 12:
-        return hinf_messages # no mechansim detected. no furthur testing 
+def haeinf_logic(cefinase_input, penicillin_input, hinf_messages,beta_lactam, Aug_input):
+
+    if penicillin_input >= 12:
+        return hinf_messages["hinf_no_mechanism_detected"]
     
     #below this line resistance exists 
     # showing the first resistance messages 
@@ -75,28 +82,21 @@ def haeinf_logic(cefinase_input, penicillin_input):
 
     #beta lacamase testing 
     if beta_lactam == 1:
-        return hinf_resistance_detected + hinf_messages["hinf_beta_lactam_pos"]
+        beta_lactam_message_pos = hinf_messages["hinf_beta_lactam_pos"]
 
-    if Aug ≥ 15:
-        return hinf_messages["hinf_Aug_>15"]
+    if Aug_input >= 15:
+        AUG_more = hinf_messages["hinf_Aug_>15"]
     else:
-        return hinf_messages["hing_Aug_<15"]
+        AUG_less =  hinf_messages["hinf_Aug_<15"]
     
     if beta_lactam == 0:
-        return hinf_resistance_detected + hinf_messages["hinf_beta_lactam_neg"]
-
-    cef_result = cefinase_test(cefinase_input)
-    pen_result = penicillin_test(penicillin_input)
-
-
-
-###    
-ox = int(input("Enter oxacillin test result: "))
-pen = float(input("Enter penicillin test result: "))
-sample_type = input("Enter sample type (e.g., endocarditis, meningitis, other): ")
-
-print(pneumo_logic(ox, pen, sample_type))
-###
+        beta_lactam_message_neg = hinf_messages["hinf_beta_lactam_neg"]
+    
+    return hinf_resistance_detected + "\n" + beta_lactam_message_pos + "\n" + AUG_more + "\n" + beta_lactam_message_neg + "\n" + AUG_less
 
 
 
+#esbl logic 
+
+def esbl_logic():
+    pass 
