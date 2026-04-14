@@ -1,4 +1,3 @@
-
 import streamlit as st
 import re
 import json
@@ -26,6 +25,8 @@ from test import (
     update_antibiotic_panel
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
+from strep_pnem import pneumo_logic,load_resistance_patterns,haeinf_logic
+
 logo_image = "logo.png"  #logo image
 
 # --- Authentication function ---
@@ -118,6 +119,13 @@ def show_app():
         "Welcome to the Bacterial Antibiotic Susceptibility App! "
         "This app helps you find the relevant antibiotic susceptibility data for various bacteria. "
         "Please select a section from the dropdown list below to get started.")
+    
+    #load messages for strep pneumo logic
+    patterns = load_resistance_patterns()
+
+    pneumo_data = patterns["streptococcus pneumoniae"]
+    h_inf_data = patterns["haemophilus influenzae"]
+
 
     # --- Sidebar for navigation ---
     with st.sidebar:
@@ -526,25 +534,59 @@ def show_app():
                                     st.warning("❌ No breakpoints found for this organism")
                                     st.session_state.left_user_result = {}
             with tab3:      
-                st.header("Panel Verification")
-                st.subheader("This section will allow you to verify your panels against the presets and rules.")
+                st.header("Resistance mechanism verification")
+                st.subheader("This section will allow you to verify resistance mechanisms for each organism.")
                 st.warning("This section is under development. Please check back later.")
 
                 with st.container(border=True):
                     left, right = st.columns(2, vertical_alignment="top")
                     with left:
-                        st.subheader("Input Panel Image", help="Use your device camera to take a picture of the antibiotic panel.")
-                        enable_camera = st.checkbox("Enable Camera 📷")
-                        picture = st.camera_input("Take a picture of the panel", disabled = not enable_camera)
+                        st.subheader("Organism")
+                        options = st.selectbox("Select organism for resistance mechanism verification", [organism_names for organism_names in load_resistance_patterns().keys()])
+                        st.write("You selected:", options)
+                        input_container = st.container(border=True)
+                        if options == "streptococcus pneumoniae":
+                            with input_container:
+                                ox = st.number_input("Enter oxacillin test result :", min_value= 0,step=1, key="ox_input")
+                                pen = st.number_input("Enter penicillin test result :", min_value=0, step=1, key="pen_input")
+                                sample_type = st.selectbox("Select sample type:", ["Endocarditis", "Meningitis", "Other"], key="sample_type_input")
+                                             
+                        elif options == "haemophilus influenzae":
+                            with input_container:
+                                cefinase_input = st.number_input("Enter cefinase test result:", min_value=0, step=1, key="cefinase_input")
+                                penicillin_input = st.number_input("Enter penicillin test result (MIC):", min_value=0, step=1, key="penicillin_input")
+                                
+                                if  penicillin_input < 12:
+                                    beta_lactam = st.number_input("Enter beta-lactam test result (MIC):", min_value=0, step=1, key="beta_lactam_input")
+                                    Aug_input = st.number_input("Enter amoxicillin-clavulanate test result (MIC):", min_value=0, step=1, key="Aug_input")
+                                else:
+                                    beta_lactam = None
+                                    Aug_input = None
 
-                        if picture:
-                            st.image(picture, caption="Panel Image")
+                                sumbit_res = st.button("📤Submit for verification", key="submit_verification_hinf")                                                         
 
                     with right:
                         st.subheader("Results")
-                        st.info("Panel verification results here")
-                    
+                        if sumbit_res:
+                                with st.status("Verifying resistance mechanism...") as status:
+                                    st.write("Relax dude this will not take long")
+                                    time.sleep(1)
 
+                                    patterns = load_resistance_patterns()
+                                    messages = patterns[options] 
+                                    
+                                    # 🔀 ROUTING LOGIC
+                                    if options == "streptococcus pneumoniae":
+                                        verification_result = pneumo_logic(ox, pen, sample_type, messages, pen_disc=None)
+
+                                    elif options == "haemophilus influenzae":verification_result = haeinf_logic(cefinase_input, penicillin_input, messages,beta_lactam, Aug_input)
+
+                                    else:
+                                        verification_result = "No logic implemented yet."
+
+                                    st.success("✅ Resistance mechanism verification completed!")
+                                    st.markdown(f" Resistance Mechanism Verification Result for {options}:\n{verification_result}")
+                    
 
     elif option == "🦠 Bacteria Lookup":
         lookup_container = st.container(border=True)
@@ -699,11 +741,4 @@ else:
             st.session_state[key] = value
     print('[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
-
-
-
-
-
-
-
 
