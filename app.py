@@ -22,7 +22,8 @@ from test import (
     get_rules,
     get_relevant_preset_entry,
     add_additional_antibiotics,
-    update_antibiotic_panel
+    update_antibiotic_panel,
+    select_relevant_entries
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
 from strep_pnem import pneumo_logic,load_resistance_patterns,haeinf_logic
