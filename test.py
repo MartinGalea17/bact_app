@@ -261,39 +261,39 @@ def get_relevant_preset_entry(bacterium_name, clinical_group, sterility_check, m
 
 def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
 
-bn = (bacterium or "").strip().lower()
-cg - (clinical_group or "").strip().lower()
+    bn = (bacterium or "").strip().lower()
+    cg - (clinical_group or "").strip().lower()
 
-organism_entries = []
-group_entries = []
+    organism_entries = []
+    group_entries = []
 
-for entry in normalized_data:
-    if not isininstance(entry,dict):
-        continue
+    for entry in normalized_data:
+        if not isininstance(entry,dict):
+            continue
 
-#normalize fields 
-entry_organisms = _to_list(entry.get("organism",""))
-entry_cg = _to_list(entry.get("clinical_group",""))
+    #normalize fields 
+    entry_organisms = _to_list(entry.get("organism",""))
+    entry_cg = _to_list(entry.get("clinical_group",""))
 
-if entry_organisms:
-    if bn in entry_organisms:
-        organism_rntries.append(entry)
-        continue 
-if entry_cg:
-    if cg in entry_cg:
-        group_entries.append(entry)
+    if entry_organisms:
+        if bn in entry_organisms:
+            organism_rntries.append(entry)
+            continue 
+    if entry_cg:
+        if cg in entry_cg:
+            group_entries.append(entry)
 
-#priority decision 
-if organism_entries:
-    print(f"[SELECT] Using organism-specific entries for '{BN}' ({len(organism_entries)} found")
-    return organism_entries,"organism"
+    #priority decision 
+    if organism_entries:
+        print(f"[SELECT] Using organism-specific entries for '{BN}' ({len(organism_entries)} found")
+        return organism_entries,"organism"
 
-if group_entries:
-    print(f"[SELECT] Using organism-specific entries for '{cg}' ({len(group_entries)} found")
-    return group_entries,"clinical_group"
+    if group_entries:
+        print(f"[SELECT] Using organism-specific entries for '{cg}' ({len(group_entries)} found")
+        return group_entries,"clinical_group"
 
-print (f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
-return [], None 
+    print (f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
+    return [], None 
 
 
 def get_refined_breakpoints(bacterium_name, preset_antibiotics, normalized_data, clinical_group=None):
