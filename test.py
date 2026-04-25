@@ -259,7 +259,7 @@ def get_relevant_preset_entry(bacterium_name, clinical_group, sterility_check, m
             return entry
     return None
 
-select_relevant_entries(normalized_data, bacterium_name, clinical_group):
+def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
 
 bn = (bacterium or "").strip().lower()
 cg - (clinical_group or "").strip().lower()
