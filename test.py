@@ -259,6 +259,42 @@ def get_relevant_preset_entry(bacterium_name, clinical_group, sterility_check, m
             return entry
     return None
 
+select_relevant_entries(normalized_data, bacterium_name, clinical_group):
+
+bn = (bacterium or "").strip().lower()
+cg - (clinical_group or "").strip().lower()
+
+organism_entries = []
+group_entries = []
+
+for entry in normalized_data:
+    if not isininstance(entry,dict):
+        continue
+
+#normalize fields 
+entry_organisms = _to_list(entry.get("organism",""))
+entry_cg = _to_list(entry.get("clinical_group",""))
+
+if entry_organisms:
+    if bn in entry_organisms:
+        organism_rntries.append(entry)
+        continue 
+if entry_cg:
+    if cg in entry_cg:
+        group_entries.append(entry)
+
+#priority decision 
+if organism_entries:
+    print(f"[SELECT] Using organism-specific entries for '{BN}' ({len(organism_entries)} found")
+    return organism_entries,"organism"
+
+if group_entries:
+    print(f"[SELECT] Using organism-specific entries for '{cg}' ({len(group_entries)} found")
+    return group_entries,"clinical_group"
+
+print (f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
+return [], None 
+
 
 def get_refined_breakpoints(bacterium_name, preset_antibiotics, normalized_data, clinical_group=None):
     """
@@ -268,7 +304,7 @@ def get_refined_breakpoints(bacterium_name, preset_antibiotics, normalized_data,
       ✅ Group/clinical group matches
       ✅ Universal fallbacks (no name/group specified)
     """
-
+    normalized_data = select_relevant_entries(normalized_data,bacterium_name, clinical_group)
     if not bacterium_name or not preset_antibiotics:
         print("[DEBUG] Missing bacterium name or preset_antibiotics")
         return {}
@@ -373,43 +409,6 @@ def get_refined_breakpoints(bacterium_name, preset_antibiotics, normalized_data,
 
     print(f"[DEBUG] Refined results: {list(refined.keys())}")
     return refined
-
-get_refined_breakpoints_revised(normalized_data, bacterium_name, clinical_group):
-
-bn = (bacterium or "").strip().lower()
-cg - (clinical_group or "").strip().lower()
-
-organism_entries = []
-group_entries = []
-
-for entry in normalized_data:
-    if not isininstance(entry,dict):
-        continue
-
-#normalize fields 
-entry_organisms = _to_list(entry.get("organism",""))
-entry_cg = _to_list(entry.get("clinical_group",""))
-
-if entry_organisms:
-    if bn in entry_organisms:
-        organism_rntries.append(entry)
-        continue 
-if entry_cg:
-    if cg in entry_cg:
-        group_entries.append(entry)
-
-#priority decision 
-if organism_entries:
-    print(f"[SELECT] Using organism-specific entries for '{BN}' ({len(organism_entries)} found")
-    return organism_entries,"organism"
-
-if group_entries:
-    print(f"[SELECT] Using organism-specific entries for '{cg}' ({len(group_entries)} found")
-    return group_entries,"clinical_group"
-
-print (f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
-return [], None 
-
 
 
 def matching_name_input(user_input, species, cutoff = 0.6):
