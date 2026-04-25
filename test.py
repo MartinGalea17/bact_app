@@ -269,7 +269,7 @@ def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
 
     for entry in normalized_data:
         if not isininstance(entry,dict):
-            continue
+         continue
 
     #normalize fields 
     entry_organisms = _to_list(entry.get("organism",""))
@@ -277,7 +277,7 @@ def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
 
     if entry_organisms:
         if bn in entry_organisms:
-            organism_rntries.append(entry)
+            organism_entries.append(entry)
             continue 
     if entry_cg:
         if cg in entry_cg:
