@@ -534,10 +534,10 @@ def show_app():
                                 else:
                                     st.warning("❌ No breakpoints found for this organism")
                                     st.session_state.left_user_result = {}
-            with tab3:      
+             with tab3:      
                 st.header("Resistance mechanism verification")
                 st.subheader("This section will allow you to verify resistance mechanisms for each organism.")
-                st.warning("This section is under development. Please check back later.")
+                st.warning("This section is partially working but will later be integrated into the main logic for better flow!.")
 
                 with st.container(border=True):
                     left, right = st.columns(2, vertical_alignment="top")
@@ -564,7 +564,7 @@ def show_app():
                                     beta_lactam = None
                                     Aug_input = None
 
-                                sumbit_res = st.button("📤Submit for verification", key="submit_verification_hinf")                                                         
+                        sumbit_res = st.button("📤Submit for verification", key="submit_verification_hinf")                                                         
 
                     with right:
                         st.subheader("Results")
@@ -585,8 +585,8 @@ def show_app():
                                     else:
                                         verification_result = "No logic implemented yet."
 
-                                    st.success("✅ Resistance mechanism verification completed!")
-                                    st.markdown(f" Resistance Mechanism Verification Result for {options}:\n{verification_result}")
+                                st.success("✅ Resistance mechanism verification completed!")
+                                st.markdown(f" Resistance Mechanism Verification Result for {options}: \n{verification_result}")
                     
 
     elif option == "🦠 Bacteria Lookup":
