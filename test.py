@@ -261,40 +261,38 @@ def get_relevant_preset_entry(bacterium_name, clinical_group, sterility_check, m
 
 def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
 
-    bn = (bacterium or "").strip().lower()
-    cg - (clinical_group or "").strip().lower()
+    bn = (bacterium_name or "").strip().lower()
+    cg = (clinical_group or "").strip().lower()
 
     organism_entries = []
     group_entries = []
 
     for entry in normalized_data:
-        if not isininstance(entry,dict):
-         continue
+        if not isinstance(entry, dict):
+            continue
 
-    #normalize fields 
-    entry_organisms = _to_list(entry.get("organism",""))
-    entry_cg = _to_list(entry.get("clinical_group",""))
+        # normalize fields
+        entry_organisms = _to_list(entry.get("organism", ""))
+        entry_cg = _to_list(entry.get("clinical_group", ""))
 
-    if entry_organisms:
-        if bn in entry_organisms:
+        if entry_organisms and bn in entry_organisms:
             organism_entries.append(entry)
-            continue 
-    if entry_cg:
-        if cg in entry_cg:
+            continue
+
+        if entry_cg and cg in entry_cg:
             group_entries.append(entry)
 
-    #priority decision 
+    # priority decision
     if organism_entries:
-        print(f"[SELECT] Using organism-specific entries for '{BN}' ({len(organism_entries)} found")
-        return organism_entries,"organism"
+        print(f"[SELECT] Using organism-specific entries for '{bn}' ({len(organism_entries)} found)")
+        return organism_entries
 
     if group_entries:
-        print(f"[SELECT] Using organism-specific entries for '{cg}' ({len(group_entries)} found")
-        return group_entries,"clinical_group"
+        print(f"[SELECT] Using clinical group entries for '{cg}' ({len(group_entries)} found)")
+        return group_entries
 
-    print (f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
-    return [], None 
-
+    print(f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
+    return []
 
 def get_refined_breakpoints(bacterium_name, preset_antibiotics, normalized_data, clinical_group=None):
     """
