@@ -22,8 +22,7 @@ from test import (
     get_rules,
     get_relevant_preset_entry,
     add_additional_antibiotics,
-    update_antibiotic_panel,
-    select_relevant_entries
+    update_antibiotic_panel
     )
 from notifications import load_notifications, add_notifications, get_notifications_by_level, delete_notification
 from strep_pnem import pneumo_logic,load_resistance_patterns,haeinf_logic
@@ -534,7 +533,7 @@ def show_app():
                                 else:
                                     st.warning("❌ No breakpoints found for this organism")
                                     st.session_state.left_user_result = {}
-             with tab3:      
+            with tab3:      
                 st.header("Resistance mechanism verification")
                 st.subheader("This section will allow you to verify resistance mechanisms for each organism.")
                 st.warning("This section is partially working but will later be integrated into the main logic for better flow!.")
