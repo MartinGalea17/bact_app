@@ -294,120 +294,120 @@ def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
     print(f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
     return []
 
-def get_refined_breakpoints(bacterium_name, preset_antibiotics, normalized_data, clinical_group=None):
-    """
-    Return dict keyed by lowercase antibiotic name -> breakpoint dict + 'source'.
-    Includes:
-      ✅ Exact species matches
-      ✅ Group/clinical group matches
-      ✅ Universal fallbacks (no name/group specified)
-    """
-    normalized_data = select_relevant_entries(normalized_data,bacterium_name, clinical_group)
+def get_refined_breakpoints(
+    bacterium_name,
+    preset_antibiotics,
+    normalized_data,
+    clinical_group=None,
+    sample_type=None
+):
+
+    selected_entries = select_relevant_entries(
+        normalized_data,
+        bacterium_name,
+        clinical_group
+    )
+
     if not bacterium_name or not preset_antibiotics:
         print("[DEBUG] Missing bacterium name or preset_antibiotics")
         return {}
 
     bn = bacterium_name.strip().lower()
     cg = (clinical_group or "").strip().lower()
+    st = (sample_type or "").strip().lower()
 
-    # Normalize preset antibiotic names safely
+    # Normalize preset antibiotics
     preset_lower = []
     for p in preset_antibiotics:
         if isinstance(p, str):
             preset_lower.append(p.strip().lower())
         elif isinstance(p, dict) and "name" in p:
-            names = _to_list(p["name"])
-            preset_lower.extend(names)
+            preset_lower.extend(_to_list(p["name"]))
 
-    preset_lower = list(dict.fromkeys(preset_lower))  # preserve order, unique
-    print(f"[DEBUG] Query bn='{bn}' cg='{cg}' presets={preset_lower}")
+    preset_lower = list(dict.fromkeys(preset_lower))
 
-    refined = {}
+    print(f"[DEBUG] Query bn='{bn}' cg='{cg}' st='{st}'")
 
-    # Iterate through normalized EUCAST entries
-    for i, entry in enumerate(normalized_data):
+    # ✅ MOVE OUTSIDE LOOPS
+    best_matches = {}
+    priority_map = {}
+
+    for i, entry in enumerate(selected_entries):
         if not isinstance(entry, dict):
             continue
 
-        # Handle entries that contain a list of breakpoints
         bps = entry.get("breakpoints")
         if isinstance(bps, list) and bps:
-            parent_scope = entry
+            pass
         elif "antibiotic" in entry:
             bps = [entry]
-            parent_scope = entry
         else:
-            continue  # skip malformed entries
+            continue
 
-        # Pull parent-level fields (used as fallback if bp doesn’t override)
         parent_names = _to_list(entry.get("name", []))
         parent_groups = _to_list(entry.get("group", []))
         parent_clinical = _to_list(entry.get("clinical_group", []))
         parent_ex_names = _to_list(entry.get("exclude_name", []))
         parent_ex_groups = _to_list(entry.get("exclude_group", []))
 
-        # Iterate over breakpoints within the entry
         for bp in bps:
             if not isinstance(bp, dict):
                 continue
 
-            ab_raw = bp.get("antibiotic", "")
-            ab = str(ab_raw).strip().lower() if ab_raw else ""
+            ab = str(bp.get("antibiotic", "")).strip().lower()
             if not ab or ab not in preset_lower:
-                continue  # not relevant to the preset
+                continue
 
-            # Get bp-level or fallback scopes
+            # scopes
             bp_names = _to_list(bp.get("name", [])) or parent_names
             bp_groups = _to_list(bp.get("group", [])) or parent_groups
             bp_clinical = _to_list(bp.get("clinical_group", [])) or parent_clinical
             bp_ex_names = _to_list(bp.get("exclude_name", [])) or parent_ex_names
             bp_ex_groups = _to_list(bp.get("exclude_group", [])) or parent_ex_groups
 
-            # Debug output
-            print(f"[TRACE] Entry#{i} antibiotic='{ab}' | names={bp_names} | groups={bp_groups} | clinical={bp_clinical}")
+            bp_sample = (bp.get("sample_type", "") or "").strip().lower()
 
-            # 1️⃣ Exact species name match
-            if bp_names and bn in bp_names and bn not in bp_ex_names:
-                refined[ab] = {**bp, "source": f"specific ({', '.join(bp_names)})"}
-                print(f"[MATCH] exact name -> {ab} from {bp_names}")
-                continue
+            # 🔥 PRIORITY SYSTEM
+            priority = -1
 
-            # 2️⃣ Group match
-            matched_group = False
-            if bp_groups:
-                if cg and cg in bp_groups:
-                    matched_group = True
+            # 1️⃣ sample type
+            if st:
+                if bp_sample == st:
+                    priority += 4
+                elif bp_sample == "":
+                    priority += 1
                 else:
-                    # Heuristic: genus substring match (e.g., "staph" in "staphylococcus aureus")
-                    for g in bp_groups:
-                        if g and (g in bn or bn.startswith(g.split()[0])):
-                            matched_group = True
-                            break
+                    continue
 
-            if matched_group and bn not in bp_ex_names and cg not in bp_ex_groups:
-                if ab not in refined:
-                    refined[ab] = {**bp, "source": f"group ({', '.join(bp_groups)})"}
-                    print(f"[MATCH] group -> {ab} from {bp_groups}")
+            # 2️⃣ species
+            if bp_names and bn in bp_names and bn not in bp_ex_names:
+                priority += 3
+
+            # 3️⃣ group
+            elif bp_groups and cg in bp_groups and cg not in bp_ex_groups:
+                priority += 2
+
+            # 4️⃣ clinical group
+            elif bp_clinical and cg in bp_clinical:
+                priority += 1
+
+            # 5️⃣ universal
+            elif not bp_names and not bp_groups and not bp_clinical:
+                priority += 0
+
+            else:
                 continue
 
-            # 3️⃣ Clinical group fallback
-            if bp_clinical and cg and cg in bp_clinical:
-                if bn not in bp_ex_names and cg not in bp_ex_groups:
-                    if ab not in refined:
-                        refined[ab] = {**bp, "source": f"clinical_group ({', '.join(bp_clinical)})"}
-                        print(f"[MATCH] clinical_group -> {ab} from clinical {bp_clinical}")
-                continue
+            # ✅ keep best match only
+            if ab not in best_matches or priority > priority_map[ab]:
+                best_matches[ab] = {**bp, "source": f"priority {priority}"}
+                priority_map[ab] = priority
 
-            # 4️⃣ Universal fallback (no restrictions)
-            if (not bp_names and not bp_groups and not bp_clinical) and (ab in preset_lower):
-                if ab not in refined:
-                    refined[ab] = {**bp, "source": "universal (applies to all)"}
-                    print(f"[MATCH] universal -> {ab} applies to all")
-                continue
+                print(f"[SELECTED] {ab} priority={priority} sample='{bp_sample}'")
 
-    print(f"[DEBUG] Refined results: {list(refined.keys())}")
-    return refined
+    print(f"[DEBUG] Final antibiotics: {list(best_matches.keys())}")
 
+    return best_matches
 
 def matching_name_input(user_input, species, cutoff = 0.6):
     #function to attempt matchng any input mistakes 
