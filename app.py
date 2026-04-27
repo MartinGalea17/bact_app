@@ -56,6 +56,7 @@ def confirm_logout():
     with col2:
         if st.button("❌ Cancel"):
             st.info("Logout cancelled.")
+            st.rerun()
 
 #confirm delete notification dialog
 @st.dialog("Confirm Delete Noification")
@@ -70,7 +71,20 @@ def confirm_delete(note):
     with col2:
         if st.button("❌ Cancel", key=f"cancel_{note['id']}"):
             st.info("Deletion cancelled.")
-        
+            st.rerun()
+
+@st.dialog("Confirm data change")
+def confirm_data_change():
+    st.warning("Are you sure you want to change this data?.")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("✅ Yes, change"):
+            st.success(f"Data changed")
+            st.rerun()  # only rerun after deletion     
+    with col2:
+        if st.button("❌ Cancel"):
+            st.info("Data change cancelled.")
+            st.rerun()
 
 # --- Show App Logic ---
 def show_app():
@@ -117,7 +131,7 @@ def show_app():
     container.title('🧫 Bacteriology helper APP')
     container.markdown(
         "Welcome to the Bacterial Antibiotic Susceptibility App! "
-        "This app helps you find the relevant antibiotic susceptibility data for various bacteria. "
+        "This app automates the process of bacterial antibiotic susceptibility testing for various bacteria. "
         "Please select a section from the dropdown list below to get started.")
     
     #load messages for strep pneumo logic
@@ -186,6 +200,30 @@ def show_app():
                 with tab2:
                     st.subheader("Settings")
                     st.info("Admin settings will go here")
+                    settings_options = ["Presets", "Option 2", "Logs"]
+                    selected_setting = st.selectbox("Select a setting to configure", settings_options)
+                    print(f"[DEBUG] Selected setting: {selected_setting}")
+                    if selected_setting == "Presets":
+                        presets_container = st.container(border=True)
+                        with presets_container:
+                            types = ["Gram Positive", "Gram Negative"]
+                            selected_type = st.selectbox("Select preset type", types)
+                            if selected_type == "Gram Positive":
+                                df = pd.DataFrame(pos_presets)
+                                st.dataframe(df)
+                                edited_df = st.data_editor(df)
+                                if st.button("💾 Save changes to Gram-positive presets"):
+                                    confirm_data_change()
+                                    # Here you would add logic to save the edited DataFrame back to your JSON or database
+                            else:
+                                df = pd.DataFrame(presets)
+                                st.dataframe(df)
+                    if selected_setting == "Logs":
+
+                        # Placeholder for log management functionality
+                        logs_container = st.container(border=True)
+                        with logs_container:
+                            st.write("Log management interface will go here.")
 
                 with tab3: 
                     st.subheader("Users")
@@ -215,7 +253,7 @@ def show_app():
         container1.markdown(
             "This section provides antibiotic preset information for various bacteria and automatic antibiotic results. "
             "Please select from the following tabs.")
-        tab1, tab2,tab3= container1.tabs(["🔍 AST preset lookup", "💊Antibiotic Sensitivities","🧐 Panel verification"])
+        tab1, tab2,tab3= container1.tabs(["🔍 AST preset lookup", "💊Antibiotic Sensitivities","🧐 AST verification"])
 
         with tab1:
             container2 = st.container(border=True)
@@ -225,6 +263,7 @@ def show_app():
             with middle:
                 gram_type = st.radio("Filter by Gram", ["Gram Positive 🟣", "Gram Negative 🔴"])
                 print(f"[DEBUG tab1] Filter choosen is {gram_type}")
+                
             with right:
                 search_type = st.radio("Search by", ["Species Name", "Clinical Group"])
                 print(f"[DEBUG tab1] Filter choosen is {search_type}")
@@ -308,8 +347,10 @@ def show_app():
                     print(f"[DEBUG tab 2] Filter choosen {sterility}")
                 with col3:
                     site = st.selectbox("Select a section", ["-- Select --", "Normal", "❤️ Endocarditis", "🧠CSF"],key="infection_site_filter")
+                    print(f"[DEBUG tab 2] Filter choosen {site}")
                 with col4:
                     date = st.selectbox("Select Eucast date", ["-- Select --", "2021", "2024", "2025"],key="eucast_date_filter")
+                    print(f"[DEBUG tab 2] Filter choosen {date}")
                 
 
                 submitted_filters = st.form_submit_button("Apply Filters")
