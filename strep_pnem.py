@@ -24,7 +24,7 @@ def pneumo_logic(ox, pen, sample_type, messages, pen_disc=None):
     
 
     # STEP 1 — Screen for resistance mechanism
-    ox_screen_susceptible = oc is not None and ox >= 20
+    ox_screen_susceptible = ox is not None and ox >= 20
     pen_mic_susceptible = pen is not None and pen <= 0.06 
     if ox_screen_susceptible or pen_mic_susceptible:
         return messages["screen_susceptible"]
