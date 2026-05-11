@@ -24,7 +24,9 @@ def pneumo_logic(ox, pen, sample_type, messages, pen_disc=None):
     
 
     # STEP 1 — Screen for resistance mechanism
-    if ox >= 20 or pen <= 0.06:
+    ox_screen_susceptible = oc is not None and ox >= 20
+    pen_mic_susceptible = pen is not None and pen <= 0.06 
+    if ox_screen_susceptible or pen_mic_susceptible:
         return messages["screen_susceptible"]
     
     # Everything below this line assumes resistance exists
@@ -36,16 +38,18 @@ def pneumo_logic(ox, pen, sample_type, messages, pen_disc=None):
 
     if sample_type in ["endocarditis", "meningitis"]:
         return resistance_detected + messages["meningitis_resistant"]
+
+    if pen_disc is None:
+        raise ValueError("Benzylpenicillin disc zone is required for non-meningitis isolates")
     
     # Benzylpenicillin disc required
-    pen_disc = int(input("Enter benzylpenicillin disc zone: "))
     if pen_disc >= 14:
         pen_disc_result = messages["benzylpen_I"]
         print(f"DEBUG: penicillin disc input {pen_disc}")
     else:
         pen_disc_result = messages["benzylpen_R"]
     
-    # STEP 3 — Other indications
+    # STEP 5 — Other indications
     if 9 <= ox <= 19:
         other_ab_messages = messages["oxacillin_9_19"]
 
