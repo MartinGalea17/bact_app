@@ -667,14 +667,15 @@
     "site": "other",
     "info": "N/A",
     "medium": "MHFco2 (1mF)",
-    "antibiotic_strips": [
-      "Amoxicillin-clavulanic acid 2-1ug",
+    "antibiotic_strips": [],
+    "antibiotic_discs": [
+      "Benzylpenicillin",
+      "Amoxicillin-clavulanic acid",
       "Cefotaxime",
       "Ciprofloxacin",
-      "Trimethoprim-sulfamethoxazole"
-    ],
-    "antibiotic_discs": [
+      "Trimethoprim-sulfamethoxazole",
       "Tetracycline (Screen only)"
+      
     ],
     "guidance": "Use Eucast bp's P.multocida"
   },
