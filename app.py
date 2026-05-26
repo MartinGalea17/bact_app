@@ -594,7 +594,7 @@ def show_app():
                                              
                         elif options == "haemophilus influenzae":
                             with input_container:
-                                cefinase_input = st.number_input("Enter cefinase test result:", min_value=0, step=1, key="cefinase_input")
+                                cefinase_input = st.number_input("Enter cefinase test result:", min_value=0, max_value=1, key="cefinase_input")
                                 penicillin_input = st.number_input("Enter penicillin test result (MIC):", min_value=0, step=1, key="penicillin_input")
                                 
                                 if  penicillin_input < 12:
