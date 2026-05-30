@@ -477,6 +477,22 @@
 },
   {
   "name": "Corynebacterium",
+  "clinical_group": "",
+  "morphology": "rods",
+  "site": "Other",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Benzylpenicillin",
+    "Ciprofloxacin ",
+    "Vancomycin",
+    "Clindamycin",
+    "Tetracycline",
+    "Rifampin"],
+  "antibiotic_discs":["..."],
+  "guidance": "Eucast corynebactrium bp's"
+},
+    {
+  "name": "",
   "clinical_group": "Brevibacterium",
   "morphology": "rods",
   "site": "Other",
