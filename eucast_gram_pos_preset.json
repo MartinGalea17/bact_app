@@ -476,8 +476,8 @@
   "guidance": "CLSI bp's M45 - Abiotrophia, Granulicatella spp"
 },
   {
-  "name": "Corynebacterium",
-  "clinical_group": "",
+  "name": "",
+  "clinical_group": "Corynebacterium",
   "morphology": "rods",
   "site": "Other",
   "medium": "MHFco2 @ 1mF",
