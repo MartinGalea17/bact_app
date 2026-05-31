@@ -220,8 +220,8 @@
       "exclude_name": "",
       "exclude_group": "",
       "MIC": {
-        "S": "≤84",
-        "R": ">84",
+        "S": "≤8",
+        "R": ">8",
         "ATU": ""
       },
       "disk": {
@@ -533,7 +533,7 @@
       }
     },
     {
-      "class": "Cephalosporins1",
+      "class": "Cephalosporins",
       "antibiotic": "Cefaclor",
       "sample_type": "uncomplicated UTI",
       "administration": "",
