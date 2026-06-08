@@ -1,1 +1,26 @@
-[]
+{
+  "ESBL":{
+    "type":"acquired",
+    "organisms_applicable":[
+      "Enterobacterales"],
+    "detection_rules":[
+      {
+        "id":"ESBL-1",
+        "if":{
+          "Cefotaxime":"R",
+          "Ceftazidime":"R"},
+        "interpretation":"Phenotype compatible with ESBL production",
+        "Recommendation":[
+          "Consider ESBL confirmatory testing"]
+      }
+    ]
+  },
+  "AmpC":{
+    "type":"intrinsic or inducable",
+    "organisms_applicable":[
+      "Citrobacter freundii",
+      "Enterobacter cloacae",
+      "Klebsiella aerogenes"],
+    "interpretation":"Chromosomal AmpC likely present",
+  }
+}
