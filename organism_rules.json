@@ -1,1 +1,12 @@
-[]
+{
+  "Citrobacter freundii":{
+    "intrinsic_resistance":{
+      "Ampicillin":"R",
+      "Amoxicillin":"R",
+      "Amoxicillin-clavulanic acid":"R",
+      "Ampicillin-sulbactam":"R"},
+    "baseline_mechanisms":[
+      "Chromosomal AmpC"]
+  }
+}
+
