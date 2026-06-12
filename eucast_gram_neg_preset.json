@@ -804,6 +804,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+      "Tetracycline",
       "Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
@@ -828,6 +829,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole"
     ],
     "guidance": "Use Eucast bp's H.influenzae"
@@ -852,6 +854,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
       "Rifampicin"
     ],
@@ -877,6 +880,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
       "Rifampicin"
     ],
@@ -900,7 +904,9 @@
     "antibiotic_discs": [
       "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug",
-      "Ceftriaxone,Ciprofloxacin",
+      "Ceftriaxone",
+      "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
       "Chlorophenicol"
     ],
@@ -926,6 +932,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
       "Chlorophenicol"
     ],
@@ -951,6 +958,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
       "Rifampicin",
       "Chlorophenicol"
@@ -977,6 +985,7 @@
       "Amoxicillin-clavulanic acid 2-1ug", 
       "Ceftriaxone",
       "Ciprofloxacin",
+       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
       "Rifampicin",
       "Chlorophenicol"
