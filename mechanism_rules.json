@@ -1,26 +1,217 @@
 {
-  "ESBL":{
-    "type":"acquired",
-    "organisms_applicable":[
-      "Enterobacterales"],
-    "detection_rules":[
+  "ESBL": {
+    "type": "acquired",
+    "applicable_groups": ["Enterobacterales"],
+    "excluded_organisms": [],
+    "detection_rules": [
       {
-        "id":"ESBL-1",
-        "if":{
-          "Cefotaxime":"R",
-          "Ceftazidime":"R"},
-        "interpretation":"Phenotype compatible with ESBL production",
-        "Recommendation":[
-          "Consider ESBL confirmatory testing"]
+        "id": "ESBL-1",
+        "if": {
+          "Cefotaxime": "R",
+          "Ceftazidime": "R"
+        },
+        "interpretation": "Phenotype compatible with ESBL production",
+        "recommendation": [
+          "Consider ESBL confirmatory testing"
+        ]
       }
     ]
   },
-  "AmpC":{
-    "type":"intrinsic or inducable",
-    "organisms_applicable":[
-      "Citrobacter freundii",
-      "Enterobacter cloacae",
-      "Klebsiella aerogenes"],
-    "interpretation":"Chromosomal AmpC likely present",
+
+  "AmpC (chromosomal)": {
+    "type": "baseline",
+    "applicable_groups": ["Enterobacterales"],
+    "excluded_organisms": [
+      "Klebsiella pneumoniae",
+      "Escherichia coli"
+    ],
+    "detection_rules": [
+      {
+        "id": "AMPC-BASE-1",
+        "if": {},
+        "interpretation": "Chromosomal AmpC may be present in this group",
+        "recommendation": [
+          "Risk of inducible resistance to 3rd generation cephalosporins"
+        ]
+      }
+    ]
+  },
+
+  "Carbapenemase (general)": {
+    "type": "acquired",
+    "applicable_groups": [
+      "Enterobacterales",
+      "Non-fermenter"
+    ],
+    "excluded_organisms": [],
+    "detection_rules": [
+      {
+        "id": "CARB-1",
+        "if": {
+          "Meropenem": "R"
+        },
+        "interpretation": "Carbapenem resistance detected",
+        "recommendation": [
+          "Investigate carbapenemase production"
+        ]
+      }
+    ]
+  },
+
+  "KPC": {
+    "type": "acquired",
+    "applicable_groups": ["Enterobacterales"],
+    "detection_rules": [
+      {
+        "id": "KPC-1",
+        "if": {
+          "Meropenem": "R",
+          "Ertapenem": "R"
+        },
+        "interpretation": "Phenotype suggestive of KPC carbapenemase",
+        "recommendation": [
+          "Confirm with phenotypic or molecular testing"
+        ]
+      }
+    ]
+  },
+
+  "NDM / MBL": {
+    "type": "acquired",
+    "applicable_groups": ["Enterobacterales", "Non-fermenter"],
+    "detection_rules": [
+      {
+        "id": "MBL-1",
+        "if": {
+          "Meropenem": "R",
+          "Imipenem": "R"
+        },
+        "interpretation": "Possible metallo-beta-lactamase (NDM/VIM/IMP)",
+        "recommendation": [
+          "Consider EDTA-based confirmation testing"
+        ]
+      }
+    ]
+  },
+
+  "OXA-48-like": {
+    "type": "acquired",
+    "applicable_groups": ["Enterobacterales"],
+    "detection_rules": [
+      {
+        "id": "OXA48-1",
+        "if": {
+          "Ertapenem": "R"
+        },
+        "interpretation": "Possible OXA-48-like carbapenemase",
+        "recommendation": [
+          "Confirm with reference testing"
+        ]
+      }
+    ]
+  },
+
+  "MRSA": {
+    "type": "acquired",
+    "applicable_groups": ["Staphylococci"],
+    "detection_rules": [
+      {
+        "id": "MRSA-1",
+        "if": {
+          "Cefoxitin": "R"
+        },
+        "interpretation": "Methicillin-resistant Staphylococcus aureus",
+        "recommendation": [
+          "Assume mecA/mecC mediated resistance"
+        ]
+      }
+    ]
+  },
+
+  "MRCoNS": {
+    "type": "acquired",
+    "applicable_groups": ["Coagulase-negative staphylococci"],
+    "detection_rules": [
+      {
+        "id": "MRCONS-1",
+        "if": {
+          "Cefoxitin": "R"
+        },
+        "interpretation": "Methicillin-resistant coagulase-negative staphylococci",
+        "recommendation": [
+          "Likely mecA mediated resistance"
+        ]
+      }
+    ]
+  },
+
+  "Inducible MLSB (D-test)": {
+    "type": "acquired",
+    "applicable_groups": ["Staphylococci", "Beta-haemolytic streptococci"],
+    "detection_rules": [
+      {
+        "id": "DTEST-1",
+        "if": {
+          "Erythromycin": "R",
+          "Clindamycin": "S"
+        },
+        "interpretation": "Possible inducible MLSB resistance",
+        "recommendation": [
+          "Perform D-test before reporting clindamycin"
+        ]
+      }
+    ]
+  },
+
+  "VRE": {
+    "type": "acquired",
+    "applicable_groups": ["Enterococci"],
+    "detection_rules": [
+      {
+        "id": "VRE-1",
+        "if": {
+          "Vancomycin": "R"
+        },
+        "interpretation": "Vancomycin-resistant Enterococcus",
+        "recommendation": [
+          "Consider vanA/vanB mechanism"
+        ]
+      }
+    ]
+  },
+
+  "HLAR": {
+    "type": "acquired",
+    "applicable_groups": ["Enterococci"],
+    "detection_rules": [
+      {
+        "id": "HLAR-1",
+        "if": {
+          "Gentamicin High Level": "R"
+        },
+        "interpretation": "High-level aminoglycoside resistance",
+        "recommendation": [
+          "Synergy therapy not reliable"
+        ]
+      }
+    ]
+  },
+
+  "BLNAR": {
+    "type": "acquired",
+    "applicable_groups": ["Fastidious Gram-negative"],
+    "detection_rules": [
+      {
+        "id": "BLNAR-1",
+        "if": {
+          "Ampicillin": "R",
+          "Amoxicillin-clavulanic acid": "S"
+        },
+        "interpretation": "Beta-lactamase negative ampicillin resistance",
+        "recommendation": [
+          "PBP alteration likely"
+        ]
+      }
+    ]
   }
 }
