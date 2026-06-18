@@ -190,6 +190,28 @@ def _to_list(val):
         return [p.strip().lower() for p in parts if p.strip() != ""]
     return []
 
+def normalize(text):
+    """Normalize strings for robust matching."""
+    return re.sub(r'[^a-z0-9]+', '', str(text).lower())
+
+
+def _to_list(val):
+    """Normalize a field into a list of cleaned, lowercase strings."""
+    if isinstance(val, list):
+        return [str(v).strip().lower() for v in val if v is not None and str(v).strip() != ""]
+    if isinstance(val, str):
+        parts = re.split(r'\s*,\s*', val)
+        return [p.strip().lower() for p in parts if p.strip() != ""]
+    return []
+
+
+def norm_list(val):
+    return [normalize(x) for x in _to_list(val)]
+
+
+def has_intersection(a, b):
+    return bool(set(a) & set(b))
+
 @st.cache_data
 
 def load_and_normalize_breakpoints(json_folder='2024_breakpoint_folder'):
@@ -213,6 +235,7 @@ def load_and_normalize_breakpoints(json_folder='2024_breakpoint_folder'):
         if isinstance(data, dict):
             data = [data]
         for entry in data:
+            entry["eucast_version"] = (entry.get("eucast_version")or entry.get("version")or "N/A")
             if not isinstance(entry, dict):
                 print(f"[WARNING] Skipping non-dict entry in {filename}: {repr(entry)[:120]}")
                 continue
@@ -261,38 +284,58 @@ def get_relevant_preset_entry(bacterium_name, clinical_group, sterility_check, m
 
 def select_relevant_entries(normalized_data, bacterium_name, clinical_group):
 
-    bn = (bacterium_name or "").strip().lower()
-    cg = (clinical_group or "").strip().lower()
+    bn = normalize(bacterium_name)
+    cg = normalize(clinical_group or "")
 
-    organism_entries = []
-    group_entries = []
+    organism_hits = []
+    clinical_hits = []
+    universal_hits = []
 
     for entry in normalized_data:
-        if not isinstance(entry, dict):
+
+        orgs = norm_list(entry.get("organism", ""))
+        cgs  = norm_list(entry.get("clinical_group", ""))
+
+        ex_orgs = norm_list(entry.get("exclude_name", ""))
+        ex_cgs  = norm_list(entry.get("exclude_group", ""))
+
+        # -------------------------
+        # HARD EXCLUSION FIRST
+        # -------------------------
+        if bn in ex_orgs or cg in ex_cgs:
             continue
 
-        # normalize fields
-        entry_organisms = _to_list(entry.get("organism", ""))
-        entry_cg = _to_list(entry.get("clinical_group", ""))
-
-        if entry_organisms and bn in entry_organisms:
-            organism_entries.append(entry)
+        # -------------------------
+        # 1. ORGANISM MATCH (HIGHEST PRIORITY)
+        # -------------------------
+        if bn and bn in orgs:
+            organism_hits.append(entry)
             continue
 
-        if entry_cg and cg in entry_cg:
-            group_entries.append(entry)
+        # -------------------------
+        # 2. CLINICAL GROUP MATCH (ONLY IF NOT ORGANISM ENTRY)
+        # -------------------------
+        if cg and cgs and not orgs:
+            if cg in cgs:
+                clinical_hits.append(entry)
+                continue
 
-    # priority decision
-    if organism_entries:
-        print(f"[SELECT] Using organism-specific entries for '{bn}' ({len(organism_entries)} found)")
-        return organism_entries
+        # -------------------------
+        # 3. UNIVERSAL
+        # -------------------------
+        if not orgs and not cgs:
+            universal_hits.append(entry)
 
-    if group_entries:
-        print(f"[SELECT] Using clinical group entries for '{cg}' ({len(group_entries)} found)")
-        return group_entries
+    if organism_hits:
+        print(f"[SELECT] organism match ({len(organism_hits)})")
+        return organism_hits
 
-    print(f"[WARNING] No organism or clinical group match found for '{bn}' / '{cg}'")
-    return []
+    if clinical_hits:
+        print(f"[SELECT] clinical match ({len(clinical_hits)})")
+        return clinical_hits
+
+    print(f"[SELECT] universal ({len(universal_hits)})")
+    return universal_hits
 
 def get_refined_breakpoints(
     bacterium_name,
@@ -302,111 +345,165 @@ def get_refined_breakpoints(
     sample_type=None
 ):
 
-    selected_entries = select_relevant_entries(
-        normalized_data,
-        bacterium_name,
-        clinical_group
-    )
-
     if not bacterium_name or not preset_antibiotics:
-        print("[DEBUG] Missing bacterium name or preset_antibiotics")
         return {}
 
-    bn = bacterium_name.strip().lower()
-    cg = (clinical_group or "").strip().lower()
+    bn = normalize(bacterium_name)
+    cg = normalize(clinical_group or "")
     st = (sample_type or "").strip().lower()
 
-    # Normalize preset antibiotics
-    preset_lower = []
+    # -----------------------------
+    # STEP 1: SELECT ENTRIES (FIXED LOGIC)
+    # -----------------------------
+    organism_hits = []
+    clinical_hits = []
+    universal_hits = []
+
+    for entry in normalized_data:
+
+        orgs = norm_list(entry.get("organism", ""))
+        cgs  = norm_list(entry.get("clinical_group", ""))
+
+        ex_orgs = norm_list(entry.get("exclude_name", ""))
+        ex_cgs  = norm_list(entry.get("exclude_group", ""))
+
+        # HARD EXCLUSION FIRST
+        if bn and bn in ex_orgs:
+            continue
+        if cg and cg in ex_cgs:
+            continue
+
+        # 1. ORGANISM MATCH (HIGHEST PRIORITY)
+        if bn and orgs and bn in orgs:
+            organism_hits.append(entry)
+            continue
+
+        # 2. CLINICAL GROUP MATCH (ONLY IF ENTRY IS NOT SPECIES-SPECIFIC)
+        if cg and cgs and not orgs:
+            if cg in cgs:
+                clinical_hits.append(entry)
+                continue
+
+        # 3. UNIVERSAL FALLBACK
+        if not orgs and not cgs:
+            universal_hits.append(entry)
+
+    # FINAL PRIORITY DECISION
+    if organism_hits:
+        selected_entries = organism_hits
+        print(f"[SELECT] organism-level match ({len(selected_entries)})")
+
+    elif clinical_hits:
+        selected_entries = clinical_hits
+        print(f"[SELECT] clinical-level match ({len(selected_entries)})")
+
+    else:
+        selected_entries = universal_hits
+        print(f"[SELECT] universal match ({len(selected_entries)})")
+
+    # -----------------------------
+    # STEP 2: NORMALIZE INPUT ANTIBIOTICS
+    # -----------------------------
+    preset_lower = set()
     for p in preset_antibiotics:
         if isinstance(p, str):
-            preset_lower.append(p.strip().lower())
-        elif isinstance(p, dict) and "name" in p:
-            preset_lower.extend(_to_list(p["name"]))
+            preset_lower.add(p.strip().lower())
+        elif isinstance(p, dict):
+            preset_lower.update(norm_list(p.get("name", "")))
 
-    preset_lower = list(dict.fromkeys(preset_lower))
+    print("PRESETS:", preset_lower)
 
-    print(f"[DEBUG] Query bn='{bn}' cg='{cg}' st='{st}'")
-
-    # ✅ MOVE OUTSIDE LOOPS
     best_matches = {}
     priority_map = {}
 
-    for i, entry in enumerate(selected_entries):
-        if not isinstance(entry, dict):
-            continue
+    # -----------------------------
+    # STEP 3: PROCESS ENTRIES
+    # -----------------------------
+    for entry in selected_entries:
 
-        bps = entry.get("breakpoints")
-        if isinstance(bps, list) and bps:
-            pass
-        elif "antibiotic" in entry:
-            bps = [entry]
-        else:
-            continue
+        breakpoints = entry.get("breakpoints", [])
+        if isinstance(breakpoints, dict):
+            breakpoints = [breakpoints]
 
-        parent_names = _to_list(entry.get("name", []))
-        parent_groups = _to_list(entry.get("group", []))
-        parent_clinical = _to_list(entry.get("clinical_group", []))
-        parent_ex_names = _to_list(entry.get("exclude_name", []))
-        parent_ex_groups = _to_list(entry.get("exclude_group", []))
+        for bp in breakpoints:
 
-        for bp in bps:
             if not isinstance(bp, dict):
                 continue
 
-            ab = str(bp.get("antibiotic", "")).strip().lower()
-            if not ab or ab not in preset_lower:
+            ab = (bp.get("antibiotic") or "").strip().lower()
+            if ab not in preset_lower:
                 continue
 
-            # scopes
-            bp_names = _to_list(bp.get("name", [])) or parent_names
-            bp_groups = _to_list(bp.get("group", [])) or parent_groups
-            bp_clinical = _to_list(bp.get("clinical_group", [])) or parent_clinical
-            bp_ex_names = _to_list(bp.get("exclude_name", [])) or parent_ex_names
-            bp_ex_groups = _to_list(bp.get("exclude_group", [])) or parent_ex_groups
+            # -----------------------------
+            # CLEAN BP-LEVEL FIELDS ONLY (NO INHERITANCE BLEED)
+            # -----------------------------
+            bp_names = norm_list(bp.get("name", ""))
+            bp_groups = norm_list(bp.get("group", ""))
+            bp_clinical = norm_list(bp.get("clinical_group", ""))
 
-            bp_sample = (bp.get("sample_type", "") or "").strip().lower()
+            bp_ex_names = norm_list(bp.get("exclude_name", ""))
+            bp_ex_groups = norm_list(bp.get("exclude_group", ""))
 
-            # 🔥 PRIORITY SYSTEM
-            priority = -1
+            # -----------------------------
+            # HARD EXCLUSIONS
+            # -----------------------------
+            if bn and bn in bp_ex_names:
+                continue
+            if cg and cg in bp_ex_groups:
+                continue
 
-            # 1️⃣ sample type
-            if st:
-                if bp_sample == st:
-                    priority += 4
-                elif bp_sample == "":
-                    priority += 1
-                else:
-                    continue
+            # -----------------------------
+            # STRICT MATCH LOGIC
+            # -----------------------------
+            match_species = bn in bp_names if bp_names else False
+            match_clinical = cg in bp_clinical if bp_clinical else False
 
-            # 2️⃣ species
-            if bp_names and bn in bp_names and bn not in bp_ex_names:
-                priority += 3
+            match_group = False
+            if not match_species and not match_clinical:
+                if bp_groups:
+                    match_group = (bn in bp_groups) or (cg in bp_groups)
 
-            # 3️⃣ group
-            elif bp_groups and cg in bp_groups and cg not in bp_ex_groups:
-                priority += 2
+            # MUST MATCH OR BE UNIVERSAL
+            if not (match_species or match_clinical or match_group or (not bp_names and not bp_clinical and not bp_groups)):
+                continue
 
-            # 4️⃣ clinical group
-            elif bp_clinical and cg in bp_clinical:
-                priority += 1
-
-            # 5️⃣ universal
-            elif not bp_names and not bp_groups and not bp_clinical:
-                priority += 0
-
+            # -----------------------------
+            # PRIORITY SYSTEM
+            # -----------------------------
+            if match_species:
+                match_type = "species"
+                priority = 3
+            elif match_clinical:
+                match_type = "clinical"
+                priority = 2
+            elif match_group:
+                match_type = "group"
+                priority = 1
             else:
+                match_type = "universal"
+                priority = 0
+
+            # -----------------------------
+            # SAMPLE TYPE FILTER
+            # -----------------------------
+            bp_sample = (bp.get("sample_type") or "").strip().lower()
+            if st and bp_sample and bp_sample != st:
                 continue
 
-            # ✅ keep best match only
+            # -----------------------------
+            # KEEP BEST MATCH ONLY
+            # -----------------------------
             if ab not in best_matches or priority > priority_map[ab]:
-                best_matches[ab] = {**bp, "source": f"priority {priority}"}
+
+                best_matches[ab] = {
+                    **bp,
+                    "source": match_type,
+                    "eucast_version": entry.get("eucast_version")  # Inherit version from preset level
+                }
+
                 priority_map[ab] = priority
 
-                print(f"[SELECTED] {ab} priority={priority} sample='{bp_sample}'")
-
     print(f"[DEBUG] Final antibiotics: {list(best_matches.keys())}")
-
     return best_matches
 
 def matching_name_input(user_input, species, cutoff = 0.6):
@@ -571,6 +668,7 @@ def process_user_results(user_results, mic_or_disc, matches, refined):
             interpretation = interpret_breakpoint(user_val, s, r)
 
             interpretations[ab_name] = {
+                "eucast_version": bp.get("eucast_version", "N/A"),
                 "value": user_val,
                 "S": str(s) if s is not None else "-",
                 "R": str(r) if r is not None else "-",
@@ -610,10 +708,16 @@ def process_user_results(user_results, mic_or_disc, matches, refined):
 def add_additional_antibiotics(bacterium_name, clinical_group, all_data):
 #function to add additional antibioptics to the existing presets if possible after checking if they are present in the eucast data sheet
     additional_antibiotics = []
+    bn = (bacterium_name or "").strip().lower()
+    cg = (clinical_group or "").strip().lower()
     for entry in all_data:
-        if (bacterium_name in entry.get("organisms","").lower() or clinical_group in entry.get("clinical_group","")):
-                
-            for bp in entry.get("breakpoints", []):
+            breakpoints = entry.get("breakpoints", [])
+            if isinstance(breakpoints, dict):
+                breakpoints = [breakpoints]
+            for bp in breakpoints:
+                antibiotic = bp.get("antibiotic")
+                if antibiotic and antibiotic not in additional_antibiotics:
+                    additional_antibiotics.append(antibiotic)
                 antibiotic = bp.get("antibiotic")
                 if antibiotic and antibiotic not in additional_antibiotics:
                     additional_antibiotics.append(antibiotic)
