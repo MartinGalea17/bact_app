@@ -6,6 +6,9 @@ import bcrypt
 import plotly
 from graph_testing import complete_graph,create_circular_zones
 import time
+import shutil
+import os
+from datetime import datetime
 from streamlit_lottie import st_lottie
 from test import (
     clean_get_gram_neg,
@@ -28,6 +31,8 @@ from notifications import load_notifications, add_notifications, get_notificatio
 from strep_pnem import pneumo_logic,load_resistance_patterns,haeinf_logic
 
 logo_image = "logo.png"  #logo image
+
+st.set_page_config(page_title="Bacteriology Helper App", page_icon="🧫", layout="wide")
 
 # --- Authentication function ---
 def check_login(username, password):
@@ -59,7 +64,7 @@ def confirm_logout():
             st.rerun()
 
 #confirm delete notification dialog
-@st.dialog("Confirm Delete Noification")
+@st.dialog("Confirm Delete Notification")
 def confirm_delete(note):
     st.warning("Are you sure you want to delete this notification?")
     col1, col2 = st.columns(2)
@@ -74,17 +79,101 @@ def confirm_delete(note):
             st.rerun()
 
 @st.dialog("Confirm data change")
-def confirm_data_change():
+def confirm_data_change(data, file_name):
     st.warning("Are you sure you want to change this data?.")
     col1, col2 = st.columns(2)
+    user = st.session_state.get("username", "Unknown User")
     with col1:
         if st.button("✅ Yes, change"):
+            save_preset(user, data, file_name)
+            st.session_state["confirm_result"] = "saved"
+
             st.success(f"Data changed")
             st.rerun()  # only rerun after deletion     
     with col2:
         if st.button("❌ Cancel"):
+            st.session_state["confirm_result"] = "cancelled"
             st.info("Data change cancelled.")
             st.rerun()
+
+def save_preset(user, new_data, file_name):
+
+    old_data = []
+
+    if os.path.exists(file_name):
+        # backup current file
+        with open(file_name, "r", encoding="utf-8") as f:
+            old_data = json.load(f)
+
+        shutil.copy(file_name, file_name + ".bak")
+
+    # write new version
+    with open(file_name, "w", encoding="utf-8") as f:
+        json.dump(new_data, f, indent=4)
+
+    # log change
+    log_preset_change(user, file_name, old_data, new_data)
+
+AUDIT_FILE = "preset_audit_log.json"
+RULES_AUDIT_FILE = "rules_audit_log.json"
+
+def log_preset_change(user, file_name, old_data, new_data):
+    entry = {
+        "timestamp": datetime.now().isoformat(),
+        "user": user,
+        "file_name": file_name,
+        "old_data": old_data,
+        "new_data": new_data
+    }
+
+    # Append the entry to the audit log
+    if os.path.exists(AUDIT_FILE):
+        with open(AUDIT_FILE, "r", encoding="utf-8") as f:
+           logs = json.load(f)
+    else:
+        logs = []
+
+    logs.append(entry)
+
+    with open(AUDIT_FILE, "w", encoding="utf-8") as f:
+        json.dump(logs, f, indent=4)
+
+
+def undo_last_change(file_name):
+
+    if not os.path.exists(AUDIT_FILE):
+        return False
+
+    with open(AUDIT_FILE, "r", encoding="utf-8") as f:
+        logs = json.load(f)
+
+    # find last change for this file
+    for entry in reversed(logs):
+        if entry["file_name"] == file_name:
+            old_data = entry["old_data"]
+
+            # restore
+            with open(file_name, "w", encoding="utf-8") as f:
+                json.dump(old_data, f, indent=4)
+
+            return True
+
+    return False
+
+@st.dialog("Add new organism rule")
+def add_new_organism_rule():
+    st.warning("⚠️ Are you sure you want to add a new organism rule?")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("✅ Yes, add"):
+         # Here you would implement the logic to add a new rule
+            st.success("✅ New organism rule added successfully.")
+            st.rerun()  # only rerun after adding
+    with col2:
+        if st.button("❌ Cancel"):
+            st.info("Addition cancelled.")
+            st.rerun()
+
 
 # --- Show App Logic ---
 def show_app():
@@ -121,7 +210,7 @@ def show_app():
     unique_pos_site = sorted(set(pos_site))
     print(f"[DEBUG] Gram-positive sites: {unique_pos_site}")
 
-    # --- Load rules ---
+    # --- Load rules --- 
     with open('eucast_rules.json', 'r', encoding='utf-8') as f:
         rules = json.load(f)
         print("[DEBUG] ✅ Loaded EUCAST rules")
@@ -139,6 +228,15 @@ def show_app():
 
     pneumo_data = patterns["streptococcus pneumoniae"]
     h_inf_data = patterns["haemophilus influenzae"]
+
+    # loading organism and mechanism rules 
+    with open ("organism_rules.json","r", encoding="utf=8") as f:
+        organism_rules = json.load(f)
+        print("[DEBUG] ✅ Loaded organism rules")
+
+    with open ("mechanism_rules.json","r", encoding="utf=8") as f:
+        mechanism_rules = json.load(f)
+        print("[DEBUG] ✅ Loaded mechanism rules")
 
 
     # --- Sidebar for navigation ---
@@ -199,35 +297,125 @@ def show_app():
                         st.info("No notifications available.")
                 with tab2:
                     st.subheader("Settings")
-                    st.info("Admin settings will go here")
-                    settings_options = ["Presets", "Option 2", "Logs"]
-                    selected_setting = st.selectbox("Select a setting to configure", settings_options)
-                    print(f"[DEBUG] Selected setting: {selected_setting}")
-                    if selected_setting == "Presets":
+                    tab1,tab2,tab3 = st.tabs(["🗂️ Presets", "📖 Organism/resistance mechanisms", "📝 Logs"])
+                    with tab1:
                         presets_container = st.container(border=True)
                         with presets_container:
                             types = ["Gram Positive", "Gram Negative"]
                             selected_type = st.selectbox("Select preset type", types)
                             if selected_type == "Gram Positive":
                                 df = pd.DataFrame(pos_presets)
-                                st.dataframe(df)
-                                edited_df = st.data_editor(df)
-                                if st.button("💾 Save changes to Gram-positive presets"):
-                                    confirm_data_change()
-                                    # Here you would add logic to save the edited DataFrame back to your JSON or database
+                                pos_edited_df = st.data_editor(df)
+                                save, undo = st.columns(2)
+                                with save:
+                                    if st.button("💾 Save changes to Gram-positive presets"):
+                                        confirm_data_change(pos_edited_df.to_dict(orient="records"),"eucast_gram_pos_preset.json")
+                                with undo:
+                                    if st.button("🔄 Undo last change to Gram-negative presets"):
+                                        if undo_last_change("eucast_gram_neg_preset.json"):
+                                            st.success("✅ Last change undone successfully.")
+                                            st.rerun()  # only rerun after undo
+                                        else:
+                                            st.error("❌ No changes to undo.")
+                                    
                             else:
                                 df = pd.DataFrame(presets)
-                                st.dataframe(df)
-                    if selected_setting == "Logs":
+                                neg_edited_df = st.data_editor(df)
+                                save, undo = st.columns(2)
+                                with save:
+                                    if st.button("💾 Save changes to Gram-negative presets"):
+                                        confirm_data_change(neg_edited_df.to_dict(orient="records"),"eucast_gram_neg_preset.json")
+                                with undo:
+                                    if st.button("🔄 Undo last change to Gram-negative presets"):
+                                        if undo_last_change("eucast_gram_neg_preset.json"):
+                                            st.success("✅ Last change undone successfully.")
+                                            st.rerun()  # only rerun after undo
+                                    else:
+                                        st.error("❌ No changes to undo.")
+                        with tab2:
+                            st.subheader("Organism and resistance mechanism rules")
+                            st.warning("⚠️This section will allow you to view and edit the rules for organisms and resistance mechanisms. This is currently a work in progress.")
+                            rules = st.selectbox("Select rules to view/edit", ["Organism rules", "Resistance mechanism rules"])
+                            if rules == "Organism rules":
+                                df = pd.DataFrame(organism_rules)
+                                org_rules_edited_df = st.data_editor(df)
+                                save, undo,add = st.columns(3)
+                                with save:
+                                    if st.button("💾 Save changes to organism rules"):
+                                        confirm_data_change(org_rules_edited_df.to_dict(orient="records"),"organism_rules.json")
+                                with undo:
+                                    if st.button("🔄 Undo last change to organism rules"):
+                                        if undo_last_change("organism_rules.json"):
+                                            st.success("✅ Last change undone successfully.")
+                                            st.rerun()  # only rerun after undo
+                                        else:
+                                            st.error("❌ No changes to undo.")
+                                with add:
+                                    if st.button("➕ Add new organism rule"):
+                                        st.info("This will add a new blank rule at the end of the table. Remember to fill in all fields and save changes.")
+                                        new_rule = {"organism": "new organism", "rule": "new rule", "notes": "add notes here"}
+                                        updated_df = org_rules_edited_df.append(new_rule, ignore_index=True)
+                                        org_rules_edited_df = updated_df
+                                        st.data_editor(org_rules_edited_df)
+                                        add_new_organism_rule()
 
-                        # Placeholder for log management functionality
-                        logs_container = st.container(border=True)
-                        with logs_container:
-                            st.write("Log management interface will go here.")
 
+                            if rules == "Resistance mechanism rules":
+                                df = pd.DataFrame(mechanism_rules)
+                                mech_rules_edited_df = st.data_editor(df)
+                                save, undo = st.columns(2)
+                                with save:
+                                    if st.button("💾 Save changes to mechanism rules"):
+                                        confirm_data_change(mech_rules_edited_df.to_dict(orient="records"),"mechanism_rules.json")
+                                with undo:
+                                    if st.button("🔄 Undo last change to mechanism rules"):
+                                        if undo_last_change("mechanism_rules.json"):
+                                            st.success("✅ Last change undone successfully.")
+                                            st.rerun()  # only rerun after undo
+                                        else:
+                                            st.error("❌ No changes to undo.")
+
+                        with tab3:
+                            st.warning("⚠️This section will allow you to view logs of changes made to presets and rules. This is currently a work in progress.")
+                            logs_container = st.container(border=True)
+                            with logs_container:
+                                log_types = ["Preset Change logs", "Rules change logs", "Application logs"]
+                                selected_log_type = st.selectbox("Select log type to view", log_types)
+                                if selected_log_type == "Preset Change logs":
+                                    if os.path.exists(AUDIT_FILE):
+                                        with open(AUDIT_FILE, "r", encoding="utf-8") as f:
+                                            logs = json.load(f)
+
+                                    if logs:
+                                        st.subheader("Preset Change Logs")
+                                        audit_df = pd.DataFrame(logs)
+                                        st.dataframe(audit_df[["timestamp","user","file_name"]],
+                                                     use_container_width=True)
+                                    else:
+                                        st.info("No preset changes logged yet.")
+                                else:
+                                    st.info("No preset changes logged yet.")
+
+                                if selected_log_type == "Rules change logs":
+                                    if os.path.exists(RULES_AUDIT_FILE):
+                                        with open(RULES_AUDIT_FILE, "r", encoding="utf-8") as f:
+                                            rules_logs = json.load(f)
+
+                                        if rules_logs:
+                                            st.subheader("Rules Change Logs")
+                                            audit_df = pd.DataFrame(rules_logs)
+                                            st.dataframe(audit_df[["timestamp","user","file_name"]],
+                                                     use_container_width=True)
+                                        else:
+                                            st.info("No rules changes logged yet.")
+
+                                if selected_log_type == "Application logs":
+                                    st.info("Application logs will be displayed here.")
+                                                          
                 with tab3: 
                     st.subheader("Users")
                     st.info("User mangement will go here ")
+
             else:
                 st.warning("You are not logged in.")
 
@@ -338,17 +526,20 @@ def show_app():
             with st.form("global_filters", clear_on_submit=False):
                 st.header("🎛️ Filters")
 
-                col1, col2, col3, col4, = st.columns(4, vertical_alignment="center")
+                col1, col2, col3, col4,col5 = st.columns(5, vertical_alignment="center")
                 with col1:
                      mic_disc = st.radio("Select MIC or Disc", ["MIC", "Disc"],key="mic_disc_filter",horizontal=False)
                      print(f"[DEBUG tab 2] Filter choosen is {mic_disc}")
                 with col2:
-                    sterility = st.radio("Filter by", ["Sterile", "Urine", "Other"],key="sterility_type")
+                    sterility = st.radio("Filter preset by", ["Sterile", "Urine", "Other"],key="sterility_type")
                     print(f"[DEBUG tab 2] Filter choosen {sterility}")
                 with col3:
                     site = st.selectbox("Select a section", ["-- Select --", "Normal", "❤️ Endocarditis", "🧠CSF"],key="infection_site_filter")
                     print(f"[DEBUG tab 2] Filter choosen {site}")
                 with col4:
+                    administration = st.selectbox("Select administration route", ["-- Select --", "Systemic", "Oral","IV", "Topical"],key="administration_route_filter")
+                    print(f"[DEBUG tab 2] Filter choosen {administration}")
+                with col5:
                     date = st.selectbox("Select Eucast date", ["-- Select --", "2021", "2024", "2025"],key="eucast_date_filter")
                     print(f"[DEBUG tab 2] Filter choosen {date}")
                 
@@ -360,23 +551,18 @@ def show_app():
                     f"MIC/Disc: {st.session_state.mic_disc_filter}, "
                     f"Sterility: {st.session_state.sterility_type}, "
                     f"Site: {st.session_state.infection_site_filter}, "
+                    f"Administration: {st.session_state.administration_route_filter}, "
                     f"Date: {st.session_state.eucast_date_filter}")
 
 
                     #defaullts for organism states only 
             default_session_states = {
                 "left_name_input":"",
-                "right_name_input":"",
                 "bact_name_left": "",
-                "bact_name_right":"",
                 "clinical_group_left":"",
-                "clinical_group_right":"",
                 "antibiotics_left": [],
-                "antibiotics_right": [],
                 "left_user_result": {},
-                "right_user_result": {},
                 "left_submitted": False,
-                "right_submitted": False,
                 "sterility_type": "",
                 "mic_disc_filter": "",}
 
@@ -485,7 +671,7 @@ def show_app():
                                     result = st.text_input(f"Enter result for {antibiotic}:", value=str(left_raw_value), key=f"left_res_{antibiotic}")
                                     temp_results[antibiotic] = result
 
-                                if st.button("📤 Submit Left Results"):
+                                if st.button("📤 Submit Results"):
                                     st.session_state.left_user_result = temp_results
                                     st.session_state.left_submitted = True
                                     st.rerun()
@@ -526,7 +712,7 @@ def show_app():
 
                                 if refined_bps:
                                     matches_left = find_matching_rules(st.session_state["bact_name_left"], extracted_rules)
-                                    interpretations_left = process_user_results(final_results,st.session_state["mic_disc_filter"],matches_left,refined_bps)
+                                    interpretations_left = process_user_results(final_results,st.session_state["mic_disc_filter"],matches_left,refined_bps,)
                                     for ab, info in interpretations_left.items():
                                         # Add color coding for interpretation
                                         color = "green" if info['interpretation'] == "Sensitive" else "orange" if info['interpretation'] == "Intermediate" else "red"
@@ -546,8 +732,8 @@ def show_app():
                                         with st.expander(f"Further info for {ab}"):
                                             st.write(f"🔬 {ab} ({info['site']})")
                                             st.write(f"User Value: {info['value']}")
-                                            st.write(f"Eucast INPUT DATE breakpoints:")
                                             st.write(f"Interpretation: {info['interpretation']}")
+                                            st.write(f"Eucast Version: {info.get('eucast_version', 'N/A')}")
                                             if st.session_state['mic_disc_filter'] == 'MIC':
                                             # create MIC graph
 
@@ -594,7 +780,7 @@ def show_app():
                                              
                         elif options == "haemophilus influenzae":
                             with input_container:
-                                cefinase_input = st.number_input("Enter cefinase test result:", min_value=0, max_value=1, key="cefinase_input")
+                                cefinase_input = st.number_input("Enter cefinase test result:", min_value=0, step=1, key="cefinase_input")
                                 penicillin_input = st.number_input("Enter penicillin test result (MIC):", min_value=0, step=1, key="penicillin_input")
                                 
                                 if  penicillin_input < 12:
@@ -780,6 +966,5 @@ else:
     for key, value in default_state.items():
         if key not in st.session_state:
             st.session_state[key] = value
-    print('[Info] user {st.session_state.username} is logged in, showing app')
+    print(f'[Info] user {st.session_state.username} is logged in, showing app')
     show_app()
-
