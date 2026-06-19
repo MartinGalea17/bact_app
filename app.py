@@ -160,21 +160,6 @@ def undo_last_change(file_name):
 
     return False
 
-@st.dialog("Add new organism rule")
-def add_new_organism_rule():
-    st.warning("⚠️ Are you sure you want to add a new organism rule?")
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("✅ Yes, add"):
-         # Here you would implement the logic to add a new rule
-            st.success("✅ New organism rule added successfully.")
-            st.rerun()  # only rerun after adding
-    with col2:
-        if st.button("❌ Cancel"):
-            st.info("Addition cancelled.")
-            st.rerun()
-
-
 # --- Show App Logic ---
 def show_app():
     print("[INFO] Running show_app()")
@@ -305,7 +290,7 @@ def show_app():
                             selected_type = st.selectbox("Select preset type", types)
                             if selected_type == "Gram Positive":
                                 df = pd.DataFrame(pos_presets)
-                                pos_edited_df = st.data_editor(df)
+                                pos_edited_df = st.data_editor(df,use_container_width=True,hide_index=True, num_rows="dynamic")
                                 save, undo = st.columns(2)
                                 with save:
                                     if st.button("💾 Save changes to Gram-positive presets"):
@@ -320,7 +305,7 @@ def show_app():
                                     
                             else:
                                 df = pd.DataFrame(presets)
-                                neg_edited_df = st.data_editor(df)
+                                neg_edited_df = st.data_editor(df,use_container_width=True,hide_index=True, num_rows="dynamic")
                                 save, undo = st.columns(2)
                                 with save:
                                     if st.button("💾 Save changes to Gram-negative presets"):
@@ -338,8 +323,8 @@ def show_app():
                             rules = st.selectbox("Select rules to view/edit", ["Organism rules", "Resistance mechanism rules"])
                             if rules == "Organism rules":
                                 df = pd.DataFrame(organism_rules)
-                                org_rules_edited_df = st.data_editor(df)
-                                save, undo,add = st.columns(3)
+                                org_rules_edited_df = st.data_editor(df,use_container_width=True,hide_index=True, num_rows="dynamic")
+                                save, undo = st.columns(2)
                                 with save:
                                     if st.button("💾 Save changes to organism rules"):
                                         confirm_data_change(org_rules_edited_df.to_dict(orient="records"),"organism_rules.json")
@@ -350,19 +335,11 @@ def show_app():
                                             st.rerun()  # only rerun after undo
                                         else:
                                             st.error("❌ No changes to undo.")
-                                with add:
-                                    if st.button("➕ Add new organism rule"):
-                                        st.info("This will add a new blank rule at the end of the table. Remember to fill in all fields and save changes.")
-                                        new_rule = {"organism": "new organism", "rule": "new rule", "notes": "add notes here"}
-                                        updated_df = org_rules_edited_df.append(new_rule, ignore_index=True)
-                                        org_rules_edited_df = updated_df
-                                        st.data_editor(org_rules_edited_df)
-                                        add_new_organism_rule()
-
+                                       
 
                             if rules == "Resistance mechanism rules":
                                 df = pd.DataFrame(mechanism_rules)
-                                mech_rules_edited_df = st.data_editor(df)
+                                mech_rules_edited_df = st.data_editor(df,use_container_width=True,hide_index=True, num_rows="dynamic")
                                 save, undo = st.columns(2)
                                 with save:
                                     if st.button("💾 Save changes to mechanism rules"):
