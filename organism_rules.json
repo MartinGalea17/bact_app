@@ -4,9 +4,6 @@
         "organism": "Escherichia coli",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "E. coli"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R"
         },
@@ -19,9 +16,6 @@
         "organism": "Klebsiella pneumoniae",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "K. pneumoniae"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R"
         },
@@ -34,9 +28,6 @@
         "organism": "Klebsiella oxytoca",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "K. oxytoca"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R"
         },
@@ -49,10 +40,6 @@
         "organism": "Klebsiella aerogenes",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "Enterobacter aerogenes",
-            "K. aerogenes"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R",
             "Amoxicillin": "R",
@@ -67,10 +54,6 @@
         "organism": "Enterobacter cloacae complex",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "E. cloacae",
-            "Enterobacter cloacae"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R",
             "Amoxicillin": "R",
@@ -85,9 +68,6 @@
         "organism": "Citrobacter freundii",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "C. freundii"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R",
             "Amoxicillin": "R",
@@ -102,9 +82,6 @@
         "organism": "Citrobacter koseri",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "C. koseri"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -113,9 +90,6 @@
         "organism": "Serratia marcescens",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "S. marcescens"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R",
             "Amoxicillin": "R"
@@ -129,9 +103,6 @@
         "organism": "Morganella morganii",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "M. morganii"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R",
             "Amoxicillin": "R",
@@ -146,9 +117,6 @@
         "organism": "Providencia stuartii",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "P. stuartii"
-        ],
         "intrinsic_resistance": {
             "Colistin": "R",
             "Nitrofurantoin": "R"
@@ -162,9 +130,6 @@
         "organism": "Providencia rettgeri",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "P. rettgeri"
-        ],
         "intrinsic_resistance": {
             "Colistin": "R",
             "Nitrofurantoin": "R"
@@ -178,9 +143,6 @@
         "organism": "Proteus mirabilis",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "P. mirabilis"
-        ],
         "intrinsic_resistance": {
             "Nitrofurantoin": "R",
             "Colistin": "R"
@@ -192,9 +154,6 @@
         "organism": "Proteus vulgaris",
         "clinical_group": "Enterobacterales",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "P. vulgaris"
-        ],
         "intrinsic_resistance": {
             "Nitrofurantoin": "R",
             "Colistin": "R"
@@ -206,9 +165,6 @@
         "organism": "Pseudomonas aeruginosa",
         "clinical_group": "Non-fermenter",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "P. aeruginosa"
-        ],
         "intrinsic_resistance": {
             "Amoxicillin": "R",
             "Amoxicillin-clavulanic acid": "R",
@@ -226,9 +182,6 @@
         "organism": "Acinetobacter baumannii",
         "clinical_group": "Non-fermenter",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "A. baumannii"
-        ],
         "intrinsic_resistance": {
             "Nitrofurantoin": "R",
             "Ceftriaxone": "R"
@@ -243,9 +196,6 @@
         "organism": "Stenotrophomonas maltophilia",
         "clinical_group": "Non-fermenter",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "S. maltophilia"
-        ],
         "intrinsic_resistance": {
             "Carbapenems": "R"
         },
@@ -259,9 +209,6 @@
         "organism": "Burkholderia cepacia complex",
         "clinical_group": "Non-fermenter",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "B. cepacia"
-        ],
         "intrinsic_resistance": {
             "Colistin": "R"
         },
@@ -274,9 +221,6 @@
         "organism": "Staphylococcus aureus",
         "clinical_group": "Staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. aureus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -285,9 +229,6 @@
         "organism": "Staphylococcus epidermidis",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. epidermidis"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -296,9 +237,6 @@
         "organism": "Staphylococcus haemolyticus",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. haemolyticus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -307,9 +245,6 @@
         "organism": "Staphylococcus lugdunensis",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. lugdunensis"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -318,9 +253,6 @@
         "organism": "Staphylococcus saprophyticus",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. saprophyticus"
-        ],
         "intrinsic_resistance": {
             "Novobiocin": "R"
         },
@@ -333,9 +265,6 @@
         "organism": "Enterococcus faecalis",
         "clinical_group": "Enterococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "E. faecalis"
-        ],
         "intrinsic_resistance": {
             "Cephalosporins": "R"
         },
@@ -348,9 +277,6 @@
         "organism": "Enterococcus faecium",
         "clinical_group": "Enterococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "E. faecium"
-        ],
         "intrinsic_resistance": {
             "Cephalosporins": "R"
         },
@@ -363,10 +289,6 @@
         "organism": "Streptococcus pneumoniae",
         "clinical_group": "Streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. pneumoniae",
-            "Pneumococcus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -375,10 +297,6 @@
         "organism": "Streptococcus pyogenes",
         "clinical_group": "Beta-haemolytic streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "Group A Streptococcus",
-            "GAS"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -387,10 +305,6 @@
         "organism": "Streptococcus agalactiae",
         "clinical_group": "Beta-haemolytic streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "Group B Streptococcus",
-            "GBS"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -399,9 +313,6 @@
         "organism": "Haemophilus influenzae",
         "clinical_group": "Fastidious Gram-negative",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "H. influenzae"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -410,9 +321,6 @@
         "organism": "Moraxella catarrhalis",
         "clinical_group": "Fastidious Gram-negative",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "M. catarrhalis"
-        ],
         "intrinsic_resistance": {
             "Ampicillin": "R"
         },
@@ -425,10 +333,6 @@
         "organism": "Neisseria gonorrhoeae",
         "clinical_group": "Neisseria",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "N. gonorrhoeae",
-            "Gonococcus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -437,9 +341,6 @@
         "organism": "Bacteroides fragilis",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "B. fragilis"
-        ],
         "intrinsic_resistance": {
             "Penicillin": "R"
         },
@@ -452,9 +353,6 @@
         "organism": "Bacteroides thetaiotaomicron",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "B. thetaiotaomicron"
-        ],
         "intrinsic_resistance": {
             "Penicillin": "R"
         },
@@ -467,9 +365,6 @@
         "organism": "Prevotella melaninogenica",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "P. melaninogenica"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": [
             "Variable beta-lactamase production"
@@ -480,9 +375,6 @@
         "organism": "Fusobacterium nucleatum",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-negative",
-        "aliases": [
-            "F. nucleatum"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -491,9 +383,6 @@
         "organism": "Clostridium perfringens",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "C. perfringens"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -502,10 +391,6 @@
         "organism": "Clostridioides difficile",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "Clostridium difficile",
-            "C. difficile"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -514,10 +399,6 @@
         "organism": "Cutibacterium acnes",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "Propionibacterium acnes",
-            "C. acnes"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -526,9 +407,6 @@
         "organism": "Finegoldia magna",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "F. magna"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -536,10 +414,7 @@
         "id": 39,
         "organism": "Parvimonas micra",
         "clinical_group": "Anaerobes",
-        "gram_stain": "Gram-positive",
-        "aliases": [
-            "P. micra"
-        ],
+        "gram_stain": "Gram-positive",,
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -548,9 +423,6 @@
         "organism": "Peptoniphilus asaccharolyticus",
         "clinical_group": "Anaerobes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "P. asaccharolyticus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -559,9 +431,6 @@
         "organism": "Listeria monocytogenes",
         "clinical_group": "Gram-positive rods",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "L. monocytogenes"
-        ],
         "intrinsic_resistance": {
             "Cephalosporins": "R"
         },
@@ -574,9 +443,6 @@
         "organism": "Corynebacterium striatum",
         "clinical_group": "Gram-positive rods",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "C. striatum"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -585,9 +451,6 @@
         "organism": "Corynebacterium jeikeium",
         "clinical_group": "Gram-positive rods",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "C. jeikeium"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -596,9 +459,6 @@
         "organism": "Bacillus cereus",
         "clinical_group": "Gram-positive rods",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "B. cereus"
-        ],
         "intrinsic_resistance": {
             "Penicillin": "R",
             "Ampicillin": "R"
@@ -612,9 +472,6 @@
         "organism": "Actinomyces israelii",
         "clinical_group": "Actinomycetes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "A. israelii"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -623,9 +480,6 @@
         "organism": "Nocardia farcinica",
         "clinical_group": "Actinomycetes",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "N. farcinica"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -634,9 +488,6 @@
         "organism": "Streptococcus anginosus",
         "clinical_group": "Viridans streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. anginosus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -645,9 +496,6 @@
         "organism": "Streptococcus mitis",
         "clinical_group": "Viridans streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. mitis"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -656,9 +504,6 @@
         "organism": "Streptococcus sanguinis",
         "clinical_group": "Viridans streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. sanguinis"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -667,9 +512,6 @@
         "organism": "Streptococcus salivarius",
         "clinical_group": "Viridans streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. salivarius"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -678,10 +520,6 @@
         "organism": "Streptococcus gallolyticus",
         "clinical_group": "Viridans streptococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "Streptococcus bovis",
-            "S. gallolyticus"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -690,9 +528,6 @@
         "organism": "Staphylococcus hominis",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. hominis"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -701,9 +536,6 @@
         "organism": "Staphylococcus capitis",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. capitis"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -712,9 +544,6 @@
         "organism": "Staphylococcus warneri",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. warneri"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
@@ -723,9 +552,6 @@
         "organism": "Staphylococcus simulans",
         "clinical_group": "Coagulase-negative staphylococci",
         "gram_stain": "Gram-positive",
-        "aliases": [
-            "S. simulans"
-        ],
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     }
