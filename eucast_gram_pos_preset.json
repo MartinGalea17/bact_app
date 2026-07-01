@@ -35,7 +35,8 @@
       "Vancomycin",
       "Tetracycline",
       "Trimethoprim-sulfamethoxazole",
-      "Erythromycin + Clindamycin (D-test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps Streprococci A,B,C,G"
   },
@@ -54,7 +55,8 @@
       "Vancomycin"
     ],
     "antibiotic_discs": [
-      "Erythromycin + Clindamycin (D-Test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
@@ -73,7 +75,8 @@
       "Vancomycin"
     ],
     "antibiotic_discs": [
-      "Erythromycin + Clindamycin (D-Test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
@@ -91,7 +94,8 @@
       "Ceftriaxone",
       "Levofloxacin",
       "Vancomycin",
-      "Erythromycin + Clindamycin (D-Test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
@@ -109,7 +113,8 @@
       "Ceftriaxone",
       "Levofloxacin",
       "Vancomycin",
-      "Erythromycin + Clindamycin (D-Test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps viridans streptococci and CLSI bps for Levofloxacin(M100 - Streprococcus spp.viridans group)"
   },
@@ -133,7 +138,8 @@
     ],
     "antibiotic_discs": [
       "Oxacillin",
-      "Erythromycin + Clindamycin (D-test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps S.pnemoniae, Benzylpenicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
   },
@@ -157,7 +163,8 @@
     ],
     "antibiotic_discs": [
       "Oxacillin",
-      "Erythromycin + Clindamycin (D-test)"
+     "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps S.pnemoniae, Benzylpenicillin is interpreted according to eucast rules (meningitis or indications other than meningitis)"
   },
@@ -208,7 +215,7 @@
       "Meropenem",
       "Ciprofloxacin",
       "Vancomycin",
-      "Nitrofurantoin(only for urines)"
+      "Nitrofurantoin"
     ],
     "antibiotic_discs": [],
     "guidance": "Eucast bps A.sanguinicola, A.urinae"
@@ -227,7 +234,7 @@
       "Meropenem",
       "Ciprofloxacin",
       "Vancomycin",
-      "Nitrofurantoin(only for urines)"
+      "Nitrofurantoin"
     ],
     "guidance": "Eucast bps A.sanguinicola, A.urinae"
   },
@@ -313,7 +320,8 @@
     ],
     "antibiotic_discs": [
       "Oxacillin disc",
-      "Erythromycin + Clindamycin (D-test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps Staphylococcus"
   },
@@ -377,7 +385,8 @@
     ],
     "antibiotic_discs": [
       "Oxacillin disc",
-      "Erythromycin + Clindamycin (D-test)"
+      "Erythromycin",
+      "Clindamycin"
     ],
     "guidance": "Eucast bps Staphylococcus"
   },
