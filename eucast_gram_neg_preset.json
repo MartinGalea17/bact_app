@@ -11,12 +11,12 @@
       "Ceftazidime-avibactam",
       "Imipenem", 
       "Meropenem",
-      "Gentamicin (LC)",
+      "Gentamicin",
       "Ciprofloxacin",
       "Amikacin", 
       "Tetracycline",
-      "Pip/tazo BMD",
-      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "Piperacillin-tazobactam",
+      "Colistin"
     ],
     "antibiotic_discs": [
       ""
@@ -34,11 +34,11 @@
       "Ceftazidime-avibactam",
       "Imipenem", 
       "Meropenem",
-      "Gentamicin (LC)",
+      "Gentamicin",
       "Ciprofloxacin",
       "Amikacin", "Tetracycline",
-      "Pip/tazo BMD",
-      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "Piperacillin-tazobactam",
+      "Colistin "
     ],
     "antibiotic_discs": [
       ""
@@ -56,12 +56,12 @@
       "Ceftazidime-avibactam",
       "Imipenem", 
       "Meropenem",
-      "Gentamicin (LC)",
+      "Gentamicin",
       "Ciprofloxacin",
       "Amikacin",
       "Tetracycline",
-      "Pip/tazo BMD",
-      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "Piperacillin-tazobactam",
+      "Colistin"
     ],
     "antibiotic_discs": [
       ""
@@ -79,11 +79,12 @@
       "Ceftazidime-avibactam",
       "Imipenem", 
       "Meropenem",
-      "Gentamicin (LC)",
+      "Gentamicin",
       "Ciprofloxacin",
       "Amikacin",
       " Tetracycline",
-      "Pip/tazo BMD,Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "Piperacillin-tazobactam",
+      "Colistin"
     ],
     "antibiotic_discs": [
       ""
@@ -101,12 +102,12 @@
       "Ceftazidime-avibactam",
       "Imipenem", 
       "Meropenem",
-      "Gentamicin (LC)",
+      "Gentamicin",
       "Ciprofloxacin",
       "Amikacin",
       " Tetracycline",
-      "Pip/tazo BMD",
-      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "Piperacillin-tazobactam",
+      "Colistin"
     ],
     "antibiotic_discs": [
       ""
@@ -124,12 +125,12 @@
       "Ceftazidime-avibactam",
       "Imipenem", 
       "Meropenem",
-      "Gentamicin (LC)", 
+      "Gentamicin", 
       "Ciprofloxacin",
       "Amikacin", 
       "Tetracycline",
-      "Pip/tazo BMD",
-      "Colistin (only in cases of multidrug resistance – to discuss with Dr’s)"
+      "Piperacillin-tazobactam",
+      "Colistin"
     ],
     "antibiotic_discs": [
       ""
@@ -146,7 +147,7 @@
     "antibiotic_strips": [
       "Ceftriaxone", 
       "Imipenem", 
-      "Gentamicin (LC)", 
+      "Gentamicin ", 
       "Ciprofloxacin",
       "Amikacin",
       "Tetracycline"
@@ -182,7 +183,7 @@
     "antibiotic_strips": [
       "Imipenem", 
       "Meropenem", 
-      "Gentamicin(LC)",
+      "Gentamicin",
       "Ciprofloxacin", 
       "Amikacin", 
       "Tetracycline", 
@@ -201,7 +202,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Gentamicin (LC)", 
+      "Gentamicin", 
       "Ciprofloxacin", 
       "Amikacin", 
       "Tetracycline",
@@ -223,7 +224,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Gentamicin (LC)", 
+      "Gentamicin", 
       "Ciprofloxacin", 
       "Amikacin", 
       "Tetracycline", 
@@ -245,7 +246,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Gentamicin (LC)", 
+      "Gentamicin", 
       "Ciprofloxacin", 
       "Amikacin", 
       "Tetracycline",
@@ -267,7 +268,7 @@
     "info": "N/A",
     "medium": "MHair and BMD (0.5mF; 1mF if mucoid)",
     "antibiotic_strips": [
-      "Gentamicin (LC)", 
+      "Gentamicin", 
       "Ciprofloxacin", 
       "Amikacin", 
       "Tetracycline",
@@ -448,7 +449,7 @@
       "Meropenem", 
       "Ciprofloxacin", 
       "Amikacin", 
-      "Gentamicin(LC)", 
+      "Gentamicin", 
       "Trimethoprim-sulfamethoxazole"
     ],
     "BMD": [
@@ -493,7 +494,7 @@
       "Ampicillin 10ug", 
       "Amoxicillin-clavulanic acid 20-10ug", 
       "Cefotaxime",
-      "Cefoxitin (screen only)",
+      "Cefoxitin ",
       "Ertapenem", 
       "Imipenem", 
       "Meropenem", 
@@ -525,12 +526,12 @@
       "Meropenem",
       "Ciprofloxacin",
       "Amikacin",
-      "Gentamicin(LC)",
+      "Gentamicin",
       "Fosfomycin",
       "Trimethoprim-sulfamethoxazole"
     ],
     "antibiotic_discs": [
-      "Cefoxitin (Screen only)"
+      "Cefoxitin"
     ],
     "BMD": [
       "pip/tazo"
@@ -551,7 +552,7 @@
       "Ampicillin 10ug", 
       "Amoxicillin-clavulanic acid 20-10ug", 
       "Cefotaxime", 
-      "Cefoxitin (screen only)",
+      "Cefoxitin ",
       "Ertapenem", 
       "Imipenem",
       "Meropenem", 
@@ -752,7 +753,7 @@
       "Amoxicillin"
     ],
     "antibiotic_discs": [
-      "Benzylpenicillin(screen only)",
+      "Benzylpenicillin",
       "Amoxicillin-clavulanic acid 2-1ug",
       "Ceftriaxone",
       "Ciprofloxacin",
@@ -903,7 +904,7 @@
     ],
     "antibiotic_discs": [
       "Benzylpenicillin",
-      "Amoxicillin-clavulanic acid 2-1ug",
+      "Amoxicillin-clavulanic acid",
       "Ceftriaxone",
       "Ciprofloxacin",
        "Tetracycline",
@@ -929,7 +930,7 @@
     ],
     "antibiotic_discs": [
       "Benzylpenicillin",
-      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Amoxicillin-clavulanic acid", 
       "Ceftriaxone",
       "Ciprofloxacin",
        "Tetracycline",
@@ -955,7 +956,7 @@
     ],
     "antibiotic_discs": [
       "Benzylpenicillin",
-      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Amoxicillin-clavulanic acid", 
       "Ceftriaxone",
       "Ciprofloxacin",
        "Tetracycline",
@@ -982,7 +983,7 @@
     ],
     "antibiotic_discs": [
       "Benzylpenicillin",
-      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Amoxicillin-clavulanic acid", 
       "Ceftriaxone",
       "Ciprofloxacin",
        "Tetracycline",
@@ -1052,7 +1053,7 @@
       ""
     ],
     "antibiotic_discs": [
-      "Amoxicillin-clavulanic acid 2-1ug", 
+      "Amoxicillin-clavulanic acid", 
       "Ceftriaxone",
       "Ciprofloxacin",
       "Erytomycin",
