@@ -414,7 +414,7 @@
         "id": 39,
         "organism": "Parvimonas micra",
         "clinical_group": "Anaerobes",
-        "gram_stain": "Gram-positive",,
+        "gram_stain": "Gram-positive",
         "intrinsic_resistance": {},
         "baseline_mechanisms": []
     },
