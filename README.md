@@ -12,10 +12,9 @@ The app automates **EUCAST breakpoint interpretation**, supports **OCR** for lab
 - Interpret **MIC** and **disc diffusion** results using EUCAST 2024 breakpoints  
 - Automatic **fuzzy name matching** to handle typos or partial bacterial names  
 - Built-in antibiotic panels for **Gram-positive** and **Gram-negative** organisms  
-- **OCR integration** (EasyOCR + Tesseract) for reading printed or handwritten plate data  #will be added later
 - **Plotly** charts for visualization  
 - Secure **bcrypt-based** admin and user authentication  
-- Smooth **Lottie animations** for a modern, responsive UI  
+
 
 ---
 
