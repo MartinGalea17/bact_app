@@ -1,0 +1,528 @@
+[
+{
+  "Bacillus spp.": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "Not relevant unless burns or plastics"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "Follow if pure culture grows on primary plates – discuss with microbiologist"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with prosthetic device"
+    },
+    "Other tissues": {
+      "follow": false,
+      "report": "Not relevant. If pure culture, discuss with microbiologist"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "Not relevant"
+    }
+  },
+
+  "Coagulase negative Staphylococci": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "If pure culture on primary plates discuss with microbiologist. ID and sensitivity for Staph lugdunensis"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with prosthetic device. Follow Staph lugdunensis"
+    },
+    "Other tissues": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "Not relevant"
+    }
+  },
+
+  "Corynebacteria (excluding C. diphtheriae and C. ulcerans)": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with prosthetic device"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with prosthetic device"
+    },
+    "Other tissues": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "Discuss with microbiologist"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "Not relevant"
+    }}},
+{
+  "Enterobacteriaceae / P. aeruginosa": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "If pure culture – ID and sensitivity. If >1 but <4 organisms isolated, perform ID and sensitivity only if surgical wound, diabetic wound or burns wound."
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  },
+
+  "Enterococci": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "If diabetic wound, surgical wound or burns wound and ≤3 organisms isolated – ID and sensitivity."
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "Not relevant unless surgical history is documented in the clinical details."
+    }
+  },
+
+  "Group A, C, F, G beta haemolytic Streptococci": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  },
+
+  "Group B Streptococci": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "If pure culture or from diabetic wound: ID and sensitivity."
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  }
+},
+
+{
+  "H. influenzae": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "Human bites and children aged <12 years – ID and sensitivity."
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  },
+
+  "Haemophilus sp.": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Pus/Drain fluid": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with prosthetic devices."
+    },
+    "Other tissues": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "Not relevant"
+    }
+  },
+
+  "M. catarrhalis": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "N/A"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  },
+
+  "N. gonorrhoeae": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "N/A"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "N/A"
+    }
+  },
+
+  "Pasteurella spp.": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "ID and sensitivity. Usually in animal bites."
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "N/A"
+    },
+    "Corneal scrapes": {
+      "follow": false,
+      "report": "N/A"
+    },
+    "Ears": {
+      "follow": false,
+      "report": "N/A"
+    }
+  },
+
+  "Cutibacterium spp. (Propionibacterium spp.)": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with a prosthetic device."
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity only if in association with a prosthetic device. Otherwise discuss with microbiologist."
+    },
+    "Other tissues": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "Discuss with microbiologist."
+    },
+    "Ears": {
+      "follow": false,
+      "report": "Not relevant"
+    }
+  }
+},
+
+{
+  "S. aureus": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  },
+
+  "S. pneumoniae": {
+    "Wound swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Other tissues": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Eye swabs": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    }
+  },
+
+  "Viridans/non-haemolytic streptococci": {
+    "Wound swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Pus/Drain fluid": {
+      "follow": true,
+      "report": "Discuss with microbiologist (if microbiologist not available, follow)."
+    },
+    "All bones, tissues from prosthesis and sterile areas": {
+      "follow": true,
+      "report": "ID and sensitivity only in association with prosthetic device."
+    },
+    "Other tissues": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Eye swabs": {
+      "follow": false,
+      "report": "Not relevant"
+    },
+    "Corneal scrapes": {
+      "follow": true,
+      "report": "ID and sensitivity"
+    },
+    "Ears": {
+      "follow": true,
+      "report": "If middle ear infection: ID and sensitivity."
+    }
+  }
+}
+]
+
+
+
+
+import json
+import streamlit as st
+
+with open("reporting_rules.json") as f:
+    rules = json.load(f)
+
+organism = st.selectbox("Organism", sorted(rules.keys()))
+
+sample_type = st.selectbox(
+    "Sample type",
+    list(rules[organism].keys())
+)
+
+result = rules[organism][sample_type]
+
+if result["follow"]:
+    st.success("✅ Follow this organism")
+else:
+    st.error("❌ Do not follow")
+
+st.write("**Guidance:**")
+st.write(result["report"])
