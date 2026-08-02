@@ -71,14 +71,14 @@ def check_cefinase(haemolyis_result):
 #too add
 
 
-def haeinf_logic(cefinase_input, penicillin_input, hinf_messages,beta_lactam, Aug_input):
+def haeinf_logic(cefinase_result, penicillin_input, hinf_messages,beta_lactam, Aug_input):
 
     if penicillin_input >= 12:
         return hinf_messages["hinf_no_mechanism_detected"]
     
     #below this line resistance exists 
     # showing the first resistance messages 
-    print (f" cefinase_input {cefinase_input} and penicillin {penicillin_input}")
+    print (f" cefinase_input {cefinase_result} and penicillin {penicillin_input}")
     hinf_resistance_detected = hinf_messages["hinf_mechanism_detected"]
 
     #beta lacamase testing 
@@ -97,20 +97,7 @@ def haeinf_logic(cefinase_input, penicillin_input, hinf_messages,beta_lactam, Au
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Main
 x = int(input("Input X result: "))
 v = int(input("Input V result: "))
 XV = int(input("Input XV result: "))
@@ -122,5 +109,9 @@ if group_result:
 
 if haemolyis_result:
     cefinase_result = check_cefinase(haemolyis_result)
+
+if cefinase_result:
+    penicillin_input = int(input("Input penicillin result: "))
+    h_inf_result = haeinf_logic(cefinase_result, penicillin_input, hinf_messages,beta_lactam, Aug_input)
 
 print(cefinase_result)
