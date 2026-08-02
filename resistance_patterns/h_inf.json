@@ -11,3 +11,64 @@
   "hing_Aug_<15":"Mechanism: beta-lactamase and PBP3 mutations"
 }
 
+
+
+
+# haemophilus logic 
+
+
+
+def check_factors(x,v,XV):
+    if (x,v,XV) == (0,0,1):
+        return "influenzae_group"
+    elif (x,v,XV) == (1,0,1):
+        return "haemolyticus_group"
+    elif (x,v,XV) == (0,1,1):
+        return "parainfluenzae_group"
+    else:
+        return None
+    
+
+def check_heamolysis(group_result,heamolysis_input):
+    if group_result == "haemolyticus_group":
+        if heamolysis_input == 1:
+            return "H. haemolyticus"
+        else:
+            return "H.ducreyi"
+    elif group_result == "parainfluenzae_group":
+        if heamolysis_input == 1:
+            return "H. parahaemolyticus"
+        else:
+            return "H. parainfluenzae"
+    
+    elif group_result == "influenzae_group":
+        return "H. influenzae or H. aegyptius"
+
+    return "No Match"
+
+def chech_cefinase(haemolyis_result):
+    if "H. influenzae" in haemolyis_result:
+        cefinase_input = int(input("Input cefinase result: "))
+        if cefinase_input == 1:
+            return "cefinase pos H. influenzae"
+        else:
+            return "cefinase neg H. influenzae"
+    else:
+        return haemolyis_result
+    
+
+
+
+x = int(input("Input X result: "))
+v = int(input("Input V result: "))
+XV = int(input("Input XV result: "))
+group_result = check_factors(x,v,XV)
+
+if group_result:
+    haemolysis_input = int(input("Input haemolysis: "))
+    haemolyis_result = check_heamolysis(group_result,haemolysis_input)
+
+if haemolyis_result:
+    cefinase_result = chech_cefinase(haemolyis_result)
+
+print(cefinase_result)
