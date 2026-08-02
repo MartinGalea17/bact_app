@@ -14,6 +14,11 @@
 
 
 
+import json
+
+
+with open("h_inf.json") as f:
+    hinf_messages = json.load(f)
 # haemophilus logic 
 
 
@@ -46,16 +51,63 @@ def check_heamolysis(group_result,heamolysis_input):
 
     return "No Match"
 
-def chech_cefinase(haemolyis_result):
+def check_cefinase(haemolyis_result):
     if "H. influenzae" in haemolyis_result:
         cefinase_input = int(input("Input cefinase result: "))
         if cefinase_input == 1:
-            return "cefinase pos H. influenzae"
+            print("DEBUG: cefinase_input is 1, Beta-lactamase detected")
+            return "BLPR"
+        elif cefinase_input == 0:
+            print("DEBUG: cefinase_input is 0, No Beta-lactamase detected")
+            return "No enzyme"
         else:
-            return "cefinase neg H. influenzae"
+            print("DEBUG: Invalid input for cefinase test")
+            return "Invalid input for cefinase test. Please enter 1 for positive or 0 for negative."
     else:
         return haemolyis_result
     
+
+
+#too add
+
+
+def haeinf_logic(cefinase_input, penicillin_input, hinf_messages,beta_lactam, Aug_input):
+
+    if penicillin_input >= 12:
+        return hinf_messages["hinf_no_mechanism_detected"]
+    
+    #below this line resistance exists 
+    # showing the first resistance messages 
+    print (f" cefinase_input {cefinase_input} and penicillin {penicillin_input}")
+    hinf_resistance_detected = hinf_messages["hinf_mechanism_detected"]
+
+    #beta lacamase testing 
+    if beta_lactam == 1:
+        beta_lactam_message_pos = hinf_messages["hinf_beta_lactam_pos"]
+
+    if Aug_input >= 15:
+        AUG_more = hinf_messages["hinf_Aug_>15"]
+    else:
+        AUG_less =  hinf_messages["hinf_Aug_<15"]
+    
+    if beta_lactam == 0:
+        beta_lactam_message_neg = hinf_messages["hinf_beta_lactam_neg"]
+    
+    return hinf_resistance_detected + "\n" + beta_lactam_message_pos + "\n" + AUG_more + "\n" + beta_lactam_message_neg + "\n" + AUG_less
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -69,6 +121,6 @@ if group_result:
     haemolyis_result = check_heamolysis(group_result,haemolysis_input)
 
 if haemolyis_result:
-    cefinase_result = chech_cefinase(haemolyis_result)
+    cefinase_result = check_cefinase(haemolyis_result)
 
 print(cefinase_result)
