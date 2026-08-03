@@ -70,39 +70,40 @@ def check_cefinase(haemolyis_result):
 def haeinf_logic(cefinase_result, hinf_messages):
     messages = []
 
-    penicillin_input = int(input("Input penicillin result in mm : "))
-    #no resistance mechanism detected
-    if penicillin_input >= 12:
-        return hinf_messages["hinf_no_mechanism_detected"]
+    if "H. influenzae" in haemolyis_result:
+        penicillin_input = int(input("Input penicillin result in mm : "))
+        #no resistance mechanism detected
+        if penicillin_input >= 12:
+            return hinf_messages["hinf_no_mechanism_detected"]
     
-    #below this line resistance exists 
-    # showing the first resistance messages 
-    messages.append(hinf_messages["hinf_mechanism_detected"])
+        #below this line resistance exists 
+        # showing the first resistance messages 
+        messages.append(hinf_messages["hinf_mechanism_detected"])
 
-    print(f"DEBUG: cefinase result = {cefinase_result}, "
-        f"penicillin result = {penicillin_input}")
+        print(f"DEBUG: cefinase result = {cefinase_result}, "
+            f"penicillin result = {penicillin_input}")
 
-    #beta lacamase testing 
-    if cefinase_result == "BLPR":
-        messages.append(hinf_messages["hinf_beta_lactam_pos"])
+        #beta lacamase testing 
+        if cefinase_result == "BLPR":
+            messages.append(hinf_messages["hinf_beta_lactam_pos"])
 
-    elif cefinase_result == "NO enzyme":
-        messages.append(hinf_messages["hinf_beta_lactam_neg"])
+        elif cefinase_result == "NO enzyme":
+            messages.append(hinf_messages["hinf_beta_lactam_neg"])
     
-    else:
-        messages.append("Invalid cefinase result.")
+        else:
+            messages.append("Invalid cefinase result.")
+            return "\n".join(messages)
+
+        # Augmentin result
+        Aug_input = int(input("Input Augmentin result: "))
+
+        if Aug_input >= 15:
+            messages.append(hinf_messages["hinf_Aug_>15"])
+        else:
+            messages.append(hinf_messages["hinf_Aug_<15"])
+    
+    
         return "\n".join(messages)
-
-    # Augmentin result
-    Aug_input = int(input("Input Augmentin result: "))
-
-    if Aug_input >= 15:
-        messages.append(hinf_messages["hinf_Aug_>15"])
-    else:
-       messages.append(hinf_messages["hinf_Aug_<15"])
-    
-    
-    return "\n".join(messages)
 
 
 
@@ -131,6 +132,7 @@ if cefinase_result is not None:
 else:
     print("The resistance mechanism workflow currently only applies "
         "to H. influenzae or H. aegyptius.")
+
 
 
 
