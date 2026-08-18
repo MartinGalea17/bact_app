@@ -1237,5 +1237,114 @@
     "Metronidazole"],
   "antibiotic_discs":["..."],
   "guidance": "Eucast Gram negative anaerobes bp's"
+},
+ {
+  "name": "",
+  "clinical_group": "Aggregatobacter",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Penicillin",
+    "Ceftriaxone",
+    "Imipenem",
+    "Ciprofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI M45 - HACEK"
+},
+   {
+  "name": "",
+  "clinical_group": "Aggregatobacter",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "other",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Penicillin",
+    "Ceftriaxone",
+    "Imipenem",
+    "Ciprofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI M45 - HACEK"
+},
+ {
+  "name": "",
+  "clinical_group": "Cardiobacterium",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Penicillin",
+    "Ceftriaxone",
+    "Imipenem",
+    "Ciprofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI M45 - HACEK"
+},
+   {
+  "name": "",
+  "clinical_group": "Cardiobacterium",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "other",
+  "medium": "MHFco2 @ 1mF",
+  "antibiotic_strips": [
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Penicillin",
+    "Ceftriaxone",
+    "Imipenem",
+    "Ciprofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI M45 - HACEK"
+},
+ {
+  "name": "Eikenella corrodens",
+  "clinical_group": "",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "sterile",
+  "medium": "Brucella agar @ 1mF",
+  "antibiotic_strips": [
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Penicillin",
+    "Ceftriaxone",
+    "Imipenem",
+    "Ciprofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI M45 - HACEK"
+},
+ {
+  "name": "Eikenella corrodens",
+  "clinical_group": "",  
+  "Gram_Stain": "Gram Negative",
+  "morphology": "N/A",
+  "site": "other",
+  "medium": "Brucella agar @ 1mF",
+  "antibiotic_strips": [
+    "Ampicillin",
+    "Amoxicillin-clavulanic acid",
+    "Penicillin",
+    "Ceftriaxone",
+    "Imipenem",
+    "Ciprofloxacin",
+    "Trimethoprim-sulfamethoxazole"],
+  "antibiotic_discs":["..."],
+  "guidance": "CLSI M45 - HACEK"
 }
+  
 ]
