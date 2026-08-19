@@ -3,6 +3,7 @@
   {
     "name": "N/A",
     "clinical_group": "Beta haemolytic streptococci group A,B,C,G",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "Sterile",
     "info": "N/A",
@@ -23,6 +24,7 @@
   {
     "name": "N/A",
     "clinical_group": "Beta haemolytic streptococci group A,B,C,G",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "Exclude streptococcus milleri group",
@@ -43,6 +45,7 @@
   {
     "name": "N/A",
     "clinical_group": "viridans streptococci",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "Sterile",
     "info": "N/A",
@@ -63,6 +66,7 @@
    {
     "name": "N/A",
     "clinical_group": "Group F streptococcus",
+     "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "Sterile",
     "info": "N/A",
@@ -83,6 +87,7 @@
   {
     "name": "N/A",
     "clinical_group": "viridans streptococci",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -102,6 +107,7 @@
   {
     "name": "N/A",
     "clinical_group": "Group F streptococcus",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -121,6 +127,7 @@
   {
     "name": "Streptococcus pneumoniae",
     "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "Sterile",
     "info": "N/A",
@@ -146,6 +153,7 @@
   {
     "name": "Streptococcus pneumoniae",
     "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "NA",
@@ -171,6 +179,7 @@
   {
     "name": "N/A",
     "clinical_group": "Helcococcus species",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -188,6 +197,7 @@
   {
     "name": "N/A",
     "clinical_group": "Helcococcus species",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -205,6 +215,7 @@
   {
     "name": "N/A",
     "clinical_group": "Aerococcus",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -223,6 +234,7 @@
   {
     "name": "N/A",
     "clinical_group": "Aerococcus",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -241,6 +253,7 @@
   {
     "name": "N/A",
     "clinical_group": "Enterococcus",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -259,6 +272,7 @@
   {
     "name": "N/A",
     "clinical_group": "Enterococcus",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -275,6 +289,7 @@
   {
     "name": "Enterococcus faecalis",
     "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "urines",
     "info": "N/A",
@@ -291,6 +306,7 @@
   {
     "name": "Enterococcus faecium",
     "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "urines",
     "info": "N/A",
@@ -306,6 +322,7 @@
   {
     "name": "N/A",
     "clinical_group": "Coagulase negative staphylococci",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -328,6 +345,7 @@
   {
     "name": "N/A",
     "clinical_group": "Coagulase negative staphylococci",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -349,6 +367,7 @@
   {
     "name": "N/A",
     "clinical_group": "Coagulase negative staphylococci",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "urines",
     "info": "Not for urine nephrostomy",
@@ -371,6 +390,7 @@
   {
     "name": "Staphylococcus aureus",
     "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "sterile",
     "info": "N/A",
@@ -393,6 +413,7 @@
   {
     "name": "Staphylococcus aureus",
     "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
     "morphology": "cocci",
     "site": "other",
     "info": "N/A",
@@ -409,6 +430,7 @@
   {
   "name": "Gemella",
   "clinical_group": "N/A",
+  "Gram_Stain": "Gram Positive",
   "morphology": "cocci",
   "site":"other",
   "info": "N/A",
@@ -426,6 +448,7 @@
 {
   "name": "Rothia mucilaginosa",
   "clinical_group": "N/A",
+  "Gram_Stain": "Gram Positive",
   "morphology": "cocci",
   "site": "sterile",
   "medium": "MHF air @ 1MHF",
@@ -442,6 +465,7 @@
 {
   "name": "Lactococcus",
   "clinical_group": "N/A",
+  "Gram_Stain": "Gram Positive",
   "morphology": "cocci",
   "site": "sterile",
   "medium": "MHF air @ 0.5MHF",
@@ -457,6 +481,7 @@
   {
   "name": "N/A",
   "clinical_group": "Micrococcus, kocuria, nesterenkonia, dermacoccus, kytococcus",
+   "Gram_Stain": "Gram Positive",
   "morphology": "cocci",
   "site": "sterile",
   "medium": "MHF air @ 0.5MHF",
@@ -471,6 +496,7 @@
     {
   "name": "N/A",
   "clinical_group": "Abiotrophia, Granulicatella",
+   "Gram_Stain": "Gram Positive",
   "morphology": "cocci",
   "site": "sterile",
   "medium": "MHF air @ 2 mF or TMSAvitox co2",
@@ -487,6 +513,7 @@
   {
   "name": "",
   "clinical_group": "Corynebacterium",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "Other",
   "medium": "MHFco2 @ 1mF",
@@ -503,6 +530,7 @@
     {
   "name": "",
   "clinical_group": "Corynebacterium",
+   "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -519,6 +547,7 @@
     {
   "name": "",
   "clinical_group": "Brevibacterium",
+  "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "Other",
   "medium": "MHFco2 @ 1mF",
@@ -535,6 +564,7 @@
   {
   "name": "Listeria",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "Sterile",
   "medium": "MHFco2 @ 1mF",
@@ -549,6 +579,7 @@
   {
   "name": "Lactobacillus",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "Other",
   "medium": "MHFco2 @ 1mF",
@@ -563,7 +594,8 @@
 },
   {
   "name": "Bacillus",
-  "clinical_group": "N/A",
+  "clinical_group": "N/A"
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -577,6 +609,7 @@
   {
   "name": "brevibacillus",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -590,6 +623,7 @@
   {
   "name": "cohnella",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -603,6 +637,7 @@
   {
   "name": "lysinibacillus",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -616,6 +651,7 @@
   {
   "name": "paenibacillus",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -629,6 +665,7 @@
   {
   "name": "sporoloactobacillus",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
   "medium": "MHFco2 @ 1mF",
@@ -642,6 +679,7 @@
   {
   "name": "Nocardia",
   "clinical_group": "N/A",
+    "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "other",
   "medium": "MH+SB air @ 1mF for 48-72 hrs",
