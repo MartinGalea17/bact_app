@@ -594,7 +594,7 @@
 },
   {
   "name": "Bacillus",
-  "clinical_group": "N/A"
+  "clinical_group": "N/A",
     "Gram_Stain": "Gram Positive",
   "morphology": "rods",
   "site": "sterile",
